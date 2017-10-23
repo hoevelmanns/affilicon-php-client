@@ -10,28 +10,34 @@
 
 namespace Affilicon;
 
-class Address extends ApiClient
+/**
+ * Class Address
+ * @package Affilicon
+ *
+ * @property string $company
+ * @property string $firstname
+ * @property string $lastname
+ * @property string $address_1
+ * @property string $address_2
+ * @property string $city
+ * @property string $postcode
+ * @property string $country
+ * @property string $phone
+ * @property string $fax
+ * @property string $mobile
+ * @property string $email
+ */
+
+abstract class Address extends ApiClient implements AddressInterface
 {
+  protected $addressType;
+
   const ADDRESS_TYPE_SHIPPING = 'shipping';
   const ADDRESS_TYPE_BILLING = 'billing';
   const ADDRESS_TYPE_BASIC = 'basic';
 
-  private $addressType;
-  private $company;
-  private $firstname;
-  private $lastname;
-  private $address_1;
-  private $address_2;
-  private $city;
-  private $postcode;
-  private $country;
-  private $phone;
-  private $fax;
-  private $mobile;
-  private $email;
-
   /**
-   * @return mixed
+   * @return string
    */
   public function getAddressType()
   {
@@ -39,7 +45,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $addressType
+   * @param string $addressType
    */
   public function setAddressType($addressType)
   {
@@ -47,7 +53,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getCompany()
   {
@@ -55,7 +61,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $company
+   * @param string $company
    */
   public function setCompany($company)
   {
@@ -63,7 +69,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getFirstname()
   {
@@ -71,7 +77,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $firstname
+   * @param string $firstname
    */
   public function setFirstname($firstname)
   {
@@ -79,7 +85,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getLastname()
   {
@@ -87,7 +93,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $lastname
+   * @param string $lastname
    */
   public function setLastname($lastname)
   {
@@ -95,7 +101,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getAddress1()
   {
@@ -103,7 +109,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $address_1
+   * @param string $address_1
    */
   public function setAddress1($address_1)
   {
@@ -111,7 +117,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getAddress2()
   {
@@ -119,7 +125,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $address_2
+   * @param string $address_2
    */
   public function setAddress2($address_2)
   {
@@ -127,7 +133,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getCity()
   {
@@ -135,7 +141,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $city
+   * @param string $city
    */
   public function setCity($city)
   {
@@ -143,7 +149,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getPostcode()
   {
@@ -151,7 +157,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $postcode
+   * @param string $postcode
    */
   public function setPostcode($postcode)
   {
@@ -159,7 +165,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getCountry()
   {
@@ -167,7 +173,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $country
+   * @param string $country
    */
   public function setCountry($country)
   {
@@ -175,7 +181,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getPhone()
   {
@@ -183,7 +189,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $phone
+   * @param string $phone
    */
   public function setPhone($phone)
   {
@@ -191,7 +197,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getFax()
   {
@@ -199,7 +205,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $fax
+   * @param string $fax
    */
   public function setFax($fax)
   {
@@ -207,7 +213,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getMobile()
   {
@@ -215,7 +221,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $mobile
+   * @param string $mobile
    */
   public function setMobile($mobile)
   {
@@ -223,7 +229,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getEmail()
   {
@@ -231,7 +237,7 @@ class Address extends ApiClient
   }
 
   /**
-   * @param mixed $email
+   * @param string $email
    */
   public function setEmail($email)
   {
