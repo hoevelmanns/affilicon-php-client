@@ -27,9 +27,7 @@ abstract class Model extends ApiClient
    */
   public function findById($id)
   {
-    // todo search in api resource
-    $this->get("{$this->resource}/$id");
-    return null;
+    return $this->get("{$this->resource}/$id");
   }
 
   public function findOne()
