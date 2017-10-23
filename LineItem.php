@@ -23,7 +23,7 @@ namespace Affilicon;
  * @property integer $price
  */
 
-class CartItem
+class LineItem
 {
   /**
    * @return int

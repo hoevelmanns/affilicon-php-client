@@ -67,18 +67,18 @@ class Cart extends Client
   }
 
   /**
-   * @param CartItem $item
+   * @param LineItem $item
    * @return $this
    */
-  public function addLineItem(CartItem $item)
+  public function addLineItem(LineItem $item)
   {
-    $cartItem = $this->post(AFFILICON_API['routes']['cartItemsProducts'], [
+    $lineItem = $this->post(AFFILICON_API['routes']['cartItemsProducts'], [
       'cart_id' => $this->getId(),
       'product_id' => $item->getId(),
       'count' => $item->getQuantity()
     ]);
 
-    $item->setApiId($cartItem->data->id);
+    $item->setApiId($lineItem->data->id);
     $this->lineItems->addItem($item);
 
     return $this;
@@ -90,7 +90,7 @@ class Cart extends Client
   public function addLineItems(Collection $items)
   {
     while($items->next()) {
-      if (!$items->current() instanceof CartItem) {
+      if (!$items->current() instanceof LineItem) {
         continue;
       }
 

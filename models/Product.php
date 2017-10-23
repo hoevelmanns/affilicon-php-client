@@ -11,7 +11,7 @@
 namespace Affilicon;
 
 
-class ProductModel extends Model
+class Product extends Model
 {
 
   /**
