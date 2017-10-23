@@ -15,7 +15,7 @@ namespace Affilicon;
  * @package Affilicon
  */
 
-class ApiClient
+class Client
 {
   protected $token;
   protected $username;

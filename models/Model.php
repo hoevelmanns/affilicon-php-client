@@ -11,7 +11,7 @@
 namespace Affilicon;
 
 
-abstract class Model extends ApiClient
+abstract class Model extends Client
 {
 
   private $resource;

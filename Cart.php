@@ -19,7 +19,7 @@ namespace Affilicon;
  *
  */
 
-class Cart extends ApiClient
+class Cart extends Client
 {
   /** @var  Collection $lineItems */
   private $lineItems;
