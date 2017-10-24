@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
@@ -10,6 +11,16 @@
 
 namespace Affilicon;
 
+require 'config/routes.php';
+require 'Collection.php';
+require 'interfaces/ProductInterface.php';
+require 'exceptions/KeyHasUseException.php';
+require 'exceptions/KeyInvalidException.php';
+require 'models/Model.php';
+require 'models/Cart.php';
+require 'models/Product.php';
+require 'models/LineItem.php';
+
 /**
  * Class ApiClient
  * @package Affilicon
@@ -20,28 +31,12 @@ class Client
   protected $token;
   protected $username;
   protected $password;
-
   private $clientId;
   private $countryId;
   private $userLanguage;
 
   public function __construct()
   {
-    if (!defined('AFFILICON_API')) {
-      define('AFFILICON_API', [
-        'routes' => [
-          'auth' => [
-            'anonymous' => '/auth/anonymous/token',
-            'member' => '/auth/member/token',
-          ],
-          'products' => '/products',
-          'refreshToken' => '/auth/refresh',
-          'carts' => '/carts',
-          'cartItemsProducts' => '/cart-items/products'
-        ]
-      ]);
-    }
-
     $this->authenticate();
   }
 
