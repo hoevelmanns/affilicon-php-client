@@ -25,6 +25,15 @@ namespace Affilicon;
 
 class LineItem extends Model
 {
+
+  protected $resource;
+
+  public function __construct()
+  {
+    parent::__construct();
+    $this->resource = AFFILICON_API['routes']['cartItemsProducts'];
+  }
+
   /**
    * @return int
    */
