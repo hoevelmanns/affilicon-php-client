@@ -34,6 +34,7 @@ class Client
             'anonymous' => '/auth/anonymous/token',
             'member' => '/auth/member/token',
           ],
+          'products' => '/products',
           'refreshToken' => '/auth/refresh',
           'carts' => '/carts',
           'cartItemsProducts' => '/cart-items/products'

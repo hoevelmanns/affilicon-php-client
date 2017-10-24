@@ -17,12 +17,12 @@ class Product extends Model
   /**
    * @var string
    */
-  private $resource;
+  protected $resource;
 
   public function __construct()
   {
     parent::__construct();
-    $this->resource = '/products';
+    $this->resource = AFFILICON_API['routes']['products'];
   }
 
   public function findOne()

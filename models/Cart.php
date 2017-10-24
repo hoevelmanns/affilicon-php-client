@@ -19,15 +19,17 @@ namespace Affilicon;
  *
  */
 
-class Cart extends Client
+class Cart extends Model
 {
   /** @var  Collection $lineItems */
   private $lineItems;
+  protected $resource;
 
   public function __construct()
   {
     parent::__construct();
     $this->lineItems = new Collection();
+    $this->resource = AFFILICON_API['routes']['carts'];
   }
 
   /**
@@ -36,7 +38,7 @@ class Cart extends Client
    */
   public function create()
   {
-    $cart = $this->post(AFFILICON_API['routes']['carts'], [
+    $cart = $this->post($this->resource, [
       'vendor' => $this->getClientId()
     ]);
 

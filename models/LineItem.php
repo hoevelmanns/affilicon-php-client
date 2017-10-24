@@ -23,7 +23,7 @@ namespace Affilicon;
  * @property integer $price
  */
 
-class LineItem
+class LineItem extends Model
 {
   /**
    * @return int
