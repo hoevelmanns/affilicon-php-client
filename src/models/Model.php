@@ -22,6 +22,7 @@ abstract class Model extends Client
   }
 
   /**
+   * Find item by id
    * @param $id
    * @return null
    */

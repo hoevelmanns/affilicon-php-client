@@ -1,0 +1,6 @@
+parameters:
+    visibilityLevels: [public, protected] # array
+    annotationGroups: [todo, deprecated] # array
+    title: "Affilicon API Documentation" # string
+    baseUrl: "http://affilicon.net/api" # string
+    overwrite: false # bool
