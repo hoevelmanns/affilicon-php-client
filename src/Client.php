@@ -27,9 +27,20 @@ class Client
   private $countryId;
   private $userLanguage;
 
+  /** @var \GuzzleHttp\Client $httpClient */
+  protected $httpClient;
+
   public function __construct()
   {
+    $this->initHttpClient();
     $this->authenticate();
+  }
+
+  public function initHttpClient()
+  {
+    $this->httpClient = new \GuzzleHttp\Client([
+      'base_uri' => AFFILICON_SERVICE_URL
+    ]);
   }
 
   /**
@@ -64,11 +75,7 @@ class Client
    */
   public function post($route, array $args = [])
   {
-    $url = AFFILICON_SERVICE_URL . $route;
-
-    // todo replace wp_remote_post with native post method or Guzzle
-    $response = wp_remote_post($url, [
-      'method' => 'POST',
+    $response = $this->httpClient->request('POST', $route, [
       'headers' => $this->headers(),
       'body' => $args
     ]);
@@ -92,12 +99,8 @@ class Client
    */
   public function get($route)
   {
-    $url = AFFILICON_SERVICE_URL . $route;
-
-    // todo replace wp_remote_get with native get method or Guzzle
-    $response = wp_remote_get($url, [
-      'method' => 'GET',
-      'headers' => $this->headers()
+    $response = $this->httpClient->request('GET', $route, [
+      'headers' => $this->headers(),
     ]);
 
     return $this->responseBody($response);
@@ -108,7 +111,7 @@ class Client
    * @param $response
    * @return object
    */
-  private function responseBody($response)
+  public function responseBody($response)
   {
     $responseBody = json_decode(wp_remote_retrieve_body($response), true);
     $responseBody['data'] = (object) $responseBody['data'];
@@ -119,7 +122,7 @@ class Client
    * Add the request headers
    * @return array
    */
-  private function headers()
+  public function headers()
   {
     return [
       'Authorization' => 'Bearer ' . $this->token,

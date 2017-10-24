@@ -6,7 +6,9 @@
             "email": "marcelle.hoevelmanns@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
     "require-dev": {},
 
     "autoload": {
