@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["c","Affilicon\\AbstractAddress"],["c","Affilicon\\AbstractHttpService"],["c","Affilicon\\AbstractModel"],["c","Affilicon\\AddressInterface"],["c","Affilicon\\AuthenticationFailed"],["c","Affilicon\\Cart"],["c","Affilicon\\CartCreationFailed"],["c","Affilicon\\Client"],["c","Affilicon\\ClientExceptions"],["c","Affilicon\\ClientInterface"],["c","Affilicon\\Collection"],["c","Affilicon\\HttpService"],["c","Affilicon\\HttpServiceInterface"],["c","Affilicon\\KeyHasUseException"],["c","Affilicon\\KeyInvalidException"],["c","Affilicon\\LineItem"],["c","Affilicon\\Product"],["c","Affilicon\\ProductInterface"],["c","Affilicon\\ResponseInterface"],["c","Affilicon\\ShippingAddress"]];
