@@ -27,14 +27,10 @@ class Client
   public $countryId;
   public $userLanguage;
 
-  /** @var HttpService $httpService */
-  public $httpService;
-
   public static $instance;
 
   public function __construct()
   {
-    $this->httpService = HttpService::getInstance();
     self::$instance = $this;
   }
 
@@ -75,10 +71,13 @@ class Client
 
     $member = isset($this->username) && isset($this->password);
 
+    /** @var HttpService $httpService */
+    $httpService = HttpService::getInstance();
+
     try {
       $authType = $member ? 'member' : 'anonymous';
 
-      $data = $this->httpService
+      $data = $httpService
         ->post(AFFILICON_API['routes']['auth'][$authType])
         ->getData();
 
@@ -90,11 +89,12 @@ class Client
       throw new AuthenticationFailed('token invalid', 403);
     }
 
-    $this->httpService->setHeaders([
-      'Authorization' => 'Bearer ' . $data->token ?? '',
-      'username' => $this->username,
-      'password' => $this->password
-    ]);
+    $httpService
+      ->setHeaders([
+        'Authorization' => 'Bearer ' . $data->token ?? '',
+        'username' => $this->username,
+        'password' => $this->password
+      ]);
 
     return $this->token = $data->token;
   }

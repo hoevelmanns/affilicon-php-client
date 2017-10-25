@@ -17,11 +17,10 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   /** @var \GuzzleHttp\Client $httpClient */
   protected $httpClient;
   protected $endpoint;
-
   /** @var  \GuzzleHttp\Psr7\Response */
   protected $response;
-  public static $instance;
   protected $headers;
+  public static $instance;
 
   public function __construct() {
     self::$instance = $this;
@@ -31,7 +30,8 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   /**
    * @return HttpService
    */
-  public static function getInstance() {
+  public static function getInstance()
+  {
     return parent::getInstance();
   }
 

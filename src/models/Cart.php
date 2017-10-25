@@ -40,11 +40,15 @@ class Cart
   public function create()
   {
     try {
+
       $cart = HttpService::getInstance()
         ->post($this->resource, ['vendor' => Client::getInstance()->getClientId()])
         ->getData();
+
     } catch (\Exception $e) {
+
       throw new CartCreationFailed($e->getMessage());
+
     }
 
     $this->id = $cart->data->id;
