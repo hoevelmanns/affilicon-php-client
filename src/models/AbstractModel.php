@@ -11,12 +11,13 @@
 namespace Affilicon;
 
 
-abstract class Model extends Client
+abstract class AbstractModel extends Client
 {
 
   private $resource;
+  protected $client;
 
-  public function construct()
+  public function __construct()
   {
     parent::__construct();
   }

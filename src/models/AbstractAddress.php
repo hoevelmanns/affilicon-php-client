@@ -28,7 +28,7 @@ namespace Affilicon;
  * @property string $email
  */
 
-abstract class Address extends Model implements AddressInterface
+abstract class AbstractAddress extends AbstractModel implements AddressInterface
 {
   protected $addressType;
 

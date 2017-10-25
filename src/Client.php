@@ -23,24 +23,84 @@ class Client
   protected $token;
   protected $username;
   protected $password;
-  private $clientId;
-  private $countryId;
-  private $userLanguage;
+  public $clientId;
+  public $countryId;
+  public $userLanguage;
+  public static $instance;
+  /** @var  Cart */
+  public static $cart;
 
   /** @var \GuzzleHttp\Client $httpClient */
   protected $httpClient;
 
   public function __construct()
   {
-    $this->initHttpClient();
-    $this->authenticate();
+    self::$instance = $this;
   }
 
-  public function initHttpClient()
+  public static function getInstance()
   {
-    $this->httpClient = new \GuzzleHttp\Client([
-      'base_uri' => AFFILICON_SERVICE_URL
-    ]);
+    {
+      if (self::$instance === null) {
+        self::$instance = new self();
+      }
+      return self::$instance;
+    }
+  }
+
+  public function init()
+  {
+    $this->authenticate();
+    return $this;
+  }
+
+  /**
+   * Add the request headers
+   * @return array
+   */
+  public function headers()
+  {
+    return [
+      'Authorization' => 'Bearer ' . $this->token ?? '',
+      'username' => $this->username,
+      'password' => $this->password
+    ];
+  }
+
+  /**
+   * @return bool
+   */
+  public function isAuthenticated()
+  {
+    return !is_null($this->token);
+  }
+
+  /**
+   * authenticate to api
+   * @return mixed
+   * @throws \ErrorException
+   */
+  public function authenticate()
+  {
+    if ($this->isAuthenticated()) {
+      return $this->getToken();
+    }
+
+    $member = isset($this->username) && isset($this->password);
+
+    $request = Request::getInstance();
+
+    try {
+      $response =  $request->post(AFFILICON_API['routes']['auth'][$member ? 'member' : 'anonymous'], [], $this->headers());
+    } catch (\Exception $e) {
+      return new \ErrorException('affilicon_payment_error_authentication_failed: ' . $e->getMessage(), $e->getCode());
+    }
+
+    if (!$response || !$response->token) {
+      throw new \ErrorException('affilicon_payment_error_authentication_failed: token invalid', 403);
+    }
+
+    return $this->token = $response->token;
   }
 
   /**
@@ -67,103 +127,10 @@ class Client
     $this->password = $password;
   }
 
-  /**
-   * post request
-   * @param $route
-   * @param array $args
-   * @return array|mixed|object
-   */
-  public function post($route, array $args = [])
-  {
-    $response = $this->httpClient->request('POST', $route, [
-      'headers' => $this->headers(),
-      'body' => $args
-    ]);
-
-    return $this->responseBody($response);
-  }
 
   /**
-   * @param $route
-   * @param array $args
+   * @return string
    */
-  public function put($route, array $args = [])
-  {
-    // todo put request method
-  }
-
-  /**
-   * get request
-   * @param $route
-   * @return object
-   */
-  public function get($route)
-  {
-    $response = $this->httpClient->request('GET', $route, [
-      'headers' => $this->headers(),
-    ]);
-
-    return $this->responseBody($response);
-  }
-
-  /**
-   * Return the request body
-   * @param $response
-   * @return object
-   */
-  public function responseBody($response)
-  {
-    $responseBody = json_decode(wp_remote_retrieve_body($response), true);
-    $responseBody['data'] = (object) $responseBody['data'];
-    return (object) $responseBody;
-  }
-
-  /**
-   * Add the request headers
-   * @return array
-   */
-  public function headers()
-  {
-    return [
-      'Authorization' => 'Bearer ' . $this->token,
-      'username' => $this->username,
-      'password' => $this->password
-    ];
-  }
-
-  /**
-   * @return bool
-   */
-  private function isAuthenticated()
-  {
-    return !is_null($this->token);
-  }
-
-  /**
-   * authenticate to api
-   * @return \ErrorException
-   */
-  public function authenticate()
-  {
-    if ($this->isAuthenticated()) {
-      return $this->getToken();
-    }
-
-    $member = isset($this->username) && isset($this->password);
-
-    try {
-      $response = $this->post(AFFILICON_API['routes']['auth'][$member ? 'member' : 'anonymous']);
-    } catch (\Exception $e) {
-      return new \ErrorException('affilicon_payment_error_authentication_failed', $e->getMessage(), array('status' => $e->getCode()));
-    }
-
-    if (!$response || !$response->token) {
-      return new \ErrorException('affilicon_payment_error_authentication_failed', 'token invalid');
-    }
-
-    return $this->token = $response->token;
-  }
-
   public function getToken()
   {
     return $this->token;
@@ -208,7 +175,7 @@ class Client
   }
 
   /**
-   * @return mixed
+   * @return string
    */
   public function getUserLanguage()
   {
@@ -224,6 +191,5 @@ class Client
     $this->userLanguage = $userLanguage;
     return $this;
   }
-
 
 }
