@@ -26,15 +26,17 @@ class Client
   public $clientId;
   public $countryId;
   public $userLanguage;
-  public static $instance;
-  /** @var  Cart */
-  public static $cart;
+  public $httpService;
 
-  /** @var \GuzzleHttp\Client $httpClient */
-  protected $httpClient;
+  public static function httpService() {
+    return self::$instance->httpService;
+  }
+
+  public static $instance;
 
   public function __construct()
   {
+    $this->httpService = new HttpService();
     self::$instance = $this;
   }
 
@@ -88,19 +90,19 @@ class Client
 
     $member = isset($this->username) && isset($this->password);
 
-    $request = Request::getInstance();
-
     try {
-      $response =  $request->post(AFFILICON_API['routes']['auth'][$member ? 'member' : 'anonymous'], [], $this->headers());
+      $response = self::httpService()->post(AFFILICON_API['routes']['auth'][$member ? 'member' : 'anonymous'], [], $this->headers());
+      $data = $response->getData();
+
     } catch (\Exception $e) {
       return new \ErrorException('affilicon_payment_error_authentication_failed: ' . $e->getMessage(), $e->getCode());
     }
 
-    if (!$response || !$response->token) {
+    if (!$data || !$data->token) {
       throw new \ErrorException('affilicon_payment_error_authentication_failed: token invalid', 403);
     }
 
-    return $this->token = $response->token;
+    return $this->token = $data->token;
   }
 
   /**

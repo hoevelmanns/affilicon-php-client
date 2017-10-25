@@ -22,15 +22,12 @@ namespace Affilicon;
 class Cart
 {
   /** @var Collection $lineItems */
-  private $lineItems;
+  public static $lineItems;
   protected $resource;
-  /** @var Client $client */
-  protected $client;
 
   public function __construct()
   {
-    $this->client = Client::getInstance();
-    $this->lineItems = new Collection();
+    self::$lineItems = new Collection();
     $this->resource = AFFILICON_API['routes']['carts'];
   }
 
@@ -40,10 +37,11 @@ class Cart
    */
   public function create()
   {
-    $cart = Request::getInstance()->post($this->resource,
-      ['vendor' => $this->client->getClientId()],
-      $this->client->headers()
-    );
+    $cart = Client::httpService()
+      ->post($this->resource,
+        ['vendor' => Client::getInstance()->getClientId()],
+        Client::getInstance()->headers())
+      ->getData();
 
     if (!$cart) {
       // todo exception handling
@@ -53,6 +51,11 @@ class Cart
     $this->status = $cart->data->status;
 
     return $this;
+  }
+
+  public function lineItems()
+  {
+    return self::$lineItems;
   }
 
   /**
@@ -77,14 +80,14 @@ class Cart
    */
   public function addLineItem(LineItem $item)
   {
-    $lineItem = Request::getInstance()->post(AFFILICON_API['routes']['cartItemsProducts'], [
+    $lineItem = Client::httpService()->post(AFFILICON_API['routes']['cartItemsProducts'], [
       'cart_id' => $this->getId(),
       'product_id' => $item->getId(),
       'count' => $item->getQuantity()
-    ], $this->client->headers());
+    ], Client::getInstance()->headers());
 
     $item->setApiId($lineItem->data->id);
-    $this->lineItems->addItem($item);
+    $this->lineItems()->addItem($item);
 
     return $this;
   }
@@ -109,7 +112,7 @@ class Cart
    */
   public function getItems()
   {
-    return $this->lineItems;
+    return self::lineItems();
   }
 
 }

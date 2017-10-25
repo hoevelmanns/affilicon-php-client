@@ -11,14 +11,16 @@
 namespace Affilicon;
 
 
-class Request extends AbstractRequest implements RequestInterface
+class HttpService extends AbstractHttpService implements HttpServiceInterface
 {
 
   /** @var \GuzzleHttp\Client $httpClient */
   protected $httpClient;
   protected $endpoint;
-  public static $instance;
 
+  /** @var  \GuzzleHttp\Psr7\Response */
+  protected $response;
+  public static $instance;
 
   public function __construct() {
     self::$instance = $this;
@@ -42,12 +44,21 @@ class Request extends AbstractRequest implements RequestInterface
   {
     $url = $this->endpoint . $route;
 
-    $response = $this->httpClient->request('POST', $url, [
-      'headers' => $headers,
+    $this->response = $this->httpClient->request('POST', $url, [
+      'headers' => Client::getInstance()->headers(),
       'json' => $body
     ]);
 
-    return (new Response($response))->getData();
+    return $this;
+  }
+
+  public function getData()
+  {
+    $responseBody = json_decode($this->response->getBody(), true);
+    if (isset($responseBody['data'])) {
+      $responseBody['data'] = (object) $responseBody['data'];
+    }
+    return (object) $responseBody;
   }
 
   public function get($route)

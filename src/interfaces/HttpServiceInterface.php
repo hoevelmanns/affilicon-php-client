@@ -11,7 +11,7 @@
 namespace Affilicon;
 
 
-interface RequestInterface
+interface HttpServiceInterface
 {
 
   /**
@@ -48,5 +48,10 @@ interface RequestInterface
    * @return \Affilicon\Response
    */
   public function patch($route, $body);
+
+  /**
+   * @return array
+   */
+  public function getData();
 
 }

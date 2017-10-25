@@ -11,21 +11,17 @@
 namespace Affilicon;
 
 
-abstract class AbstractRequest implements RequestInterface
+abstract class AbstractHttpService implements HttpServiceInterface
 {
   protected $httpClient;
   protected $endpoint;
+  protected $response;
   public static $instance;
 
   /**
    * AbstractRequest constructor.
    */
   public function __construct()
-  {
-    // TODO: Implement getData() method.
-  }
-
-  public function getData()
   {
     // TODO: Implement getData() method.
   }
@@ -42,6 +38,11 @@ abstract class AbstractRequest implements RequestInterface
   {
     $this->endpoint = AFFILICON_SERVICE_URL;
     $this->httpClient = new \GuzzleHttp\Client();
+  }
+
+  public function getData()
+  {
+    return $this->response;
   }
 
 }
