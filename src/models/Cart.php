@@ -33,18 +33,18 @@ class Cart
 
   /**
    * create new cart
-   * @return object
+   *
+   * @return $this
+   * @throws CartCreationFailed
    */
   public function create()
   {
-    $cart = Client::httpService()
-      ->post($this->resource,
-        ['vendor' => Client::getInstance()->getClientId()],
-        Client::getInstance()->headers())
-      ->getData();
-
-    if (!$cart) {
-      // todo exception handling
+    try {
+      $cart = HttpService::getInstance()
+        ->post($this->resource, ['vendor' => Client::getInstance()->getClientId()])
+        ->getData();
+    } catch (\Exception $e) {
+      throw new CartCreationFailed($e->getMessage());
     }
 
     $this->id = $cart->data->id;
@@ -53,7 +53,7 @@ class Cart
     return $this;
   }
 
-  public function lineItems()
+  public static function lineItems()
   {
     return self::$lineItems;
   }
@@ -80,11 +80,12 @@ class Cart
    */
   public function addLineItem(LineItem $item)
   {
-    $lineItem = Client::httpService()->post(AFFILICON_API['routes']['cartItemsProducts'], [
-      'cart_id' => $this->getId(),
-      'product_id' => $item->getId(),
-      'count' => $item->getQuantity()
-    ], Client::getInstance()->headers());
+    $lineItem = HttpService::getInstance()
+      ->post(AFFILICON_API['routes']['cartItemsProducts'], [
+        'cart_id' => $this->getId(),
+        'product_id' => $item->getId(),
+        'count' => $item->getQuantity()
+    ])->getData();
 
     $item->setApiId($lineItem->data->id);
     $this->lineItems()->addItem($item);

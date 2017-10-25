@@ -21,64 +21,99 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   /** @var  \GuzzleHttp\Psr7\Response */
   protected $response;
   public static $instance;
+  protected $headers;
 
   public function __construct() {
     self::$instance = $this;
     $this->initClient();
   }
 
+  /**
+   * @return HttpService
+   */
   public static function getInstance() {
-    if (self::$instance === null) {
-      self::$instance = new self();
-    }
-    return self::$instance;
+    return parent::getInstance();
   }
 
+  /**
+   * Initialize the HTTP client
+   */
   public function initClient()
   {
-    $this->endpoint = AFFILICON_SERVICE_URL;
-    $this->httpClient = new \GuzzleHttp\Client();
+    parent::initClient();
   }
 
-  public function post($route, array $body = [], $headers = [])
+  /**
+   * @param string $route
+   * @param array $body
+   * @return $this
+   */
+  public function post($route, $body = [])
   {
-    $url = $this->endpoint . $route;
-
-    $this->response = $this->httpClient->request('POST', $url, [
-      'headers' => Client::getInstance()->headers(),
-      'json' => $body
-    ]);
-
+    parent::post($route, $body);
     return $this;
   }
 
-  public function getData()
-  {
-    $responseBody = json_decode($this->response->getBody(), true);
-    if (isset($responseBody['data'])) {
-      $responseBody['data'] = (object) $responseBody['data'];
-    }
-    return (object) $responseBody;
-  }
-
+  /**
+   * @param string $route
+   * @return object
+   */
   public function get($route)
   {
-    // TODO: Implement get() method.
+    return parent::get($route);
   }
 
-  public function put($route, array $body = [])
+  /**
+   * @param string $route
+   * @param array $body
+   * @return object
+   */
+  public function put($route, $body = [])
   {
-    // TODO: Implement put() method.
+    return parent::put($route, $body = []);
   }
 
+  /**
+   * @param string $route
+   * @param array $body
+   * @return object
+   */
   public function delete($route, $body = [])
   {
-    // TODO: Implement delete() method.
+    return parent::delete($route, $body);
   }
 
-  public function patch($route, $body)
+  /**
+   * @param string $route
+   * @param array $body
+   * @return object
+   */
+  public function patch($route, $body = [])
   {
-    // TODO: Implement patch() method.
+    return parent::patch($route, $body);
   }
 
+  /**
+   * @return object
+   */
+  public function getData()
+  {
+    return parent::getData();
+  }
+
+  /**
+   * @param array $headers
+   */
+  public function setHeaders($headers)
+  {
+    parent::setHeaders($headers);
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getHeaders()
+  {
+    return parent::getHeaders();
+  }
 }

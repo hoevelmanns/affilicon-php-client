@@ -9,15 +9,14 @@
 namespace Affilicon;
 
 
-class KeyHasUseException extends \Exception
+class KeyHasUseException extends ClientExceptions
 {
   /**
    * KeyHasUseException constructor.
-   * @param $key
+   * @param $message
    */
-  public function __construct($key)
+  public function __construct($message)
   {
-    parent::__construct("Key $key already in use.", 2);
-    error_log($this->getTraceAsString(), 3, '/tmp/my_exception.log');
+    parent::__construct("Key $message already in use.", 2);
   }
 }

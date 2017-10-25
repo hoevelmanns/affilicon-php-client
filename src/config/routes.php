@@ -19,6 +19,9 @@ if (!defined('AFFILICON_API')) {
       'refreshToken' => '/auth/refresh',
       'carts' => '/carts',
       'cartItemsProducts' => '/cart-items/products'
+    ],
+    'error_log' => [
+      'path' => __DIR__ . '/logs/error.log'
     ]
   ]);
 }

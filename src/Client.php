@@ -26,17 +26,15 @@ class Client
   public $clientId;
   public $countryId;
   public $userLanguage;
-  public $httpService;
 
-  public static function httpService() {
-    return self::$instance->httpService;
-  }
+  /** @var HttpService $httpService */
+  public $httpService;
 
   public static $instance;
 
   public function __construct()
   {
-    $this->httpService = new HttpService();
+    $this->httpService = HttpService::getInstance();
     self::$instance = $this;
   }
 
@@ -57,19 +55,6 @@ class Client
   }
 
   /**
-   * Add the request headers
-   * @return array
-   */
-  public function headers()
-  {
-    return [
-      'Authorization' => 'Bearer ' . $this->token ?? '',
-      'username' => $this->username,
-      'password' => $this->password
-    ];
-  }
-
-  /**
    * @return bool
    */
   public function isAuthenticated()
@@ -79,8 +64,8 @@ class Client
 
   /**
    * authenticate to api
-   * @return mixed
-   * @throws \ErrorException
+   * @return string
+   * @throws AuthenticationFailed
    */
   public function authenticate()
   {
@@ -91,16 +76,25 @@ class Client
     $member = isset($this->username) && isset($this->password);
 
     try {
-      $response = self::httpService()->post(AFFILICON_API['routes']['auth'][$member ? 'member' : 'anonymous'], [], $this->headers());
-      $data = $response->getData();
+      $authType = $member ? 'member' : 'anonymous';
+
+      $data = $this->httpService
+        ->post(AFFILICON_API['routes']['auth'][$authType])
+        ->getData();
 
     } catch (\Exception $e) {
-      return new \ErrorException('affilicon_payment_error_authentication_failed: ' . $e->getMessage(), $e->getCode());
+      throw new AuthenticationFailed($e->getMessage(), $e->getCode());
     }
 
     if (!$data || !$data->token) {
-      throw new \ErrorException('affilicon_payment_error_authentication_failed: token invalid', 403);
+      throw new AuthenticationFailed('token invalid', 403);
     }
+
+    $this->httpService->setHeaders([
+      'Authorization' => 'Bearer ' . $data->token ?? '',
+      'username' => $this->username,
+      'password' => $this->password
+    ]);
 
     return $this->token = $data->token;
   }

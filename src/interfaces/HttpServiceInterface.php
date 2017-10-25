@@ -11,41 +11,42 @@
 namespace Affilicon;
 
 
+use http\Env\Response;
+
 interface HttpServiceInterface
 {
 
   /**
    * @param string $route
    * @param array $body
-   * @param array $headers
-   * @return \Affilicon\Response
+   * @return Response
    */
-  public function post($route, array $body = [], $headers = []);
+  public function post($route, $body = []);
 
   /**
    * @param string $route
-   * @return \Affilicon\Response
+   * @return object
    */
   public function get($route);
 
   /**
    * @param string $route
    * @param array $body
-   * @return \Affilicon\Response
+   * @return object
    */
-  public function put($route, array $body = []);
+  public function put($route, $body = []);
 
   /**
    * @param string $route
    * @param array $body
-   * @return \Affilicon\Response
+   * @return object
    */
   public function delete($route, $body = []);
 
   /**
    * @param string $route
    * @param array $body
-   * @return \Affilicon\Response
+   * @return object
    */
   public function patch($route, $body);
 
@@ -53,5 +54,15 @@ interface HttpServiceInterface
    * @return array
    */
   public function getData();
+
+  /**
+   * @param array $headers
+   */
+  public function setHeaders($headers);
+
+  /**
+   * @return array
+   */
+  public function getHeaders();
 
 }
