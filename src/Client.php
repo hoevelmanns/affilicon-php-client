@@ -91,7 +91,8 @@ class Client implements ClientInterface
 
   public function setUserName($username)
   {
-    $this->userName = $username;
+    $this->username = $username;
+    return $this;
   }
 
   public function getUsername()
@@ -102,6 +103,7 @@ class Client implements ClientInterface
   public function setPassword($password)
   {
     $this->password = $password;
+    return $this;
   }
 
   public function getToken()

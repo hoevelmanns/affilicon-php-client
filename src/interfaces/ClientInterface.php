@@ -33,6 +33,7 @@ interface ClientInterface
   /**
    * Sets the username, only expected if you use the api as member or employee
    * @param string $username
+   * @return Client
    */
   public function setUserName($username);
 
@@ -45,6 +46,7 @@ interface ClientInterface
   /**
    * Sets the password, only expected if you use the api as member or employee
    * @param string $password
+   * @return Client
    */
   public function setPassword($password);
 
