@@ -99,6 +99,9 @@
 	<h1>Interface ClientInterface</h1>
 
 
+	<div class="description">
+	<p>Interface ClientInterface</p>
+	</div>
 
 
 
@@ -116,9 +119,9 @@
 		
 		
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
-		
+		<b>Package:</b> Affilicon<br>
 
-			<b>Located at</b> <a href="source-class-Affilicon.ClientInterface.html#14-88" title="Go to source code">interfaces/ClientInterface.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.ClientInterface.html#14-109" title="Go to source code">interfaces/ClientInterface.php</a>
 		<br>
 	</div>
 
@@ -131,24 +134,28 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			<code><a href="class-Affilicon.Client.html">Affilicon\Client</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_init">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#17" title="Go to source code">init</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#21-25" title="Go to source code">init</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Initializes the Client</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Initializes the Client</p>
 
 
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Affilicon.Client.html">Affilicon\Client</a></code>
+				</div>
 
 
 
@@ -161,24 +168,28 @@
 		<td class="attributes"><code>
 			 public static
 
-			
+			<code><a href="class-Affilicon.Client.html">Affilicon\Client</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInstance">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#19" title="Go to source code">getInstance</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#27-31" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Gets the instance of the client</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Gets the instance of the client</p>
 
 
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Affilicon.Client.html">Affilicon\Client</a></code>
+				</div>
 
 
 
@@ -198,14 +209,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUserName">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#21-24" title="Go to source code">setUserName</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#33-37" title="Go to source code">setUserName</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Sets the username, only expected if you use the api as member or employee</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Sets the username, only expected if you use the api as member or employee</p>
 
 
 				<h4>Parameters</h4>
@@ -233,14 +244,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUsername">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#26-29" title="Go to source code">getUsername</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#39-43" title="Go to source code">getUsername</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Gets the username</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Gets the username</p>
 
 
 
@@ -267,14 +278,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#31-34" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#45-49" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Sets the password, only expected if you use the api as member or employee</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Sets the password, only expected if you use the api as member or employee</p>
 
 
 				<h4>Parameters</h4>
@@ -284,6 +295,44 @@
 				</dl></div>
 
 
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="authenticate" id="_authenticate">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_authenticate">#</a>
+		<code><a href="source-class-Affilicon.ClientInterface.html#51-56" title="Go to source code">authenticate</a>( )</code>
+
+		<div class="description short">
+			<p>Authenticate to api</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Authenticate to api</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Affilicon.AuthenticationFailed.html">Affilicon\AuthenticationFailed</a></code>
+				</div>
 
 
 
@@ -302,14 +351,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isAuthenticated">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#36-39" title="Go to source code">isAuthenticated</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#58-62" title="Go to source code">isAuthenticated</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Checks if client is authenticated</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Checks if client is authenticated</p>
 
 
 
@@ -318,44 +367,6 @@
 					boolean
 				</div>
 
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="authenticate" id="_authenticate">
-
-		<td class="attributes"><code>
-			 public 
-
-			ErrorException
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_authenticate">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#41-46" title="Go to source code">authenticate</a>( )</code>
-
-		<div class="description short">
-			<p>authenticate to api</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>authenticate to api</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					ErrorException
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					ErrorException
-				</div>
 
 
 
@@ -374,14 +385,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getToken">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#48-51" title="Go to source code">getToken</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#64-68" title="Go to source code">getToken</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Gets the token</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Gets the token</p>
 
 
 
@@ -408,14 +419,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setClientId">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#53-58" title="Go to source code">setClientId</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#70-75" title="Go to source code">setClientId</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
-			<p>set the Client ID, previously called Vendor ID</p>
+			<p>Sets the Client ID, previously called Vendor ID</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>set the Client ID, previously called Vendor ID</p>
+			<p>Sets the Client ID, previously called Vendor ID</p>
 
 
 				<h4>Parameters</h4>
@@ -440,27 +451,27 @@
 		<td class="attributes"><code>
 			 public 
 
-			mixed
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getClientId">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#60-64" title="Go to source code">getClientId</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#77-81" title="Go to source code">getClientId</a>( )</code>
 
 		<div class="description short">
-			<p>get the Client ID, previously called Vendor ID</p>
+			<p>Gets the Client ID, previously called Vendor ID</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>get the Client ID, previously called Vendor ID</p>
+			<p>Gets the Client ID, previously called Vendor ID</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					mixed
+					string
 				</div>
 
 
@@ -474,27 +485,27 @@
 		<td class="attributes"><code>
 			 public 
 
-			mixed
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCountryId">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#66-69" title="Go to source code">getCountryId</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#83-87" title="Go to source code">getCountryId</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Gets the specified country code</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Gets the specified country code</p>
 
 
 
 				<h4>Returns</h4>
 				<div class="list">
-					mixed
+					string
 				</div>
 
 
@@ -508,21 +519,21 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			string
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCountryId">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#71-75" title="Go to source code">setCountryId</a>( <span>string <var>$countryId</var></span> )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#89-94" title="Go to source code">setCountryId</a>( <span> <var>$countryId</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Sets the country code, eg. "en-US"</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Sets the country code, eg. "en-US"</p>
 
 
 				<h4>Parameters</h4>
@@ -533,7 +544,7 @@
 
 				<h4>Returns</h4>
 				<div class="list">
-					<br>$this
+					string<br>$this
 				</div>
 
 
@@ -554,14 +565,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUserLanguage">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#77-80" title="Go to source code">getUserLanguage</a>( )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#96-100" title="Go to source code">getUserLanguage</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Gets the specified user language</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Gets the specified user language</p>
 
 
 
@@ -588,14 +599,14 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUserLanguage">#</a>
-		<code><a href="source-class-Affilicon.ClientInterface.html#82-86" title="Go to source code">setUserLanguage</a>( <span>string <var>$userLanguage</var></span> )</code>
+		<code><a href="source-class-Affilicon.ClientInterface.html#102-107" title="Go to source code">setUserLanguage</a>( <span>string <var>$userLanguage</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Sets the user language, eg. "en"</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Sets the user language, eg. "en"</p>
 
 
 				<h4>Parameters</h4>

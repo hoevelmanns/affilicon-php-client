@@ -48,20 +48,11 @@ class Client implements ClientInterface
     return $this;
   }
 
-  /**
-   * Checks if client is authenticated
-   * @return bool
-   */
   public function isAuthenticated()
   {
     return !is_null($this->token);
   }
-
-  /**
-   * Authenticate to api
-   * @return string
-   * @throws AuthenticationFailed
-   */
+  
   public function authenticate()
   {
     if ($this->isAuthenticated()) {
@@ -98,97 +89,53 @@ class Client implements ClientInterface
     return $this->token = $data->token;
   }
 
-  /**
-   * Sets the username, only expected if you use the api as member or employee
-   * @param $username
-   */
   public function setUserName($username)
   {
     $this->userName = $username;
   }
 
-  /**
-   * Gets the username
-   * @return mixed
-   */
   public function getUsername()
   {
     return $this->username;
   }
 
-  /**
-   * Sets the password, only expected if you use the api as member or employee
-   * @param $password
-   */
   public function setPassword($password)
   {
     $this->password = $password;
   }
 
-
-  /**
-   * Gets the token
-   * @return string
-   */
   public function getToken()
   {
     return $this->token;
   }
 
-  /**
-   * Sets the Client ID, previously called Vendor ID
-   * @param $id
-   * @return $this
-   */
   public function setClientId($id)
   {
     $this->clientId = $id;
     return $this;
   }
 
-  /**
-   * Gets the Client ID, previously called Vendor ID
-   * @return mixed
-   */
   public function getClientId()
   {
     return $this->clientId;
   }
 
-  /**
-   * Gets the specified country code
-   * @return mixed
-   */
   public function getCountryId()
   {
     return $this->countryId;
   }
 
-  /**
-   * Sets the country code, eg. "en-US"
-   * @param $countryId
-   * @return $this
-   */
   public function setCountryId($countryId)
   {
     $this->countryId = $countryId;
     return $this;
   }
 
-  /**
-   * Gets the specified user language
-   * @return string
-   */
   public function getUserLanguage()
   {
     return $this->userLanguage;
   }
 
-  /**
-   * Sets the user language, eg. "en"
-   * @param $userLanguage
-   * @return $this
-   */
   public function setUserLanguage($userLanguage)
   {
     $this->userLanguage = $userLanguage;
