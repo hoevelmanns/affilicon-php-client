@@ -103,6 +103,22 @@
 	<p>Class Cart</p>
 	</div>
 
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Affilicon.AbstractModel.html"><span>Affilicon\AbstractModel</span></a>
+			
+			 implements 
+				<a href="class-Affilicon.ModelInterface.html"><span>Affilicon\ModelInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>Affilicon\Cart</span></b>			
+			
+			
+		</dd>
+	</dl>
 
 
 
@@ -117,7 +133,7 @@
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
 		<b>Package:</b> Affilicon<br>
 
-			<b>Located at</b> <a href="source-class-Affilicon.Cart.html#14-123" title="Go to source code">models/Cart.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.Cart.html#14-127" title="Go to source code">models/Cart.php</a>
 		<br>
 	</div>
 
@@ -137,7 +153,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#28-32" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#32-37" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			
@@ -151,6 +167,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractModel.html#___construct">Affilicon\AbstractModel::__construct()</a></code></div>
 
 		</div>
 		</div></td>
@@ -167,7 +185,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_create">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#34-58" title="Go to source code">create</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#39-62" title="Go to source code">create</a>( )</code>
 
 		<div class="description short">
 			<p>create new cart</p>
@@ -205,7 +223,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_lineItems">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#60-63" title="Go to source code">lineItems</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#64-67" title="Go to source code">lineItems</a>( )</code>
 
 		<div class="description short">
 			
@@ -235,7 +253,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getStatus">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#65-71" title="Go to source code">getStatus</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#69-75" title="Go to source code">getStatus</a>( )</code>
 
 		<div class="description short">
 			
@@ -269,7 +287,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getId">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#73-79" title="Go to source code">getId</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#77-83" title="Go to source code">getId</a>( )</code>
 
 		<div class="description short">
 			
@@ -303,7 +321,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addLineItem">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#81-98" title="Go to source code">addLineItem</a>( <span><code><a href="class-Affilicon.LineItem.html">Affilicon\LineItem</a></code> <var>$item</var></span> )</code>
+		<code><a href="source-class-Affilicon.Cart.html#85-102" title="Go to source code">addLineItem</a>( <span><code><a href="class-Affilicon.LineItem.html">Affilicon\LineItem</a></code> <var>$item</var></span> )</code>
 
 		<div class="description short">
 			
@@ -342,7 +360,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addLineItems">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#100-112" title="Go to source code">addLineItems</a>( <span><code><a href="class-Affilicon.Collection.html">Affilicon\Collection</a></code> <var>$items</var></span> )</code>
+		<code><a href="source-class-Affilicon.Cart.html#104-116" title="Go to source code">addLineItems</a>( <span><code><a href="class-Affilicon.Collection.html">Affilicon\Collection</a></code> <var>$items</var></span> )</code>
 
 		<div class="description short">
 			
@@ -377,7 +395,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getItems">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#114-121" title="Go to source code">getItems</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#118-125" title="Go to source code">getItems</a>( )</code>
 
 		<div class="description short">
 			<p>get the cart items</p>
@@ -401,6 +419,15 @@
 	</tr>
 	</table>
 
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Affilicon.AbstractModel.html#methods">Affilicon\AbstractModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Affilicon.AbstractModel.html#_find">find()</a>, 
+			<a href="class-Affilicon.AbstractModel.html#_findById">findById()</a>
+		</code></td>
+	</tr>
+	</table>
 
 
 
@@ -460,6 +487,56 @@
 		<td class="value">
 			<div>
 				<a href="#$resource" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="HttpService" id="$HttpService">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Affilicon.HttpService.html">Affilicon\HttpService</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Affilicon.Cart.html#27-28" title="Go to source code"><var>$HttpService</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$HttpService" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="Client" id="$Client">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-Affilicon.Client.html">Affilicon\Client</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Affilicon.Cart.html#29-30" title="Go to source code"><var>$Client</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$Client" class="anchor">#</a>
 				<code></code>
 			</div>
 		</td>
