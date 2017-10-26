@@ -33,6 +33,7 @@
 			<h3>Classes</h3>
 			<ul>
 				<li><a href="class-Affilicon.AbstractAddress.html">AbstractAddress</a></li>
+				<li><a href="class-Affilicon.AbstractClient.html">AbstractClient</a></li>
 				<li><a href="class-Affilicon.AbstractHttpService.html">AbstractHttpService</a></li>
 				<li><a href="class-Affilicon.AbstractModel.html">AbstractModel</a></li>
 				<li><a href="class-Affilicon.Cart.html">Cart</a></li>
@@ -105,6 +106,15 @@
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
+			<a href="class-Affilicon.AbstractClient.html"><span>Affilicon\AbstractClient</span></a>
+			
+			 implements 
+				<a href="class-Affilicon.ClientInterface.html"><span>Affilicon\ClientInterface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
 <b><span>Affilicon\Client</span></b>			
 			 implements 
 				<a href="class-Affilicon.ClientInterface.html"><span>Affilicon\ClientInterface</span></a>
@@ -126,7 +136,7 @@
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
 		<b>Package:</b> Affilicon<br>
 
-			<b>Located at</b> <a href="source-class-Affilicon.Client.html#17-152" title="Go to source code">Client.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.Client.html#15-108" title="Go to source code">Client.php</a>
 		<br>
 	</div>
 
@@ -146,7 +156,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Affilicon.Client.html#34-38" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#32-35" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			
@@ -160,6 +170,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#___construct">Affilicon\AbstractClient::__construct()</a></code></div>
 
 		</div>
 		</div></td>
@@ -176,7 +188,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getInstance">#</a>
-		<code><a href="source-class-Affilicon.Client.html#40-46" title="Go to source code">getInstance</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#37-40" title="Go to source code">getInstance</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the instance of the client</p>
@@ -194,6 +206,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_getInstance">Affilicon\AbstractClient::getInstance()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_getInstance">Affilicon\ClientInterface::getInstance()</a></code></div>
@@ -212,7 +226,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_init">#</a>
-		<code><a href="source-class-Affilicon.Client.html#48-52" title="Go to source code">init</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#42-45" title="Go to source code">init</a>( )</code>
 
 		<div class="description short">
 			<p>Initializes the Client</p>
@@ -230,6 +244,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_init">Affilicon\AbstractClient::init()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_init">Affilicon\ClientInterface::init()</a></code></div>
@@ -248,7 +264,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_isAuthenticated">#</a>
-		<code><a href="source-class-Affilicon.Client.html#54-57" title="Go to source code">isAuthenticated</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#47-50" title="Go to source code">isAuthenticated</a>( )</code>
 
 		<div class="description short">
 			<p>Checks if client is authenticated</p>
@@ -266,6 +282,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_isAuthenticated">Affilicon\AbstractClient::isAuthenticated()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_isAuthenticated">Affilicon\ClientInterface::isAuthenticated()</a></code></div>
@@ -284,7 +302,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_authenticate">#</a>
-		<code><a href="source-class-Affilicon.Client.html#59-90" title="Go to source code">authenticate</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#52-55" title="Go to source code">authenticate</a>( )</code>
 
 		<div class="description short">
 			<p>Authenticate to api</p>
@@ -306,6 +324,8 @@
 				</div>
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_authenticate">Affilicon\AbstractClient::authenticate()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_authenticate">Affilicon\ClientInterface::authenticate()</a></code></div>
@@ -324,7 +344,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUserName">#</a>
-		<code><a href="source-class-Affilicon.Client.html#92-96" title="Go to source code">setUserName</a>( <span>string <var>$username</var></span> )</code>
+		<code><a href="source-class-Affilicon.Client.html#57-60" title="Go to source code">setUserName</a>( <span>string <var>$username</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the username, only expected if you use the api as member or employee</p>
@@ -347,6 +367,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_setUserName">Affilicon\AbstractClient::setUserName()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_setUserName">Affilicon\ClientInterface::setUserName()</a></code></div>
@@ -365,7 +387,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUsername">#</a>
-		<code><a href="source-class-Affilicon.Client.html#98-101" title="Go to source code">getUsername</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#62-65" title="Go to source code">getUsername</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the username</p>
@@ -383,6 +405,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_getUsername">Affilicon\AbstractClient::getUsername()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_getUsername">Affilicon\ClientInterface::getUsername()</a></code></div>
@@ -401,7 +425,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setPassword">#</a>
-		<code><a href="source-class-Affilicon.Client.html#103-107" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
+		<code><a href="source-class-Affilicon.Client.html#67-70" title="Go to source code">setPassword</a>( <span>string <var>$password</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the password, only expected if you use the api as member or employee</p>
@@ -424,6 +448,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_setPassword">Affilicon\AbstractClient::setPassword()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_setPassword">Affilicon\ClientInterface::setPassword()</a></code></div>
@@ -442,7 +468,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getToken">#</a>
-		<code><a href="source-class-Affilicon.Client.html#109-112" title="Go to source code">getToken</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#72-75" title="Go to source code">getToken</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the token</p>
@@ -460,6 +486,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_getToken">Affilicon\AbstractClient::getToken()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_getToken">Affilicon\ClientInterface::getToken()</a></code></div>
@@ -478,7 +506,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setClientId">#</a>
-		<code><a href="source-class-Affilicon.Client.html#114-118" title="Go to source code">setClientId</a>( <span>string <var>$id</var></span> )</code>
+		<code><a href="source-class-Affilicon.Client.html#77-80" title="Go to source code">setClientId</a>( <span>string <var>$id</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the Client ID, previously called Vendor ID</p>
@@ -501,6 +529,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_setClientId">Affilicon\AbstractClient::setClientId()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_setClientId">Affilicon\ClientInterface::setClientId()</a></code></div>
@@ -519,7 +549,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getClientId">#</a>
-		<code><a href="source-class-Affilicon.Client.html#120-123" title="Go to source code">getClientId</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#82-85" title="Go to source code">getClientId</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the Client ID, previously called Vendor ID</p>
@@ -537,6 +567,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_getClientId">Affilicon\AbstractClient::getClientId()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_getClientId">Affilicon\ClientInterface::getClientId()</a></code></div>
@@ -555,7 +587,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getCountryId">#</a>
-		<code><a href="source-class-Affilicon.Client.html#125-128" title="Go to source code">getCountryId</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#87-90" title="Go to source code">getCountryId</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the specified country code</p>
@@ -573,6 +605,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_getCountryId">Affilicon\AbstractClient::getCountryId()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_getCountryId">Affilicon\ClientInterface::getCountryId()</a></code></div>
@@ -591,7 +625,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setCountryId">#</a>
-		<code><a href="source-class-Affilicon.Client.html#130-134" title="Go to source code">setCountryId</a>( <span> <var>$countryId</var></span> )</code>
+		<code><a href="source-class-Affilicon.Client.html#92-95" title="Go to source code">setCountryId</a>( <span> <var>$countryId</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the country code, eg. "en-US"</p>
@@ -614,6 +648,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_setCountryId">Affilicon\AbstractClient::setCountryId()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_setCountryId">Affilicon\ClientInterface::setCountryId()</a></code></div>
@@ -632,7 +668,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getUserLanguage">#</a>
-		<code><a href="source-class-Affilicon.Client.html#136-139" title="Go to source code">getUserLanguage</a>( )</code>
+		<code><a href="source-class-Affilicon.Client.html#97-100" title="Go to source code">getUserLanguage</a>( )</code>
 
 		<div class="description short">
 			<p>Gets the specified user language</p>
@@ -650,6 +686,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_getUserLanguage">Affilicon\AbstractClient::getUserLanguage()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_getUserLanguage">Affilicon\ClientInterface::getUserLanguage()</a></code></div>
@@ -668,7 +706,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setUserLanguage">#</a>
-		<code><a href="source-class-Affilicon.Client.html#141-145" title="Go to source code">setUserLanguage</a>( <span>string <var>$userLanguage</var></span> )</code>
+		<code><a href="source-class-Affilicon.Client.html#102-105" title="Go to source code">setUserLanguage</a>( <span>string <var>$userLanguage</var></span> )</code>
 
 		<div class="description short">
 			<p>Sets the user language, eg. "en"</p>
@@ -691,6 +729,8 @@
 
 
 
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractClient.html#_setUserLanguage">Affilicon\AbstractClient::setUserLanguage()</a></code></div>
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ClientInterface.html#_setUserLanguage">Affilicon\ClientInterface::setUserLanguage()</a></code></div>
@@ -719,7 +759,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.Client.html#23" title="Go to source code"><var>$token</var></a>
+				<a href="source-class-Affilicon.Client.html#21" title="Go to source code"><var>$token</var></a>
 
 			<div class="description short">
 				
@@ -744,7 +784,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.Client.html#24" title="Go to source code"><var>$username</var></a>
+				<a href="source-class-Affilicon.Client.html#22" title="Go to source code"><var>$username</var></a>
 
 			<div class="description short">
 				
@@ -769,7 +809,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.Client.html#25" title="Go to source code"><var>$password</var></a>
+				<a href="source-class-Affilicon.Client.html#23" title="Go to source code"><var>$password</var></a>
 
 			<div class="description short">
 				
@@ -794,7 +834,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.Client.html#26" title="Go to source code"><var>$clientId</var></a>
+				<a href="source-class-Affilicon.Client.html#24" title="Go to source code"><var>$clientId</var></a>
 
 			<div class="description short">
 				
@@ -819,7 +859,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.Client.html#27" title="Go to source code"><var>$countryId</var></a>
+				<a href="source-class-Affilicon.Client.html#25" title="Go to source code"><var>$countryId</var></a>
 
 			<div class="description short">
 				
@@ -844,7 +884,7 @@
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.Client.html#28" title="Go to source code"><var>$userLanguage</var></a>
+				<a href="source-class-Affilicon.Client.html#26" title="Go to source code"><var>$userLanguage</var></a>
 
 			<div class="description short">
 				
@@ -862,9 +902,34 @@
 			</div>
 		</td>
 	</tr>
+	<tr data-order="instance" id="$instance">
+		<td class="attributes"><code>
+			public static 
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Affilicon.Client.html#27" title="Go to source code"><var>$instance</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$instance" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="HttpService" id="$HttpService">
 		<td class="attributes"><code>
-			public  
+			protected  
 			<code><a href="class-Affilicon.HttpService.html">Affilicon\HttpService</a></code>
 		</code></td>
 
@@ -883,31 +948,6 @@
 		<td class="value">
 			<div>
 				<a href="#$HttpService" class="anchor">#</a>
-				<code></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="instance" id="$instance">
-		<td class="attributes"><code>
-			public static 
-			
-		</code></td>
-
-		<td class="name">
-				<a href="source-class-Affilicon.Client.html#32" title="Go to source code"><var>$instance</var></a>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$instance" class="anchor">#</a>
 				<code></code>
 			</div>
 		</td>
