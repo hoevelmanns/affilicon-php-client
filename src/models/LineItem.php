@@ -87,4 +87,11 @@ class LineItem extends AbstractModel
   {
     return $this->apiId;
   }
+
+  public function fetch()
+  {
+    return parent::fetch();
+  }
+
+
 }

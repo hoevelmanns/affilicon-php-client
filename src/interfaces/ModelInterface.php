@@ -27,4 +27,10 @@ interface ModelInterface
    * @return mixed
    */
   public function find($params, $with);
+
+  /**
+   * Gets all records
+   * @return mixed
+   */
+  public function fetch();
 }

@@ -17,6 +17,7 @@ abstract class AbstractModel implements ModelInterface
   protected $resource;
   protected $HttpService;
   protected $Client;
+  protected $rows;
 
   public function __construct()
   {
@@ -32,6 +33,11 @@ abstract class AbstractModel implements ModelInterface
   public function find($params, $with)
   {
     // TODO: Implement find() method.
+  }
+
+  public function fetch()
+  {
+    // TODO: Implement all() method.
   }
 
 }
