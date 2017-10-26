@@ -10,9 +10,6 @@
 
 namespace Affilicon;
 
-
-use http\Env\Response;
-
 interface HttpServiceInterface
 {
 
