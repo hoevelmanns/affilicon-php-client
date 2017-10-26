@@ -13,10 +13,6 @@ namespace Affilicon;
 
 class Product extends AbstractModel
 {
-
-  /**
-   * @var string
-   */
   protected $resource;
   protected $HttpService;
   protected $Client;
