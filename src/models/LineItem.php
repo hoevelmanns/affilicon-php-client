@@ -30,6 +30,7 @@ class LineItem extends AbstractModel
 
   public function __construct()
   {
+    parent::__construct();
     $this->resource = API['routes']['cartItemsProducts'];
   }
 

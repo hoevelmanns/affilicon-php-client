@@ -22,7 +22,7 @@ namespace Affilicon;
 class Cart extends AbstractModel
 {
   /** @var Collection $lineItems */
-  public static $lineItems;
+  protected $lineItems;
   protected $resource;
   /** @var  HttpService */
   protected $HttpService;
@@ -32,7 +32,7 @@ class Cart extends AbstractModel
   public function __construct()
   {
     parent::__construct();
-    self::$lineItems = new Collection();
+    $this->lineItems = new Collection();
     $this->resource = API['routes']['carts'];
   }
 
@@ -59,11 +59,6 @@ class Cart extends AbstractModel
     $this->status = $cart->data->status;
 
     return $this;
-  }
-
-  public static function lineItems()
-  {
-    return self::$lineItems;
   }
 
   /**
@@ -96,7 +91,7 @@ class Cart extends AbstractModel
     ])->getData();
 
     $item->setApiId($lineItem->data->id);
-    $this->lineItems()->addItem($item);
+    $this->lineItems->addItem($item);
 
     return $this;
   }
@@ -119,9 +114,9 @@ class Cart extends AbstractModel
    * get the cart items
    * @return mixed
    */
-  public function getItems()
+  public function getLineItems()
   {
-    return self::lineItems();
+    return $this->lineItems;
   }
 
 }
