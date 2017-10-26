@@ -34,40 +34,6 @@ interface ClientInterface
   public function setPassword($password);
 
   /**
-   * post request
-   * @param string $route
-   * @param array $args
-   * @return array|mixed|object
-   */
-  public function post($route, array $args = []);
-
-  /**
-   * @param string $route
-   * @param array $args
-   */
-  public function put($route, array $args = []);
-
-  /**
-   * get request
-   * @param string $route
-   * @return object
-   */
-  public function get($route);
-
-  /**
-   * Return the request body
-   * @param string $response
-   * @return object
-   */
-  public function responseBody($response);
-
-  /**
-   * Add the request headers
-   * @return array
-   */
-  public function headers();
-
-  /**
    * @return bool
    */
   public function isAuthenticated();
@@ -118,10 +84,5 @@ interface ClientInterface
    * @return $this
    */
   public function setUserLanguage($userLanguage);
-
-  /**
-   * @return Cart
-   */
-  public static function cart();
 
 }

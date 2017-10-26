@@ -49,8 +49,8 @@
 				<li><a href="class-Affilicon.AddressInterface.html">AddressInterface</a></li>
 				<li><a href="class-Affilicon.ClientInterface.html">ClientInterface</a></li>
 				<li><a href="class-Affilicon.HttpServiceInterface.html">HttpServiceInterface</a></li>
+				<li><a href="class-Affilicon.ModelInterface.html">ModelInterface</a></li>
 				<li><a href="class-Affilicon.ProductInterface.html">ProductInterface</a></li>
-				<li><a href="class-Affilicon.ResponseInterface.html">ResponseInterface</a></li>
 			</ul>
 
 
@@ -105,19 +105,14 @@
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-			<a href="class-Affilicon.Client.html"><span>Affilicon\Client</span></a>
+			<a href="class-Affilicon.AbstractModel.html"><span>Affilicon\AbstractModel</span></a>
 			
+			 implements 
+				<a href="class-Affilicon.ModelInterface.html"><span>Affilicon\ModelInterface</span></a>
 			
 			
 		</dd>
 		<dd style="padding-left:30px">
-			<img src="resources/inherit.png" alt="Extended by">
-			<a href="class-Affilicon.AbstractModel.html"><span>Affilicon\AbstractModel</span></a>
-			
-			
-			
-		</dd>
-		<dd style="padding-left:60px">
 			<img src="resources/inherit.png" alt="Extended by">
 <b><span>Affilicon\LineItem</span></b>			
 			
@@ -403,29 +398,8 @@
 	<caption>Methods inherited from <a href="class-Affilicon.AbstractModel.html#methods">Affilicon\AbstractModel</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-Affilicon.AbstractModel.html#_findById">findById()</a>, 
-			<a href="class-Affilicon.AbstractModel.html#_findOne">findOne()</a>
-		</code></td>
-	</tr>
-	</table>
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Affilicon.Client.html#methods">Affilicon\Client</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Affilicon.Client.html#_authenticate">authenticate()</a>, 
-			<a href="class-Affilicon.Client.html#_getClientId">getClientId()</a>, 
-			<a href="class-Affilicon.Client.html#_getCountryId">getCountryId()</a>, 
-			<a href="class-Affilicon.Client.html#_getInstance">getInstance()</a>, 
-			<a href="class-Affilicon.Client.html#_getToken">getToken()</a>, 
-			<a href="class-Affilicon.Client.html#_getUserLanguage">getUserLanguage()</a>, 
-			<a href="class-Affilicon.Client.html#_getUsername">getUsername()</a>, 
-			<a href="class-Affilicon.Client.html#_init">init()</a>, 
-			<a href="class-Affilicon.Client.html#_isAuthenticated">isAuthenticated()</a>, 
-			<a href="class-Affilicon.Client.html#_setClientId">setClientId()</a>, 
-			<a href="class-Affilicon.Client.html#_setCountryId">setCountryId()</a>, 
-			<a href="class-Affilicon.Client.html#_setPassword">setPassword()</a>, 
-			<a href="class-Affilicon.Client.html#_setUserLanguage">setUserLanguage()</a>, 
-			<a href="class-Affilicon.Client.html#_setUserName">setUserName()</a>
+			<a href="class-Affilicon.AbstractModel.html#_find">find()</a>, 
+			<a href="class-Affilicon.AbstractModel.html#_findById">findById()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -473,21 +447,8 @@
 	<caption>Properties inherited from <a href="class-Affilicon.AbstractModel.html#properties">Affilicon\AbstractModel</a></caption>
 	<tr>
 		<td><code>
-			<a href="class-Affilicon.AbstractModel.html#$client"><var>$client</var></a>
-		</code></td>
-	</tr>
-	</table>
-	<table class="summary inherited">
-	<caption>Properties inherited from <a href="class-Affilicon.Client.html#properties">Affilicon\Client</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Affilicon.Client.html#$clientId"><var>$clientId</var></a>, 
-			<a href="class-Affilicon.Client.html#$countryId"><var>$countryId</var></a>, 
-			<a href="class-Affilicon.Client.html#$instance"><var>$instance</var></a>, 
-			<a href="class-Affilicon.Client.html#$password"><var>$password</var></a>, 
-			<a href="class-Affilicon.Client.html#$token"><var>$token</var></a>, 
-			<a href="class-Affilicon.Client.html#$userLanguage"><var>$userLanguage</var></a>, 
-			<a href="class-Affilicon.Client.html#$username"><var>$username</var></a>
+			<a href="class-Affilicon.AbstractModel.html#$client"><var>$client</var></a>, 
+			<a href="class-Affilicon.AbstractModel.html#$httpService"><var>$httpService</var></a>
 		</code></td>
 	</tr>
 	</table>

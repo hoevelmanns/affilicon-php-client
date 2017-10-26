@@ -18,7 +18,7 @@ require __DIR__ . '/../vendor/autoload.php';
  * @package Affilicon
  */
 
-class Client
+class Client implements ClientInterface
 {
   protected $token;
   protected $username;
@@ -49,6 +49,7 @@ class Client
   }
 
   /**
+   * Checks if client is authenticated
    * @return bool
    */
   public function isAuthenticated()
@@ -57,7 +58,7 @@ class Client
   }
 
   /**
-   * authenticate to api
+   * Authenticate to api
    * @return string
    * @throws AuthenticationFailed
    */
@@ -98,6 +99,7 @@ class Client
   }
 
   /**
+   * Sets the username, only expected if you use the api as member or employee
    * @param $username
    */
   public function setUserName($username)
@@ -106,6 +108,7 @@ class Client
   }
 
   /**
+   * Gets the username
    * @return mixed
    */
   public function getUsername()
@@ -114,6 +117,7 @@ class Client
   }
 
   /**
+   * Sets the password, only expected if you use the api as member or employee
    * @param $password
    */
   public function setPassword($password)
@@ -123,6 +127,7 @@ class Client
 
 
   /**
+   * Gets the token
    * @return string
    */
   public function getToken()
@@ -131,7 +136,7 @@ class Client
   }
 
   /**
-   * set the Client ID, previously called Vendor ID
+   * Sets the Client ID, previously called Vendor ID
    * @param $id
    * @return $this
    */
@@ -142,7 +147,7 @@ class Client
   }
 
   /**
-   * get the Client ID, previously called Vendor ID
+   * Gets the Client ID, previously called Vendor ID
    * @return mixed
    */
   public function getClientId()
@@ -151,6 +156,7 @@ class Client
   }
 
   /**
+   * Gets the specified country code
    * @return mixed
    */
   public function getCountryId()
@@ -159,6 +165,7 @@ class Client
   }
 
   /**
+   * Sets the country code, eg. "en-US"
    * @param $countryId
    * @return $this
    */
@@ -169,6 +176,7 @@ class Client
   }
 
   /**
+   * Gets the specified user language
    * @return string
    */
   public function getUserLanguage()
@@ -177,6 +185,7 @@ class Client
   }
 
   /**
+   * Sets the user language, eg. "en"
    * @param $userLanguage
    * @return $this
    */

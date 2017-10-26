@@ -44,5 +44,11 @@ interface ProductInterface
    */
   public function getApiId();
 
+  /**
+   * include specified components, e.g. variants or prices
+   * @return Collection
+   */
+  public function with();
+
 
 }

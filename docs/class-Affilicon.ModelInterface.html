@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Interface Affilicon\ResponseInterface</title>
+	<title>Interface Affilicon\ModelInterface</title>
 
 	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
@@ -49,8 +49,8 @@
 				<li><a href="class-Affilicon.AddressInterface.html">AddressInterface</a></li>
 				<li><a href="class-Affilicon.ClientInterface.html">ClientInterface</a></li>
 				<li><a href="class-Affilicon.HttpServiceInterface.html">HttpServiceInterface</a></li>
+				<li class="active"><a href="class-Affilicon.ModelInterface.html">ModelInterface</a></li>
 				<li><a href="class-Affilicon.ProductInterface.html">ProductInterface</a></li>
-				<li class="active"><a href="class-Affilicon.ResponseInterface.html">ResponseInterface</a></li>
 			</ul>
 
 
@@ -96,7 +96,7 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Interface ResponseInterface</h1>
+	<h1>Interface ModelInterface</h1>
 
 
 
@@ -104,7 +104,17 @@
 
 
 
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-Affilicon.AbstractModel.html">Affilicon\AbstractModel</a>
+	</div>
 
+	<div>
+		<h4>Indirect known implementers</h4>
+			<a href="class-Affilicon.AbstractAddress.html">Affilicon\AbstractAddress</a>, 
+			<a href="class-Affilicon.LineItem.html">Affilicon\LineItem</a>, 
+			<a href="class-Affilicon.Product.html">Affilicon\Product</a>
+	</div>
 
 
 
@@ -114,7 +124,7 @@
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Affilicon.ResponseInterface.html#14-28" title="Go to source code">interfaces/ResponseInterface.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.ModelInterface.html#12-30" title="Go to source code">interfaces/ModelInterface.php</a>
 		<br>
 	</div>
 
@@ -122,34 +132,38 @@
 
 	<table class="summary methods" id="methods">
 	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
+	<tr data-order="findById" id="_findById">
 
 		<td class="attributes"><code>
 			 public 
 
-			
+			stdClass
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Affilicon.ResponseInterface.html#17-21" title="Go to source code">__construct</a>( <span> <var>$response</var></span> )</code>
+		<a class="anchor" href="#_findById">#</a>
+		<code><a href="source-class-Affilicon.ModelInterface.html#14-20" title="Go to source code">findById</a>( <span> <var>$id</var></span> )</code>
 
 		<div class="description short">
-			<p>ResponseInterface constructor.</p>
+			<p>Find item by his id</p>
 		</div>
 
 		<div class="description detailed hidden">
-			<p>ResponseInterface constructor.</p>
+			<p>Find item by his id</p>
 
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$response</var></dt>
+					<dt><var>$id</var></dt>
 					<dd></dd>
 				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					stdClass
+				</div>
 
 
 
@@ -157,32 +171,39 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getData" id="_getData">
+	<tr data-order="find" id="_find">
 
 		<td class="attributes"><code>
 			 public 
 
-			array
+			mixed
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getData">#</a>
-		<code><a href="source-class-Affilicon.ResponseInterface.html#23-26" title="Go to source code">getData</a>( )</code>
+		<a class="anchor" href="#_find">#</a>
+		<code><a href="source-class-Affilicon.ModelInterface.html#22-29" title="Go to source code">find</a>( <span> <var>$params</var></span>, <span> <var>$with</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Find items by different parameters</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Find items by different parameters</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$params</var></dt>
+					<dd></dd>
+					<dt><var>$with</var></dt>
+					<dd></dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
-					array
+					mixed
 				</div>
 
 

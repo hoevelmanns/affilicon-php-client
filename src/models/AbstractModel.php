@@ -11,29 +11,27 @@
 namespace Affilicon;
 
 
-abstract class AbstractModel extends Client
+abstract class AbstractModel implements ModelInterface
 {
 
-  private $resource;
+  protected $resource;
+  protected $httpService;
   protected $client;
 
   public function __construct()
   {
-    parent::__construct();
+    $this->httpService = HttpService::getInstance();
+    $this->client = Client::getInstance();
   }
 
-  /**
-   * Find item by id
-   * @param $id
-   * @return null
-   */
   public function findById($id)
   {
-    return $this->get("{$this->resource}/$id");
+    // TODO: Implement findById() method.
   }
 
-  public function findOne()
+  public function find($params, $with)
   {
-
+    // TODO: Implement find() method.
   }
+
 }
