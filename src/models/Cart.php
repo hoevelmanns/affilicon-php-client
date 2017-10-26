@@ -26,7 +26,7 @@ class Cart extends AbstractModel
   protected $resource;
   /** @var  HttpService */
   protected $HttpService;
-  /** @var  Client */
+  /** @var  AbstractClient */
   protected $Client;
 
   public function __construct()

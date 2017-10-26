@@ -21,7 +21,7 @@ abstract class AbstractModel implements ModelInterface
   public function __construct()
   {
     $this->HttpService = HttpService::getInstance();
-    $this->Client = Client::getInstance();
+    $this->Client = AbstractClient::getInstance();
   }
 
   public function findById($id)
