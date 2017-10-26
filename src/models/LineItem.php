@@ -23,7 +23,7 @@ namespace Affilicon;
  * @property integer $price
  */
 
-class LineItem extends AbstractModel
+class LineItem extends AbstractModel implements ModelInterface
 {
 
   protected $resource;

@@ -23,6 +23,7 @@ class AbstractClient implements ClientInterface
   protected $token;
   protected $username;
   protected $password;
+  protected $environment;
   public $clientId;
   public $countryId;
   public $userLanguage;
@@ -33,7 +34,6 @@ class AbstractClient implements ClientInterface
 
   protected function __construct()
   {
-    $this->HttpService = $this->HttpService::getInstance();
     self::$instance = $this;
   }
 
@@ -45,8 +45,28 @@ class AbstractClient implements ClientInterface
     return self::$instance;
   }
 
+  /**
+   * Sets the environment
+   * @param string $environment
+   */
+  public function setEnv($environment)
+  {
+    $this->environment = $environment;
+  }
+
+  /**
+   * Gets the environment
+   * @return object
+   */
+  public function getEnv()
+  {
+    return (object) CONFIG['environment'][$this->environment];
+  }
+
   public function init()
   {
+    $this->setEnv($this->environment ?? 'production');
+    $this->HttpService::getInstance()->init($this->environment->endpoint);
     $this->authenticate();
     return $this;
   }

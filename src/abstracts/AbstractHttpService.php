@@ -26,6 +26,8 @@ abstract class AbstractHttpService implements HttpServiceInterface
   /** @var  Response $response */
   protected $response;
   protected $headers;
+  protected $environment;
+
   public static $instance;
 
   /**
@@ -34,7 +36,6 @@ abstract class AbstractHttpService implements HttpServiceInterface
   protected function __construct()
   {
     self::$instance = $this;
-    $this->init();
   }
 
   public static function getInstance()
@@ -45,9 +46,12 @@ abstract class AbstractHttpService implements HttpServiceInterface
     return self::$instance;
   }
 
-  public function init()
+  /**
+   * @param string $endpoint
+   */
+  public function init($endpoint)
   {
-    $this->endpoint = AFFILICON_SERVICE_URL;
+    $this->endpoint = $endpoint;
     $this->httpClient = new \GuzzleHttp\Client();
   }
 
