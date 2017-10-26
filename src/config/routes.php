@@ -8,8 +8,10 @@
  * @date        24.10.17
  */
 
-if (!defined('AFFILICON_API')) {
-  define('AFFILICON_API', [
+namespace Affilicon;
+
+if (!defined('API')) {
+  define('API', [
     'routes' => [
       'auth' => [
         'anonymous' => '/auth/anonymous/token',
@@ -19,9 +21,6 @@ if (!defined('AFFILICON_API')) {
       'refreshToken' => '/auth/refresh',
       'carts' => '/carts',
       'cartItemsProducts' => '/cart-items/products'
-    ],
-    'error_log' => [
-      'path' => __DIR__ . '/logs/error.log'
     ]
   ]);
 }

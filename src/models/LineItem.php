@@ -30,7 +30,7 @@ class LineItem extends AbstractModel
 
   public function __construct()
   {
-    $this->resource = AFFILICON_API['routes']['cartItemsProducts'];
+    $this->resource = API['routes']['cartItemsProducts'];
   }
 
   /**

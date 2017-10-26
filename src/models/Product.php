@@ -21,7 +21,7 @@ class Product extends AbstractModel
 
   public function __construct()
   {
-    $this->resource = AFFILICON_API['routes']['products'];
+    $this->resource = API['routes']['products'];
   }
 
   public function findOne()

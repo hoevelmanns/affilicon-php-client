@@ -116,7 +116,7 @@
 </span><span id="18" class="l">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct(<span class="php-var">$message</span> = <span class="php-quote">&quot;&quot;</span>, <span class="php-var">$code</span> = <span class="php-num">0</span>, Throwable <span class="php-var">$previous</span> = <span class="php-keyword1">null</span>)
 </span><span id="19" class="l">  {
 </span><span id="20" class="l">    parent::__construct(<span class="php-var">$message</span>, <span class="php-var">$code</span>, <span class="php-var">$previous</span>);
-</span><span id="21" class="l">    <span class="php-keyword2">error_log</span>(<span class="php-var">$this</span>-&gt;getTraceAsString(), <span class="php-num">3</span>, AFFILICON_API[<span class="php-quote">'error_log'</span>][<span class="php-quote">'path'</span>]);
+</span><span id="21" class="l">    <span class="php-keyword2">error_log</span>(<span class="php-var">$this</span>-&gt;getTraceAsString(), <span class="php-num">3</span>, CONFIG[<span class="php-quote">'error_log'</span>][<span class="php-quote">'path'</span>]);
 </span><span id="22" class="l">  }
 </span><span id="23" class="l">}</span></code></pre>
 
@@ -125,7 +125,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?196f07f766c26a6b33a103b12e6091c137ba87fc"></script>
+<script src="resources/combined.js?adf1fcb7a0ed9de1c203d398c2cd68a2bec45944"></script>
 <script src="elementlist.js?3a3dcdf3ecbce53fa7d461e9c6612fd8c719299c"></script>
 </body>
 </html>

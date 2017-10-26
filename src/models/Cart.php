@@ -28,7 +28,7 @@ class Cart
   public function __construct()
   {
     self::$lineItems = new Collection();
-    $this->resource = AFFILICON_API['routes']['carts'];
+    $this->resource = API['routes']['carts'];
   }
 
   /**
@@ -85,7 +85,7 @@ class Cart
   public function addLineItem(LineItem $item)
   {
     $lineItem = HttpService::getInstance()
-      ->post(AFFILICON_API['routes']['cartItemsProducts'], [
+      ->post(API['routes']['cartItemsProducts'], [
         'cart_id' => $this->getId(),
         'product_id' => $item->getId(),
         'count' => $item->getQuantity()

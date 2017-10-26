@@ -126,7 +126,7 @@
 </span><span id="28" class="l">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __construct()
 </span><span id="29" class="l">  {
 </span><span id="30" class="l">    self::<span class="php-var">$lineItems</span> = <span class="php-keyword1">new</span> Collection();
-</span><span id="31" class="l">    <span class="php-var">$this</span>-&gt;resource = AFFILICON_API[<span class="php-quote">'routes'</span>][<span class="php-quote">'carts'</span>];
+</span><span id="31" class="l">    <span class="php-var">$this</span>-&gt;resource = API[<span class="php-quote">'routes'</span>][<span class="php-quote">'carts'</span>];
 </span><span id="32" class="l">  }
 </span><span id="33" class="l">
 </span><span id="34" class="l">  <span class="php-comment">/**
@@ -183,7 +183,7 @@
 </span><span id="85" class="l">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> addLineItem(LineItem <span class="php-var">$item</span>)
 </span><span id="86" class="l">  {
 </span><span id="87" class="l">    <span class="php-var">$lineItem</span> = HttpService::getInstance()
-</span><span id="88" class="l">      -&gt;post(AFFILICON_API[<span class="php-quote">'routes'</span>][<span class="php-quote">'cartItemsProducts'</span>], [
+</span><span id="88" class="l">      -&gt;post(API[<span class="php-quote">'routes'</span>][<span class="php-quote">'cartItemsProducts'</span>], [
 </span><span id="89" class="l">        <span class="php-quote">'cart_id'</span> =&gt; <span class="php-var">$this</span>-&gt;getId(),
 </span><span id="90" class="l">        <span class="php-quote">'product_id'</span> =&gt; <span class="php-var">$item</span>-&gt;getId(),
 </span><span id="91" class="l">        <span class="php-quote">'count'</span> =&gt; <span class="php-var">$item</span>-&gt;getQuantity()
@@ -225,7 +225,7 @@
 	</div>
 </div>
 </div>
-<script src="resources/combined.js?196f07f766c26a6b33a103b12e6091c137ba87fc"></script>
+<script src="resources/combined.js?adf1fcb7a0ed9de1c203d398c2cd68a2bec45944"></script>
 <script src="elementlist.js?3a3dcdf3ecbce53fa7d461e9c6612fd8c719299c"></script>
 </body>
 </html>

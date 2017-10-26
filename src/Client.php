@@ -76,7 +76,7 @@ class Client
       $authType = $member ? 'member' : 'anonymous';
 
       $data = $httpService
-        ->post(AFFILICON_API['routes']['auth'][$authType])
+        ->post(API['routes']['auth'][$authType])
         ->getData();
 
     } catch (\Exception $e) {
