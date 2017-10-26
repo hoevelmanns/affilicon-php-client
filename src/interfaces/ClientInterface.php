@@ -123,4 +123,5 @@ interface ClientInterface
    * @return Cart
    */
   public static function cart();
+
 }

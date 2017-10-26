@@ -2,7 +2,7 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file        Request.php
+ * @file        HttpService.php
  * @author      Marcelle Hövelmanns
  * @site        http://www.artsolution.de
  * @date        25.10.17
@@ -22,9 +22,8 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   protected $headers;
   public static $instance;
 
-  public function __construct() {
-    self::$instance = $this;
-    $this->initClient();
+  protected function __construct() {
+    parent::__construct();
   }
 
   /**
@@ -38,9 +37,9 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   /**
    * Initialize the HTTP client
    */
-  public function initClient()
+  public function init()
   {
-    parent::initClient();
+    parent::init();
   }
 
   /**
@@ -116,4 +115,8 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   {
     return parent::getHeaders();
   }
+
+  private function __wakeup(){}
+
+  private function __clone(){}
 }

@@ -2,7 +2,7 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file        AbstractRequest.php
+ * @file        AbstractHttpService.php
  * @author      Marcelle Hövelmanns
  * @site        http://www.artsolution.de
  * @date        25.10.17
@@ -13,6 +13,11 @@ namespace Affilicon;
 
 use GuzzleHttp\Psr7\Response;
 
+/**
+ * Class AbstractHttpService
+ * @package Affilicon
+ *
+ */
 abstract class AbstractHttpService implements HttpServiceInterface
 {
   /** @var  \GuzzleHttp\Client */
@@ -26,9 +31,10 @@ abstract class AbstractHttpService implements HttpServiceInterface
   /**
    * AbstractRequest constructor.
    */
-  public function __construct()
+  protected function __construct()
   {
-    // TODO: Implement getData() method.
+    self::$instance = $this;
+    $this->init();
   }
 
   public static function getInstance()
@@ -39,7 +45,7 @@ abstract class AbstractHttpService implements HttpServiceInterface
     return self::$instance;
   }
 
-  public function initClient()
+  public function init()
   {
     $this->endpoint = AFFILICON_SERVICE_URL;
     $this->httpClient = new \GuzzleHttp\Client();
@@ -109,5 +115,9 @@ abstract class AbstractHttpService implements HttpServiceInterface
   {
     // TODO: Implement patch() method.
   }
+
+  private function __wakeup(){}
+
+  private function __clone(){}
 
 }

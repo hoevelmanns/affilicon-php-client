@@ -3,7 +3,7 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file        Api.php
+ * @file        Client.php
  * @author      Marcelle Hövelmanns
  * @site        http://www.artsolution.de
  * @date        02.10.17
@@ -29,7 +29,7 @@ class Client
 
   public static $instance;
 
-  public function __construct()
+  protected function __construct()
   {
     self::$instance = $this;
   }
@@ -185,5 +185,10 @@ class Client
     $this->userLanguage = $userLanguage;
     return $this;
   }
+
+  private function __wakeup(){}
+
+  private function __clone(){}
+
 
 }
