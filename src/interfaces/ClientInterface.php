@@ -20,20 +20,20 @@ interface ClientInterface
 
   /**
    * Initializes the Client
-   * @return Client
+   * @return $this
    */
   public function init();
 
   /**
    * Gets the instance of the client
-   * @return Client
+   * @return $this
    */
   public static function getInstance();
 
   /**
    * Sets the username, only expected if you use the api as member or employee
    * @param string $username
-   * @return Client
+   * @return $this
    */
   public function setUserName($username);
 
@@ -46,7 +46,7 @@ interface ClientInterface
   /**
    * Sets the password, only expected if you use the api as member or employee
    * @param string $password
-   * @return Client
+   * @return $this
    */
   public function setPassword($password);
 
@@ -91,13 +91,13 @@ interface ClientInterface
   /**
    * Sets the country code, eg. "en-US"
    * @param $countryId
-   * @return string $this
+   * @return $this
    */
   public function setCountryId($countryId);
 
   /**
    * Gets the specified user language
-   * @return string
+   * @return $this
    */
   public function getUserLanguage();
 

@@ -19,14 +19,19 @@ namespace Affilicon;
  *
  */
 
-class Cart
+class Cart extends AbstractModel
 {
   /** @var Collection $lineItems */
   public static $lineItems;
   protected $resource;
+  /** @var  HttpService */
+  protected $HttpService;
+  /** @var  Client */
+  protected $Client;
 
   public function __construct()
   {
+    parent::__construct();
     self::$lineItems = new Collection();
     $this->resource = API['routes']['carts'];
   }
@@ -40,9 +45,8 @@ class Cart
   public function create()
   {
     try {
-
-      $cart = HttpService::getInstance()
-        ->post($this->resource, ['vendor' => Client::getInstance()->getClientId()])
+      $cart = $this->HttpService
+        ->post($this->resource, ['vendor' => $this->Client->getClientId()])
         ->getData();
 
     } catch (\Exception $e) {
@@ -79,12 +83,12 @@ class Cart
   }
 
   /**
-   * @param LineItem $item
+   * @param LineItem
    * @return $this
    */
   public function addLineItem(LineItem $item)
   {
-    $lineItem = HttpService::getInstance()
+    $lineItem = $this->HttpService
       ->post(API['routes']['cartItemsProducts'], [
         'cart_id' => $this->getId(),
         'product_id' => $item->getId(),

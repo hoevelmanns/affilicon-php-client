@@ -26,11 +26,14 @@ class Client implements ClientInterface
   public $clientId;
   public $countryId;
   public $userLanguage;
+  /** @var  HttpService */
+  public $HttpService;
 
   public static $instance;
 
   protected function __construct()
   {
+    $this->HttpService = $this->HttpService::getInstance();
     self::$instance = $this;
   }
 
@@ -61,13 +64,10 @@ class Client implements ClientInterface
 
     $member = isset($this->username) && isset($this->password);
 
-    /** @var HttpService $httpService */
-    $httpService = HttpService::getInstance();
-
     try {
       $authType = $member ? 'member' : 'anonymous';
 
-      $data = $httpService
+      $data = $this->HttpService
         ->post(API['routes']['auth'][$authType])
         ->getData();
 
@@ -79,7 +79,7 @@ class Client implements ClientInterface
       throw new AuthenticationFailed('token invalid', 403);
     }
 
-    $httpService
+    $this->HttpService
       ->setHeaders([
         'Authorization' => 'Bearer ' . $data->token ?? '',
         'username' => $this->username,

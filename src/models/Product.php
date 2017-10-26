@@ -18,6 +18,8 @@ class Product extends AbstractModel
    * @var string
    */
   protected $resource;
+  protected $HttpService;
+  protected $Client;
 
   public function __construct()
   {
