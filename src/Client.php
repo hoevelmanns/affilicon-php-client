@@ -9,13 +9,13 @@
  * @date        02.10.17
  */
 
-namespace Affilicon\ApiClient;
+namespace Artsolution\AffiliconApiClient;
 
-use Affilicon\ApiClient\Exceptions\AuthenticationFailed;
-use Affilicon\ApiClient\Interfaces\ClientInterface;
-use Affilicon\ApiClient\Services\HttpService;
-use Affilicon\ApiClient\Traits\Environment;
-use Affilicon\ApiClient\Traits\Singleton;
+use Artsolution\AffiliconApiClient\Exceptions\AuthenticationFailed;
+use Artsolution\AffiliconApiClient\Interfaces\ClientInterface;
+use Artsolution\AffiliconApiClient\Services\HttpService;
+use Artsolution\AffiliconApiClient\Traits\Environment;
+use Artsolution\AffiliconApiClient\Traits\Singleton;
 
 require __DIR__ . '/../vendor/autoload.php';
 

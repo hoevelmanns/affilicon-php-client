@@ -8,11 +8,11 @@
  * @date        25.10.17
  */
 
-namespace Affilicon\ApiClient\Abstracts;
+namespace Artsolution\AffiliconApiClient\Abstracts;
 
 
-use Affilicon\ApiClient\Interfaces\HttpServiceInterface;
-use Affilicon\ApiClient\Traits\Singleton;
+use Artsolution\AffiliconApiClient\Interfaces\HttpServiceInterface;
+use Artsolution\AffiliconApiClient\Traits\Singleton;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
