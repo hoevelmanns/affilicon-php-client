@@ -32,9 +32,6 @@ abstract class AbstractHttpService implements HttpServiceInterface
 
   use Singleton;
 
-  /**
-   * AbstractRequest constructor.
-   */
   protected function __construct()
   {
   }

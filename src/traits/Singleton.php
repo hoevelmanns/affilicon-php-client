@@ -1,9 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: marcelle
- * Date: 27.10.17
- * Time: 10:42
+ * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
+ *
+ * @file        Singleton.php
+ * @author      Marcelle Hövelmanns
+ * @site        http://www.artsolution.de
+ * @date        27.10.17
  */
 
 namespace Affilicon;

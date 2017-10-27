@@ -27,13 +27,11 @@ class AbstractClient implements ClientInterface
   public $clientId;
   public $countryId;
   public $userLanguage;
-  
-  use Singleton;
 
   /** @var  HttpService */
   protected $HttpService;
 
-  public static $instance;
+  use Singleton;
 
   protected function __construct()
   {
