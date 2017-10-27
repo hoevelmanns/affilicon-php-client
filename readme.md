@@ -1,9 +1,9 @@
-# AffiliCon PHP-SDK
+# AffiliCon API Client for PHP
 
 ### Install
 
 ```
-# git clone https://hoevelmanns@bitbucket.org/hoevelmanns/affilicon-php-sdk.git
+# git clone https://hoevelmanns@bitbucket.org/hoevelmanns/affilicon-php-api-client.git
 # composer install
 ```
 
