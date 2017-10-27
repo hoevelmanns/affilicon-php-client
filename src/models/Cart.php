@@ -29,10 +29,11 @@ class Cart extends AbstractModel
   /** @var Collection $lineItems */
   protected $lineItems;
   protected $resource;
-  /** @var  HttpService */
-  protected $HttpService;
+
   /** @var  Client */
   protected $Client;
+  /** @var  HttpService */
+  protected $HttpService;
 
   public function __construct()
   {

@@ -14,7 +14,7 @@ if (!defined('CONFIG')) {
   define('CONFIG', [
     'environment' => [
       'production' => [
-        'service_url' => 'http://service.affilicon.net'
+        'service_url' => 'https://service.affilicon.net/api'
       ]
     ],
     'error_log' => [

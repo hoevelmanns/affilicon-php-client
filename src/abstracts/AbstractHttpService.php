@@ -31,12 +31,6 @@ abstract class AbstractHttpService implements HttpServiceInterface
   protected $headers;
   protected $environment;
 
-  use Singleton;
-
-  protected function __construct()
-  {
-  }
-
   /**
    * @param string $endpoint
    */

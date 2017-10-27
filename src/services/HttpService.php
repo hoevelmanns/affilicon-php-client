@@ -13,6 +13,7 @@ namespace Affilicon\ApiClient\Services;
 
 use Affilicon\ApiClient\Abstracts\AbstractHttpService;
 use Affilicon\ApiClient\Interfaces\HttpServiceInterface;
+use Affilicon\ApiClient\Traits\Singleton;
 
 class HttpService extends AbstractHttpService implements HttpServiceInterface
 {
@@ -21,11 +22,10 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   protected $endpoint;
   protected $response;
   protected $headers;
-  public static $instance;
 
-  protected function __construct() {
-    parent::__construct();
-  }
+  protected static $instance;
+
+  use Singleton;
 
   public function init($endpoint)
   {
