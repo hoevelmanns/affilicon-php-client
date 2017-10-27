@@ -6,6 +6,8 @@
             "email": "marcelle.hoevelmanns@gmail.com"
         }
     ],
+    "license": "(LGPL-2.1 or GPL-3.0+)",
+    "version": "0.1",
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
