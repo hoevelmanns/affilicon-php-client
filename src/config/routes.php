@@ -8,7 +8,7 @@
  * @date        24.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Configurations;
 
 if (!defined('API')) {
   define('API', [

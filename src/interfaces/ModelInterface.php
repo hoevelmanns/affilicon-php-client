@@ -6,7 +6,7 @@
  * Time: 14:17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Interfaces;
 
 
 interface ModelInterface

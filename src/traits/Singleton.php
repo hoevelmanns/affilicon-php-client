@@ -8,7 +8,7 @@
  * @date        27.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Traits;
 
 
 use ReflectionClass;

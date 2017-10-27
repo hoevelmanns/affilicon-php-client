@@ -8,7 +8,7 @@
  * @date        26.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Configurations;
 
 if (!defined('CONFIG')) {
   define('CONFIG', [

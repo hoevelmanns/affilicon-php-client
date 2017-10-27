@@ -8,7 +8,9 @@
  * @date        24.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Interfaces;
+
+use Affilicon\ApiClient\Exceptions\AuthenticationFailed;
 
 /**
  * Interface ClientInterface

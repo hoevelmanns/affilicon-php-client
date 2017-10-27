@@ -8,8 +8,12 @@
  * @date        22.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Abstracts;
 
+
+use Affilicon\ApiClient\Client;
+use Affilicon\ApiClient\Interfaces\ModelInterface;
+use Affilicon\ApiClient\Services\HttpService;
 
 abstract class AbstractModel implements ModelInterface
 {

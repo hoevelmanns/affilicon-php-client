@@ -8,7 +8,12 @@
  * @date        02.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Models;
+
+use Affilicon\ApiClient\Abstracts\AbstractModel;
+use Affilicon\ApiClient\Client;
+use Affilicon\ApiClient\Exceptions\CartCreationFailed;
+use Affilicon\ApiClient\Services\HttpService;
 
 /**
  * Class Cart
@@ -26,7 +31,7 @@ class Cart extends AbstractModel
   protected $resource;
   /** @var  HttpService */
   protected $HttpService;
-  /** @var  AbstractClient */
+  /** @var  Client */
   protected $Client;
 
   public function __construct()

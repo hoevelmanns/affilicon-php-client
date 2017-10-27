@@ -14,6 +14,15 @@
     },
 
     "autoload": {
-        "psr-4": {"Affilicon\\": "src/"}
+        "psr-4": {
+          "Affilicon\\ApiClient\\Traits\\": "src/traits/",
+          "Affilicon\\ApiClient\\Services\\": "src/services/",
+          "Affilicon\\ApiClient\\Abstracts\\": "src/abstracts/",
+          "Affilicon\\ApiClient\\Interfaces\\": "src/interfaces/",
+          "Affilicon\\ApiClient\\Exceptions\\": "src/exceptions/",
+          "Affilicon\\ApiClient\\Configurations\\": "src/config/",
+          "Affilicon\\ApiClient\\Models\\": "src/models/",
+          "Affilicon\\ApiClient\\": "src/"
+        }
     }
 }

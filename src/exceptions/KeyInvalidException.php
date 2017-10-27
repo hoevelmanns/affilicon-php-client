@@ -1,6 +1,6 @@
 <?php
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Exceptions;
 
 
 class KeyInvalidException extends ClientExceptions

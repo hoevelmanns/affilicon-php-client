@@ -1,6 +1,6 @@
 <?php
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Exceptions;
 
 
 class CartCreationFailed extends ClientExceptions

@@ -10,6 +10,9 @@
  */
 
 namespace Affilicon;
+use Affilicon\ApiClient\Abstracts\AbstractClient;
+use Affilicon\ApiClient\Interfaces\ClientInterface;
+use Affilicon\ApiClient\Services\HttpService;
 
 /**
  * Class ApiClient
@@ -27,11 +30,6 @@ class Client extends AbstractClient implements ClientInterface
 
   /** @var  HttpService */
   protected $HttpService;
-
-  protected function __construct()
-  {
-    parent::__construct();
-  }
 
   public function init()
   {

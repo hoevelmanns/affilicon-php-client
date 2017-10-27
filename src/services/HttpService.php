@@ -8,8 +8,11 @@
  * @date        25.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Services;
 
+
+use Affilicon\ApiClient\Abstracts\AbstractHttpService;
+use Affilicon\ApiClient\Interfaces\HttpServiceInterface;
 
 class HttpService extends AbstractHttpService implements HttpServiceInterface
 {

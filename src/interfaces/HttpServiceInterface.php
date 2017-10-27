@@ -8,7 +8,7 @@
  * @date        25.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Interfaces;
 
 interface HttpServiceInterface
 {

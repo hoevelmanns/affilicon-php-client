@@ -8,7 +8,10 @@
  * @date        10.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Models;
+
+use Affilicon\ApiClient\Exceptions\KeyHasUseException;
+use Affilicon\ApiClient\Exceptions\KeyInvalidException;
 
 class Collection implements \Iterator
 {

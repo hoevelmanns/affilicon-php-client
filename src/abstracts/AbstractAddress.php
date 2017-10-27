@@ -8,7 +8,9 @@
  * @date        10.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Abstracts;
+
+use Affilicon\ApiClient\Interfaces\AddressInterface;
 
 /**
  * Class Address

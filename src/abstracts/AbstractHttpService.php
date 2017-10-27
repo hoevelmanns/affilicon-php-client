@@ -8,9 +8,12 @@
  * @date        25.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Abstracts;
 
 
+use Affilicon\ApiClient\Interfaces\HttpServiceInterface;
+use Affilicon\ApiClient\Traits\Singleton;
+use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
 /**
@@ -28,8 +31,6 @@ abstract class AbstractHttpService implements HttpServiceInterface
   protected $headers;
   protected $environment;
 
-  public static $instance;
-
   use Singleton;
 
   protected function __construct()
@@ -42,7 +43,7 @@ abstract class AbstractHttpService implements HttpServiceInterface
   public function init($endpoint)
   {
     $this->endpoint = $endpoint;
-    $this->httpClient = new \GuzzleHttp\Client();
+    $this->httpClient = new Client();
   }
 
   /**

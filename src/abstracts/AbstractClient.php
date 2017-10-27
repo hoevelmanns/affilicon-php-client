@@ -9,9 +9,14 @@
  * @date        02.10.17
  */
 
-namespace Affilicon;
+namespace Affilicon\ApiClient\Abstracts;
 
-require __DIR__ . '../../vendor/autoload.php';
+use Affilicon\ApiClient\Exceptions\AuthenticationFailed;
+use Affilicon\ApiClient\Interfaces\ClientInterface;
+use Affilicon\ApiClient\Services\HttpService;
+use Affilicon\ApiClient\Traits\Singleton;
+
+require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Class ApiClient
@@ -33,10 +38,6 @@ class AbstractClient implements ClientInterface
 
   use Singleton;
 
-  protected function __construct()
-  {
-  }
-
   /**
    * Sets the environment
    * @param string $environment
@@ -57,8 +58,8 @@ class AbstractClient implements ClientInterface
 
   public function init()
   {
-    $this->setEnv($this->environment ?? 'production');
-    $this->HttpService::getInstance()->init($this->environment->endpoint);
+    $this->setEnv($this->environment ? $this->environment : 'production');
+    HttpService::getInstance()->init($this->environment->endpoint);
     $this->authenticate();
     return $this;
   }
@@ -93,7 +94,7 @@ class AbstractClient implements ClientInterface
 
     $this->HttpService
       ->setHeaders([
-        'Authorization' => 'Bearer ' . $data->token ?? '',
+        'Authorization' => 'Bearer ' . $data->token,
         'username' => $this->username,
         'password' => $this->password
       ]);
@@ -156,8 +157,5 @@ class AbstractClient implements ClientInterface
     return $this;
   }
 
-  private function __wakeup(){}
-
-  private function __clone(){}
 
 }
