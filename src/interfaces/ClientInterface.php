@@ -24,17 +24,7 @@ interface ClientInterface
    */
   public function init();
 
-  /**
-   * Gets the instance of the client
-   * @return $this
-   */
-  public static function getInstance();
 
-  /**
-   * Sets the username, only expected if you use the api as member or employee
-   * @param string $username
-   * @return $this
-   */
   public function setUserName($username);
 
   /**

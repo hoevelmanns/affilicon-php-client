@@ -54,6 +54,10 @@
 				<li><a href="class-Affilicon.ProductInterface.html">ProductInterface</a></li>
 			</ul>
 
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Affilicon.Singleton.html">Singleton</a></li>
+			</ul>
 
 			<h3>Exceptions</h3>
 			<ul>
@@ -135,7 +139,7 @@
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Affilicon.AbstractModel.html#14-37" title="Go to source code">abstracts/AbstractModel.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.AbstractModel.html#14-45" title="Go to source code">abstracts/AbstractModel.php</a>
 		<br>
 	</div>
 
@@ -155,7 +159,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Affilicon.AbstractModel.html#21-25" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-Affilicon.AbstractModel.html#24-28" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			
@@ -185,7 +189,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_findById">#</a>
-		<code><a href="source-class-Affilicon.AbstractModel.html#27-30" title="Go to source code">findById</a>( <span> <var>$id</var></span> )</code>
+		<code><a href="source-class-Affilicon.AbstractModel.html#30-33" title="Go to source code">findById</a>( <span> <var>$id</var></span> )</code>
 
 		<div class="description short">
 			<p>Find item by his id</p>
@@ -226,7 +230,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_find">#</a>
-		<code><a href="source-class-Affilicon.AbstractModel.html#32-35" title="Go to source code">find</a>( <span> <var>$params</var></span>, <span> <var>$with</var></span> )</code>
+		<code><a href="source-class-Affilicon.AbstractModel.html#35-38" title="Go to source code">find</a>( <span> <var>$params</var></span>, <span> <var>$with</var></span> )</code>
 
 		<div class="description short">
 			<p>Find items by different parameters</p>
@@ -254,6 +258,42 @@
 
 				<h4>Implementation of</h4>
 				<div class="list"><code><a href="class-Affilicon.ModelInterface.html#_find">Affilicon\ModelInterface::find()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetch" id="_fetch">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetch">#</a>
+		<code><a href="source-class-Affilicon.AbstractModel.html#40-43" title="Go to source code">fetch</a>( )</code>
+
+		<div class="description short">
+			<p>Gets all records</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets all records</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Affilicon.ModelInterface.html#_fetch">Affilicon\ModelInterface::fetch()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -300,11 +340,11 @@
 	<tr data-order="HttpService" id="$HttpService">
 		<td class="attributes"><code>
 			protected  
-			
+			<code><a href="class-Affilicon.HttpService.html">Affilicon\HttpService</a></code>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.AbstractModel.html#18" title="Go to source code"><var>$HttpService</var></a>
+				<a href="source-class-Affilicon.AbstractModel.html#18-19" title="Go to source code"><var>$HttpService</var></a>
 
 			<div class="description short">
 				
@@ -325,11 +365,11 @@
 	<tr data-order="Client" id="$Client">
 		<td class="attributes"><code>
 			protected  
-			
+			<code><a href="class-Affilicon.Client.html">Affilicon\Client</a></code>
 		</code></td>
 
 		<td class="name">
-				<a href="source-class-Affilicon.AbstractModel.html#19" title="Go to source code"><var>$Client</var></a>
+				<a href="source-class-Affilicon.AbstractModel.html#20-21" title="Go to source code"><var>$Client</var></a>
 
 			<div class="description short">
 				
@@ -343,6 +383,31 @@
 		<td class="value">
 			<div>
 				<a href="#$Client" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="rows" id="$rows">
+		<td class="attributes"><code>
+			protected  
+			
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-Affilicon.AbstractModel.html#22" title="Go to source code"><var>$rows</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$rows" class="anchor">#</a>
 				<code></code>
 			</div>
 		</td>

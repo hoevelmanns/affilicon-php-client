@@ -54,6 +54,10 @@
 				<li><a href="class-Affilicon.ProductInterface.html">ProductInterface</a></li>
 			</ul>
 
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Affilicon.Singleton.html">Singleton</a></li>
+			</ul>
 
 			<h3>Exceptions</h3>
 			<ul>
@@ -134,7 +138,7 @@
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
 		<b>Package:</b> Affilicon<br>
 
-			<b>Located at</b> <a href="source-class-Affilicon.Cart.html#14-127" title="Go to source code">models/Cart.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.Cart.html#14-122" title="Go to source code">models/Cart.php</a>
 		<br>
 	</div>
 
@@ -212,36 +216,6 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="lineItems" id="_lineItems">
-
-		<td class="attributes"><code>
-			 public static
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_lineItems">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#64-67" title="Go to source code">lineItems</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
 	<tr data-order="getStatus" id="_getStatus">
 
 		<td class="attributes"><code>
@@ -254,7 +228,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getStatus">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#69-75" title="Go to source code">getStatus</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#64-70" title="Go to source code">getStatus</a>( )</code>
 
 		<div class="description short">
 			
@@ -288,7 +262,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getId">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#77-83" title="Go to source code">getId</a>( )</code>
+		<code><a href="source-class-Affilicon.Cart.html#72-78" title="Go to source code">getId</a>( )</code>
 
 		<div class="description short">
 			
@@ -322,7 +296,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addLineItem">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#85-102" title="Go to source code">addLineItem</a>( <span><code><a href="class-Affilicon.LineItem.html">Affilicon\LineItem</a></code> <var>$item</var></span> )</code>
+		<code><a href="source-class-Affilicon.Cart.html#80-97" title="Go to source code">addLineItem</a>( <span><code><a href="class-Affilicon.LineItem.html">Affilicon\LineItem</a></code> <var>$item</var></span> )</code>
 
 		<div class="description short">
 			
@@ -361,7 +335,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_addLineItems">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#104-116" title="Go to source code">addLineItems</a>( <span><code><a href="class-Affilicon.Collection.html">Affilicon\Collection</a></code> <var>$items</var></span> )</code>
+		<code><a href="source-class-Affilicon.Cart.html#99-111" title="Go to source code">addLineItems</a>( <span><code><a href="class-Affilicon.Collection.html">Affilicon\Collection</a></code> <var>$items</var></span> )</code>
 
 		<div class="description short">
 			
@@ -384,7 +358,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getItems" id="_getItems">
+	<tr data-order="getLineItems" id="_getLineItems">
 
 		<td class="attributes"><code>
 			 public 
@@ -395,8 +369,8 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getItems">#</a>
-		<code><a href="source-class-Affilicon.Cart.html#118-125" title="Go to source code">getItems</a>( )</code>
+		<a class="anchor" href="#_getLineItems">#</a>
+		<code><a href="source-class-Affilicon.Cart.html#113-120" title="Go to source code">getLineItems</a>( )</code>
 
 		<div class="description short">
 			<p>get the cart items</p>
@@ -424,6 +398,7 @@
 	<caption>Methods inherited from <a href="class-Affilicon.AbstractModel.html#methods">Affilicon\AbstractModel</a></caption>
 	<tr>
 		<td><code>
+			<a href="class-Affilicon.AbstractModel.html#_fetch">fetch()</a>, 
 			<a href="class-Affilicon.AbstractModel.html#_find">find()</a>, 
 			<a href="class-Affilicon.AbstractModel.html#_findById">findById()</a>
 		</code></td>
@@ -444,7 +419,7 @@
 	<caption>Properties summary</caption>
 	<tr data-order="lineItems" id="$lineItems">
 		<td class="attributes"><code>
-			public static 
+			protected  
 			<code><a href="class-Affilicon.Collection.html">Affilicon\Collection</a></code>
 		</code></td>
 
@@ -544,6 +519,14 @@
 	</tr>
 	</table>
 
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-Affilicon.AbstractModel.html#properties">Affilicon\AbstractModel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Affilicon.AbstractModel.html#$rows"><var>$rows</var></a>
+		</code></td>
+	</tr>
+	</table>
 
 
 	<table class="summary properties" id="magicProperties">

@@ -24,20 +24,9 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
     parent::__construct();
   }
 
-  public static function getInstance()
+  public function init($endpoint)
   {
-    return parent::getInstance();
-  }
-
-  public function init()
-  {
-    parent::init();
-  }
-
-  public function post($route, $body = [])
-  {
-    parent::post($route, $body);
-    return $this;
+    parent::init($endpoint);
   }
 
   public function get($route)

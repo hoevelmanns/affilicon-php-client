@@ -30,20 +30,13 @@ abstract class AbstractHttpService implements HttpServiceInterface
 
   public static $instance;
 
+  use Singleton;
+
   /**
    * AbstractRequest constructor.
    */
   protected function __construct()
   {
-    self::$instance = $this;
-  }
-
-  public static function getInstance()
-  {
-    if (self::$instance === null) {
-      self::$instance = new HttpService();
-    }
-    return self::$instance;
   }
 
   /**

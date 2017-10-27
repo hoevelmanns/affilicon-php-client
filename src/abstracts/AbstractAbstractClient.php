@@ -27,6 +27,9 @@ class AbstractClient implements ClientInterface
   public $clientId;
   public $countryId;
   public $userLanguage;
+  
+  use Singleton;
+
   /** @var  HttpService */
   protected $HttpService;
 
@@ -34,15 +37,6 @@ class AbstractClient implements ClientInterface
 
   protected function __construct()
   {
-    self::$instance = $this;
-  }
-
-  public static function getInstance()
-  {
-    if (self::$instance === null) {
-      self::$instance = new self();
-    }
-    return self::$instance;
   }
 
   /**
@@ -167,6 +161,5 @@ class AbstractClient implements ClientInterface
   private function __wakeup(){}
 
   private function __clone(){}
-
 
 }

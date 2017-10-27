@@ -54,6 +54,10 @@
 				<li><a href="class-Affilicon.ProductInterface.html">ProductInterface</a></li>
 			</ul>
 
+			<h3>Traits</h3>
+			<ul>
+				<li><a href="class-Affilicon.Singleton.html">Singleton</a></li>
+			</ul>
 
 			<h3>Exceptions</h3>
 			<ul>
@@ -116,6 +120,8 @@
 		<dd style="padding-left:30px">
 			<img src="resources/inherit.png" alt="Extended by">
 <b><span>Affilicon\LineItem</span></b>			
+			 implements 
+				<a href="class-Affilicon.ModelInterface.html"><span>Affilicon\ModelInterface</span></a>
 			
 			
 		</dd>
@@ -134,7 +140,7 @@
 		<b>Namespace:</b> <a href="namespace-Affilicon.html">Affilicon</a><br>
 		<b>Package:</b> Affilicon<br>
 
-			<b>Located at</b> <a href="source-class-Affilicon.LineItem.html#15-89" title="Go to source code">models/LineItem.php</a>
+			<b>Located at</b> <a href="source-class-Affilicon.LineItem.html#15-97" title="Go to source code">models/LineItem.php</a>
 		<br>
 	</div>
 
@@ -154,7 +160,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#31-34" title="Go to source code">__construct</a>( )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#31-35" title="Go to source code">__construct</a>( )</code>
 
 		<div class="description short">
 			
@@ -186,7 +192,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getQuantity">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#36-42" title="Go to source code">getQuantity</a>( )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#37-43" title="Go to source code">getQuantity</a>( )</code>
 
 		<div class="description short">
 			
@@ -220,7 +226,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setQuantity">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#44-52" title="Go to source code">setQuantity</a>( <span> <var>$quantity</var></span> )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#45-53" title="Go to source code">setQuantity</a>( <span> <var>$quantity</var></span> )</code>
 
 		<div class="description short">
 			
@@ -259,7 +265,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setId">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#54-62" title="Go to source code">setId</a>( <span> <var>$id</var></span> )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#55-63" title="Go to source code">setId</a>( <span> <var>$id</var></span> )</code>
 
 		<div class="description short">
 			
@@ -298,7 +304,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getId">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#64-70" title="Go to source code">getId</a>( )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#65-71" title="Go to source code">getId</a>( )</code>
 
 		<div class="description short">
 			
@@ -332,7 +338,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_setApiId">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#72-80" title="Go to source code">setApiId</a>( <span> <var>$apiId</var></span> )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#73-81" title="Go to source code">setApiId</a>( <span> <var>$apiId</var></span> )</code>
 
 		<div class="description short">
 			
@@ -371,7 +377,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getApiId">#</a>
-		<code><a href="source-class-Affilicon.LineItem.html#82-88" title="Go to source code">getApiId</a>( )</code>
+		<code><a href="source-class-Affilicon.LineItem.html#83-89" title="Go to source code">getApiId</a>( )</code>
 
 		<div class="description short">
 			
@@ -390,6 +396,44 @@
 
 
 
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fetch" id="_fetch">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fetch">#</a>
+		<code><a href="source-class-Affilicon.LineItem.html#91-94" title="Go to source code">fetch</a>( )</code>
+
+		<div class="description short">
+			<p>Gets all records</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets all records</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-Affilicon.AbstractModel.html#_fetch">Affilicon\AbstractModel::fetch()</a></code></div>
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Affilicon.ModelInterface.html#_fetch">Affilicon\ModelInterface::fetch()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -449,7 +493,8 @@
 	<tr>
 		<td><code>
 			<a href="class-Affilicon.AbstractModel.html#$Client"><var>$Client</var></a>, 
-			<a href="class-Affilicon.AbstractModel.html#$HttpService"><var>$HttpService</var></a>
+			<a href="class-Affilicon.AbstractModel.html#$HttpService"><var>$HttpService</var></a>, 
+			<a href="class-Affilicon.AbstractModel.html#$rows"><var>$rows</var></a>
 		</code></td>
 	</tr>
 	</table>
