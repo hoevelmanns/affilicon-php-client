@@ -18,7 +18,7 @@ use Affilicon\ApiClient\Traits\Singleton;
 class HttpService extends AbstractHttpService implements HttpServiceInterface
 {
 
-  protected $httpClient;
+  protected $HttpClient;
   protected $endpoint;
   protected $response;
   protected $headers;
