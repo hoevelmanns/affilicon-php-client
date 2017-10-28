@@ -11,6 +11,6 @@ class CartCreationFailed extends ClientExceptions
    */
   public function __construct($message)
   {
-    parent::__construct("Invalid key" . $message, 1);
+    parent::__construct("Cart creation failed: " . $message, 1);
   }
 }
