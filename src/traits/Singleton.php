@@ -8,7 +8,7 @@
  * @date        27.10.17
  */
 
-namespace Artsolution\AffiliconApiClient\Traits;
+namespace AffiliconApiClient\Traits;
 
 
 use ReflectionClass;

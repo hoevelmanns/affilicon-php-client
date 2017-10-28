@@ -7,7 +7,7 @@
  * Time: 11:12
  */
 
-namespace Artsolution\AffiliconApiClient\Interfaces;
+namespace AffiliconApiClient\Interfaces;
 
 interface ProductInterface
 {

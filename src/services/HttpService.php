@@ -8,12 +8,12 @@
  * @date        25.10.17
  */
 
-namespace Artsolution\AffiliconApiClient\Services;
+namespace AffiliconApiClient\Services;
 
 
-use Artsolution\AffiliconApiClient\Abstracts\AbstractHttpService;
-use Artsolution\AffiliconApiClient\Interfaces\HttpServiceInterface;
-use Artsolution\AffiliconApiClient\Traits\Singleton;
+use AffiliconApiClient\Abstracts\AbstractHttpService;
+use AffiliconApiClient\Interfaces\HttpServiceInterface;
+use AffiliconApiClient\Traits\Singleton;
 
 class HttpService extends AbstractHttpService implements HttpServiceInterface
 {

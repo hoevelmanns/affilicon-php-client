@@ -9,10 +9,10 @@
  * @date        27.10.17
  */
 
-namespace Artsolution\AffiliconApiClient\Traits;
+namespace AffiliconApiClient\Traits;
 
 
-use Artsolution\AffiliconApiClient\Exceptions\ConfigurationInvalid;
+use AffiliconApiClient\Exceptions\ConfigurationInvalid;
 
 trait Environment
 {

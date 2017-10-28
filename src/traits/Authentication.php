@@ -8,11 +8,11 @@
  * @date        28.10.17
  */
 
-namespace Artsolution\AffiliconApiClient\Traits;
+namespace AffiliconApiClient\Traits;
 
 
-use Artsolution\AffiliconApiClient\Exceptions\AuthenticationFailed;
-use Artsolution\AffiliconApiClient\Services\HttpService;
+use AffiliconApiClient\Exceptions\AuthenticationFailed;
+use AffiliconApiClient\Services\HttpService;
 
 trait Authentication
 {

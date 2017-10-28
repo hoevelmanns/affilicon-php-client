@@ -1,6 +1,6 @@
 <?php
 
-namespace Artsolution\AffiliconApiClient\Exceptions;
+namespace AffiliconApiClient\Exceptions;
 
 
 class CartCreationFailed extends ClientExceptions
