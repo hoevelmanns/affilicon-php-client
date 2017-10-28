@@ -21,14 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Artsolution\\AffiliconApiClient\\Traits\\": "src/traits/",
-      "Artsolution\\AffiliconApiClient\\Services\\": "src/services/",
-      "Artsolution\\AffiliconApiClient\\Abstracts\\": "src/abstracts/",
-      "Artsolution\\AffiliconApiClient\\Interfaces\\": "src/interfaces/",
-      "Artsolution\\AffiliconApiClient\\Exceptions\\": "src/exceptions/",
-      "Artsolution\\AffiliconApiClient\\Configurations\\": "src/config/",
-      "Artsolution\\AffiliconApiClient\\Models\\": "src/models/",
-      "Artsolution\\AffiliconApiClient\\": "src/"
+      "AffiliconApiClient\\": "src/"
     }
   }
 }

@@ -9,10 +9,10 @@
  * @date        05.10.17
  */
 
-namespace Artsolution\AffiliconApiClient\Models;
+namespace AffiliconApiClient\Models;
 
-use Artsolution\AffiliconApiClient\Abstracts\AbstractModel;
-use Artsolution\AffiliconApiClient\Interfaces\ModelInterface;
+use AffiliconApiClient\Abstracts\AbstractModel;
+use AffiliconApiClient\Interfaces\ModelInterface;
 
 /**
  * Class CartItem
