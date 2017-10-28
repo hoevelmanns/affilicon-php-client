@@ -17,8 +17,6 @@ use AffiliconApiClient\Traits\Authentication;
 use AffiliconApiClient\Traits\Environment;
 use AffiliconApiClient\Traits\Singleton;
 
-require __DIR__ . '/../vendor/autoload.php';
-
 /**
  * Class ApiClient
  * @package Affilicon
