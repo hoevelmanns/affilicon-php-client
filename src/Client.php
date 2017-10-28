@@ -17,6 +17,11 @@ use AffiliconApiClient\Traits\Authentication;
 use AffiliconApiClient\Traits\Environment;
 use AffiliconApiClient\Traits\Singleton;
 
+if (!is_array(CONFIG)) {
+  require "config/config.php";
+  require "config/routes.php";
+}
+
 /**
  * Class Client
  * @package AffiliconApiClient
