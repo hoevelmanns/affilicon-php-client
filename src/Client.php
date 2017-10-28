@@ -18,10 +18,9 @@ use AffiliconApiClient\Traits\Environment;
 use AffiliconApiClient\Traits\Singleton;
 
 /**
- * Class ApiClient
- * @package Affilicon
+ * Class Client
+ * @package AffiliconApiClient
  */
-
 class Client implements ClientInterface
 {
   public $clientId;

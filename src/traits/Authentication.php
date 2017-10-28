@@ -14,6 +14,10 @@ namespace AffiliconApiClient\Traits;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
 use AffiliconApiClient\Services\HttpService;
 
+/**
+ * Trait Authentication
+ * @package AffiliconApiClient\Traits
+ */
 trait Authentication
 {
   protected $token;

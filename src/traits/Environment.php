@@ -14,6 +14,10 @@ namespace AffiliconApiClient\Traits;
 
 use AffiliconApiClient\Exceptions\ConfigurationInvalid;
 
+/**
+ * Trait Environment
+ * @package AffiliconApiClient\Traits
+ */
 trait Environment
 {
   protected $environment;

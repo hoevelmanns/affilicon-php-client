@@ -17,8 +17,7 @@ use GuzzleHttp\Psr7\Response;
 
 /**
  * Class AbstractHttpService
- * @package Affilicon
- *
+ * @package AffiliconApiClient\Abstracts
  */
 abstract class AbstractHttpService implements HttpServiceInterface
 {

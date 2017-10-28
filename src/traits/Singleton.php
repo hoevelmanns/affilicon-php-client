@@ -13,6 +13,10 @@ namespace AffiliconApiClient\Traits;
 
 use ReflectionClass;
 
+/**
+ * Trait Singleton
+ * @package AffiliconApiClient\Traits
+ */
 trait Singleton {
 
   protected static $instance;
