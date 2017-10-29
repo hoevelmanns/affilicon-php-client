@@ -12,6 +12,7 @@
 namespace AffiliconApiClient\Traits;
 
 
+use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\ConfigurationInvalid;
 
 /**

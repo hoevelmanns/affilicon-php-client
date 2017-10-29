@@ -8,10 +8,11 @@
  * @date        29.10.17
  */
 
-namespace AffiliconApiClient\Traits;
+namespace AffiliconApiClient\Configurations;
 
 
 use AffiliconApiClient\Exceptions\ConfigurationInvalid;
+use AffiliconApiClient\Traits\Singleton;
 
 class Config
 {
@@ -22,8 +23,8 @@ class Config
   public function __construct()
   {
     try {
-      $global = include __DIR__ . "/../config/config.php";
-      $routes = include __DIR__ . "/../config/routes.php";
+      $global = include "config.php";
+      $routes = include "routes.php";
     } catch (\Exception $e) {
       throw new ConfigurationInvalid('configuration is missing or invalid');
     }

@@ -14,7 +14,6 @@ namespace AffiliconApiClient;
 use AffiliconApiClient\Interfaces\ClientInterface;
 use AffiliconApiClient\Services\HttpService;
 use AffiliconApiClient\Traits\Authentication;
-use AffiliconApiClient\Traits\Config;
 use AffiliconApiClient\Traits\Environment;
 use AffiliconApiClient\Traits\Singleton;
 

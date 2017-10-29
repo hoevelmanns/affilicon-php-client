@@ -11,6 +11,7 @@
 namespace AffiliconApiClient\Traits;
 
 
+use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
 use AffiliconApiClient\Services\HttpService;
 
