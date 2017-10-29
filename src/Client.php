@@ -14,13 +14,9 @@ namespace AffiliconApiClient;
 use AffiliconApiClient\Interfaces\ClientInterface;
 use AffiliconApiClient\Services\HttpService;
 use AffiliconApiClient\Traits\Authentication;
+use AffiliconApiClient\Traits\Config;
 use AffiliconApiClient\Traits\Environment;
 use AffiliconApiClient\Traits\Singleton;
-
-if (!is_array(CONFIG)) {
-  require "config/config.php";
-  require "config/routes.php";
-}
 
 /**
  * Class Client
@@ -43,7 +39,7 @@ class Client implements ClientInterface
   {
     $this->setEnvironment();
     $this->HttpService = HttpService::getInstance();
-    $this->HttpService->init($this->getEnvironmentConfigByKey('service_url'));
+    $this->HttpService->init($this->environment->service_url);
     $this->authenticate();
     return $this;
   }

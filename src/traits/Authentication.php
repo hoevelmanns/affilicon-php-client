@@ -41,9 +41,10 @@ trait Authentication
 
     try {
       $authType = $member ? 'member' : 'anonymous';
+      $authRoute = Config::get("routes.auth.$authType");
 
       $data = $this->HttpService
-        ->post(API['routes']['auth'][$authType])
+        ->post($authRoute)
         ->getData();
 
     } catch (\Exception $e) {

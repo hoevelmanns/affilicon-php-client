@@ -14,6 +14,7 @@ use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Client;
 use AffiliconApiClient\Exceptions\CartCreationFailed;
 use AffiliconApiClient\Services\HttpService;
+use AffiliconApiClient\Traits\Config;
 
 /**
  * Class Cart
@@ -39,7 +40,7 @@ class Cart extends AbstractModel
   {
     parent::__construct();
     $this->lineItems = new Collection();
-    $this->resource = API['routes']['carts'];
+    $this->resource = Config::get("routes.carts");
   }
 
   /**
@@ -90,7 +91,7 @@ class Cart extends AbstractModel
   public function addLineItem(LineItem $item)
   {
     $lineItem = $this->HttpService
-      ->post(API['routes']['cartItemsProducts'], [
+      ->post(Config::get("routes.cartItemsProducts"), [
         'cart_id' => $this->getId(),
         'product_id' => $item->getId(),
         'count' => $item->getQuantity()

@@ -10,16 +10,28 @@
 
 namespace AffiliconApiClient\Configurations;
 
-if (!defined('CONFIG')) {
-  define('CONFIG', [
-    'environment' => [
-      'production' => [
-        'service_url' => 'https://service.affilicon.net/api'
-      ]
-    ],
-    'error_log' => [
-    'path' => __DIR__ . '/logs/error.log'
+return [
+
+  /*
+   * ---------------------------------------------------------------------
+   * Environment Configuration
+   * ---------------------------------------------------------------------
+   */
+
+  'environment' => [
+    /*
+     * Production
+     */
+    'production' => [
+      'service_url' => 'https://service.affilicon.net/api'
     ]
-  ]);
-}
+
+  ],
+
+
+
+  'error_log' => [
+    'path' => __DIR__ . '/logs/error.log'
+  ]
+];
 

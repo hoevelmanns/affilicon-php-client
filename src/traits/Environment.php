@@ -33,41 +33,14 @@ trait Environment
     if (!$this->environment) {
       $environmentName = $name ? $name: 'production';
 
-      if (!CONFIG || !CONFIG['environment'] || !CONFIG['environment'][$environmentName]) {
+      $environment = Config::get("environment.$environmentName");
+      if (!$environment) {
         throw new ConfigurationInvalid("Configuration for given environment not found");
       }
 
-      $this->environment = (object) array_merge(
-        CONFIG['environment'][$environmentName], ['name' => $environmentName]
-      );
+      $this->environment = (object) $environment;
     }
 
     return $this;
-  }
-
-  /**
-   * Gets the environment configuration
-   * @return object
-   */
-  public function getEnvironmentConfig()
-  {
-    return $this->environment;
-  }
-
-  /**
-   * Gets Configuration by given key
-   * @param $key
-   * @return object
-   * @throws ConfigurationInvalid
-   */
-  public function getEnvironmentConfigByKey($key)
-  {
-    $config = $this->environment->{$key};
-
-    if (!$config) {
-      throw new ConfigurationInvalid("Missing Key \"$key\" in environment configuration");
-    }
-
-    return $this->environment->{$key};
   }
 }

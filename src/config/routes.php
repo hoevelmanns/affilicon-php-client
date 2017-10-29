@@ -10,17 +10,18 @@
 
 namespace AffiliconApiClient\Configurations;
 
-if (!defined('API')) {
-  define('API', [
-    'routes' => [
-      'auth' => [
-        'anonymous' => '/auth/anonymous/token',
-        'member' => '/auth/member/token',
-      ],
-      'products' => '/products',
-      'refreshToken' => '/auth/refresh',
-      'carts' => '/carts',
-      'cartItemsProducts' => '/cart-items/products'
-    ]
-  ]);
-}
+return $routes = [
+
+  'routes' => [
+
+    'auth' => [
+      'anonymous' => '/auth/anonymous/token',
+      'member' => '/auth/member/token',
+    ],
+
+    'products' => '/products',
+    'refreshToken' => '/auth/refresh',
+    'carts' => '/carts',
+    'cartItemsProducts' => '/cart-items/products'
+  ]
+];

@@ -16,7 +16,7 @@ interface HttpServiceInterface
   /**
    * @param string $route
    * @param array $body
-   * @return Response
+   * @return $this
    */
   public function post($route, $body = []);
 
