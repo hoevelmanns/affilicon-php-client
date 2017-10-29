@@ -40,25 +40,6 @@ class Config
   {
     self::getInstance();
 
-    $array = self::$config;
-    foreach (explode('.', $key) as $segment) {
-      if (static::accessible($array) && static::exists($segment, $array)) {
-        $array = $array[$segment];
-      } else {
-        return null;
-      }
-    }
-
-    return $array;
+    return array_get(self::$config, $key);
   }
-
-  public static function accessible($value) {
-    return is_array($value);
-  }
-
-  public static function exists($key, $array)
-  {
-    return array_key_exists($key, $array);
-  }
-
 }

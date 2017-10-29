@@ -17,9 +17,13 @@
     "guzzlehttp/guzzle": "^6.3"
   },
   "require-dev": {
-    "apigen/apigen": "^4.1"
+    "apigen/apigen": "^4.1",
+    "phpunit/phpunit": "^6.4"
   },
   "autoload": {
+    "files": [
+      "src/helpers/helpers.php"
+    ],
     "psr-4": {
       "AffiliconApiClient\\Traits\\": "src/traits/",
       "AffiliconApiClient\\Services\\": "src/services/",
