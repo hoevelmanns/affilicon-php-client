@@ -28,10 +28,9 @@ return [
 
   ],
 
-
-
   'error_log' => [
     'path' => __DIR__ . '/logs/error.log'
   ]
+
 ];
 

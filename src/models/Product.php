@@ -12,6 +12,7 @@ namespace AffiliconApiClient\Models;
 
 
 use AffiliconApiClient\Abstracts\AbstractModel;
+use AffiliconApiClient\Configurations\Config;
 
 class Product extends AbstractModel
 {
@@ -21,7 +22,7 @@ class Product extends AbstractModel
   public function __construct()
   {
     parent::__construct();
-    $this->resource = API['routes']['products'];
+    $this->resource = Config::getInstance('routes.products');
   }
 
 }

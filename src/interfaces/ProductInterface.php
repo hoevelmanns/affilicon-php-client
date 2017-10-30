@@ -9,6 +9,8 @@
 
 namespace AffiliconApiClient\Interfaces;
 
+use AffiliconApiClient\Models\Collection;
+
 interface ProductInterface
 {
   /**

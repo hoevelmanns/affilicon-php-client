@@ -35,6 +35,7 @@ trait Environment
       $environmentName = $name ? $name: 'production';
 
       $environment = Config::get("environment.$environmentName");
+
       if (!$environment) {
         throw new ConfigurationInvalid("Configuration for given environment not found");
       }

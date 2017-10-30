@@ -12,6 +12,7 @@
 namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
+use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
 
 /**
@@ -34,7 +35,7 @@ class LineItem extends AbstractModel implements ModelInterface
   public function __construct()
   {
     parent::__construct();
-    $this->resource = API['routes']['cartItemsProducts'];
+    $this->resource = Config::getInstance('routes.cartItemsProducts');
   }
 
   /**

@@ -44,24 +44,23 @@ trait Authentication
       $authType = $member ? 'member' : 'anonymous';
       $authRoute = Config::get("routes.auth.$authType");
 
-      $data = $this->HttpService
-        ->post($authRoute)
-        ->getData();
+      $data = $this->HttpService::post($authRoute)->getData();
 
     } catch (\Exception $e) {
       throw new AuthenticationFailed($e->getMessage(), $e->getCode());
     }
 
     if (!$data || !$data->token) {
+
       throw new AuthenticationFailed('token invalid', 403);
+
     }
 
-    $this->HttpService
-      ->setHeaders([
-        'Authorization' => 'Bearer ' . $data->token,
-        'username' => $this->username,
-        'password' => $this->password
-      ]);
+    $this->HttpService->setHeaders([
+      'Authorization' => 'Bearer ' . $data->token,
+      'username' => $this->username,
+      'password' => $this->password
+    ]);
 
     return $this->token = $data->token;
   }

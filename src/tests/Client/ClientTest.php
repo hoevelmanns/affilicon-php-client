@@ -9,18 +9,20 @@
  * @date        29.10.17
  */
 
+namespace AffiliconApiClient\Tests;
+
 use AffiliconApiClient\Client;
 use PHPUnit\Framework\TestCase;
 
 final class ClientTest extends TestCase
 {
-  public function testCanBeInitializeClient()
+  public function testClient()
   {
     $client = new Client();
+    $client->init();
 
-    $this->assertInstanceOf(
-      $client::getInstance(),
-      $client->init()
-    );
+    $this->assertClassHasStaticAttribute('instance', Client::class);
+    $this->assertClassHasAttribute('environment', Client::class);
+
   }
 }

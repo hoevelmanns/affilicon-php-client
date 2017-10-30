@@ -52,9 +52,12 @@ class Cart extends AbstractModel
   public function create()
   {
     try {
-      $cart = $this->HttpService
-        ->post($this->resource, ['vendor' => $this->Client->getClientId()])
-        ->getData();
+
+      $this->HttpService::post($this->resource, [
+          'vendor' => $this->Client->getClientId()
+      ]);
+
+      $cart = $this->HttpService->getData();
 
     } catch (\Exception $e) {
 
@@ -90,12 +93,13 @@ class Cart extends AbstractModel
    */
   public function addLineItem(LineItem $item)
   {
-    $lineItem = $this->HttpService
-      ->post(Config::get("routes.cartItemsProducts"), [
-        'cart_id' => $this->getId(),
-        'product_id' => $item->getId(),
-        'count' => $item->getQuantity()
-    ])->getData();
+    $this->HttpService::post(Config::get("routes.cartItemsProducts"), [
+      'cart_id' => $this->getId(),
+      'product_id' => $item->getId(),
+      'count' => $item->getQuantity()
+    ]);
+
+    $lineItem = $this->HttpService->getData();
 
     $item->setApiId($lineItem->data->id);
     $this->lineItems->addItem($item);

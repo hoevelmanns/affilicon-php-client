@@ -12,6 +12,12 @@ namespace AffiliconApiClient\Configurations;
 
 return $routes = [
 
+  /*
+   * ---------------------------------------------------------------------
+   * Routes Configurations
+   * ---------------------------------------------------------------------
+   */
+
   'routes' => [
 
     'auth' => [
@@ -20,8 +26,11 @@ return $routes = [
     ],
 
     'products' => '/products',
+
     'refreshToken' => '/auth/refresh',
+
     'carts' => '/carts',
+
     'cartItemsProducts' => '/cart-items/products'
   ]
 ];

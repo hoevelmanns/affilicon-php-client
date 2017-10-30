@@ -23,10 +23,14 @@ class Config
   public function __construct()
   {
     try {
+
       $global = include "config.php";
       $routes = include "routes.php";
+
     } catch (\Exception $e) {
+
       throw new ConfigurationInvalid('configuration is missing or invalid');
+
     }
 
     self::$config = array_merge($global, $routes);
