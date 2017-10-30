@@ -19,9 +19,8 @@ return [
    */
 
   'environment' => [
-    /*
-     * Production
-     */
+
+    // Production
     'production' => [
       'service_url' => 'https://service.affilicon.net/api'
     ]

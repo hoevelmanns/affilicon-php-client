@@ -1,5 +1,5 @@
 {
-  "name": "affilicon-api-client",
+  "name": "artsolution/affilicon-api-client",
   "description": "The Affilicon PHP API Client",
   "keywords": ["api", "affilicon", "art solution", "client"],
   "type": "library",

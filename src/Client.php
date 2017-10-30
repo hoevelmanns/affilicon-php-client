@@ -34,6 +34,10 @@ class Client implements ClientInterface
   use Environment;
   use Authentication;
 
+  /**
+   * Initializes the Client
+   * @return $this
+   */
   public function init()
   {
     $this->setEnvironment();
@@ -42,33 +46,60 @@ class Client implements ClientInterface
     return $this;
   }
 
+  /**
+   * Sets the Client ID, previously called Vendor ID
+   * @param string $id
+   * @return $this
+   */
   public function setClientId($id)
   {
     $this->clientId = $id;
     return $this;
   }
 
+  /**
+   * Gets the Client ID, previously called Vendor ID
+   * @return string
+   */
   public function getClientId()
   {
     return $this->clientId;
   }
 
+  /**
+   * Gets the specified country code
+   * @return string
+   */
   public function getCountryId()
   {
     return $this->countryId;
   }
 
+  /**
+   * Sets the country code, eg. "en-US"
+   * @param $countryId
+   * @return $this
+   */
   public function setCountryId($countryId)
   {
     $this->countryId = $countryId;
     return $this;
   }
 
+  /**
+   * Gets the specified user language
+   * @return $this
+   */
   public function getUserLanguage()
   {
     return $this->userLanguage;
   }
 
+  /**
+   * Sets the user language, eg. "en"
+   * @param string $userLanguage
+   * @return $this
+   */
   public function setUserLanguage($userLanguage)
   {
     $this->userLanguage = $userLanguage;
