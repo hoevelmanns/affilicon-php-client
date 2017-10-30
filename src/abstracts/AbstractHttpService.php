@@ -35,7 +35,7 @@ abstract class AbstractHttpService implements HttpServiceInterface
   {
     $responseBody = json_decode(static::$response->getBody(), true);
 
-    if (isset($responseBody['data'])) {
+    if (array_exists('data', $responseBody)) {
       $responseBody['data'] = (object) $responseBody['data'];
     }
 
