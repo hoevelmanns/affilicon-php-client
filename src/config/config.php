@@ -23,6 +23,16 @@ return [
     // Production
     'production' => [
       'service_url' => 'https://service.affilicon.net/api'
+    ],
+
+    // Development
+    'development' => [
+      'service_url' => 'https://service.affilicon.app/api'
+    ],
+
+    // Staging
+    'staging' => [
+      'service_url' => 'https://service-q.affilicon.net/api'
     ]
 
   ],
