@@ -25,14 +25,13 @@ trait Environment
 
   /**
    * Sets the environment, default 'production'
-   * @param string $name
+   * @param string $environmentName
    * @return $this
    * @throws ConfigurationInvalid
    */
-  public function setEnvironment($name = null)
+  public function setEnvironment($environmentName = 'production')
   {
     if (!$this->environment) {
-      $environmentName = $name ? $name: 'production';
 
       $environment = Config::get("environment.$environmentName");
 
