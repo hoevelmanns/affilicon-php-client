@@ -56,7 +56,7 @@ interface HttpServiceInterface
   /**
    * @return array
    */
-  public function getData();
+  public static function getData();
 
   /**
    * @param array $headers

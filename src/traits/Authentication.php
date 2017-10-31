@@ -44,7 +44,7 @@ trait Authentication
       $authType = $member ? 'member' : 'anonymous';
       $authRoute = Config::get("routes.auth.$authType");
 
-      $data = $this->HttpService::post($authRoute)->getData();
+      $data = HttpService::post($authRoute)->getData();
 
     } catch (\Exception $e) {
       throw new AuthenticationFailed($e->getMessage(), $e->getCode());
@@ -56,7 +56,7 @@ trait Authentication
 
     }
 
-    $this->HttpService->setHeaders([
+    HttpService::setHeaders([
       'Authorization' => 'Bearer ' . $data->token,
       'username' => $this->username,
       'password' => $this->password

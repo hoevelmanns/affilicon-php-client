@@ -35,7 +35,7 @@ class LineItem extends AbstractModel implements ModelInterface
   public function __construct()
   {
     parent::__construct();
-    $this->resource = Config::getInstance('routes.cartItemsProducts');
+    $this->resource = Config::get('routes.cartItemsProducts');
   }
 
   /**

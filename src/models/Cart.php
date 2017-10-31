@@ -33,8 +33,6 @@ class Cart extends AbstractModel
 
   /** @var  Client */
   protected $Client;
-  /** @var  HttpService */
-  protected $HttpService;
 
   public function __construct()
   {
@@ -53,11 +51,9 @@ class Cart extends AbstractModel
   {
     try {
 
-      $this->HttpService::post($this->resource, [
+      $cart = HttpService::post($this->resource, [
           'vendor' => $this->Client->getClientId()
-      ]);
-
-      $cart = $this->HttpService->getData();
+      ])->getData();
 
     } catch (\Exception $e) {
 
@@ -93,13 +89,13 @@ class Cart extends AbstractModel
    */
   public function addLineItem(LineItem $item)
   {
-    $this->HttpService::post(Config::get("routes.cartItemsProducts"), [
+    HttpService::post(Config::get("routes.cartItemsProducts"), [
       'cart_id' => $this->getId(),
       'product_id' => $item->getId(),
       'count' => $item->getQuantity()
     ]);
 
-    $lineItem = $this->HttpService->getData();
+    $lineItem = HttpService::getData();
 
     $item->setApiId($lineItem->data->id);
     $this->lineItems->addItem($item);

@@ -11,15 +11,19 @@
 namespace AffiliconApiClient\Services;
 
 
-use AffiliconApiClient\Abstracts\AbstractHttpService;
 use AffiliconApiClient\Interfaces\HttpServiceInterface;
 use AffiliconApiClient\Traits\Singleton;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
 
-class HttpService extends AbstractHttpService implements HttpServiceInterface
+class HttpService implements HttpServiceInterface
 {
-  /** @var  \GuzzleHttp\Client */
+  /** @var Client */
   protected static $HttpClient;
+  protected static $endpoint;
+  /** @var  Response $response */
+  protected static $response;
+  protected static $headers;
 
   use Singleton;
 
@@ -51,6 +55,20 @@ class HttpService extends AbstractHttpService implements HttpServiceInterface
   public static function getHeaders()
   {
     return static::$headers;
+  }
+
+  /**
+   * @return object
+   */
+  public static function getData()
+  {
+    $responseBody = json_decode(static::$response->getBody(), true);
+
+    if (array_exists('data', $responseBody)) {
+      $responseBody['data'] = (object) $responseBody['data'];
+    }
+
+    return (object) $responseBody;
   }
 
   /**
