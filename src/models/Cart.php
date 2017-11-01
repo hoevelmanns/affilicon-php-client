@@ -85,36 +85,19 @@ class Cart extends AbstractModel
 
   /**
    * @param LineItem
+   * @param $quantity
    * @return $this
    */
-  public function addLineItem(LineItem $item)
+  public function addLineItem($itemId, $quantity)
   {
-    HttpService::post(Config::get("routes.cartItemsProducts"), [
-      'cart_id' => $this->getId(),
-      'product_id' => $item->getId(),
-      'count' => $item->getQuantity()
+    $item = (new LineItem())->create($this->id, [
+      'id' => $itemId,
+      'quantity' => $quantity
     ]);
 
-    $lineItem = HttpService::getData();
-
-    $item->setApiId($lineItem->data->id);
     $this->lineItems->addItem($item);
 
     return $this;
-  }
-
-  /**
-   * @param Collection $items
-   */
-  public function addLineItems(Collection $items)
-  {
-    while($items->next()) {
-      if (!$items->current() instanceof LineItem) {
-        continue;
-      }
-
-      $this->addLineItem($items->current());
-    }
   }
 
   /**

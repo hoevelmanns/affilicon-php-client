@@ -14,6 +14,7 @@ namespace AffiliconApiClient\Models;
 use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
+use AffiliconApiClient\Services\HttpService;
 
 /**
  * Class CartItem
@@ -95,6 +96,29 @@ class LineItem extends AbstractModel implements ModelInterface
   public function fetch()
   {
     return parent::fetch();
+  }
+
+  /**
+   * @param string $cartId
+   * @param array $item
+   * @return $this
+   */
+  public function create($cartId, $item)
+  {
+    HttpService::post($this->resource, [
+      'cart_id' => $cartId,
+      'product_id' => $item['id'],
+      'count' => $item['quantity']
+    ]);
+
+    $data = HttpService::getData();
+
+    $this
+      ->setQuantity($data->quantity)
+      ->setApiId($data->id)
+      ->setId($item['id']);
+
+    return $this;
   }
 
 
