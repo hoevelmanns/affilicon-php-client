@@ -33,11 +33,6 @@ class LineItem extends AbstractModel implements ModelInterface
 
   protected $resource;
 
-  public function __construct()
-  {
-    parent::__construct();
-  }
-
   /**
    * @return int
    */
