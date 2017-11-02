@@ -87,8 +87,8 @@
 </span><span class="l" id="line-22">  <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var">$HttpClient</span>;
 </span><span class="l" id="line-23">  <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var">$endpoint</span>;
 </span><span class="l" id="line-24">  <span class="php-comment">/** @var  Response $response */</span>
-</span><span class="l" id="line-25">  <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var">$response</span>;
-</span><span class="l" id="line-26">  <span class="php-keyword1">protected</span> <span class="php-keyword1">static</span> <span class="php-var">$headers</span>;
+</span><span class="l" id="line-25">  <span class="php-keyword1">protected</span> <span class="php-var">$response</span>;
+</span><span class="l" id="line-26">  <span class="php-keyword1">protected</span> <span class="php-var">$headers</span>;
 </span><span class="l" id="line-27">
 </span><span class="l" id="line-28">  <span class="php-keyword1">use</span> Singleton;
 </span><span class="l" id="line-29">
@@ -109,25 +109,25 @@
 </span><span class="l" id="line-44">  <span class="php-comment">/**
 </span></span><span class="l" id="line-45"><span class="php-comment">   * @param array $headers
 </span></span><span class="l" id="line-46"><span class="php-comment">   */</span>
-</span><span class="l" id="line-47">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> setHeaders(<span class="php-var">$headers</span>)
+</span><span class="l" id="line-47">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> setHeaders(<span class="php-var">$headers</span>)
 </span><span class="l" id="line-48">  {
-</span><span class="l" id="line-49">    <span class="php-keyword1">static</span>::<span class="php-var">$headers</span> = <span class="php-var">$headers</span>;
+</span><span class="l" id="line-49">    <span class="php-var">$this</span>-&gt;headers = <span class="php-var">$headers</span>;
 </span><span class="l" id="line-50">  }
 </span><span class="l" id="line-51">
 </span><span class="l" id="line-52">  <span class="php-comment">/**
 </span></span><span class="l" id="line-53"><span class="php-comment">   * @return mixed
 </span></span><span class="l" id="line-54"><span class="php-comment">   */</span>
-</span><span class="l" id="line-55">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getHeaders()
+</span><span class="l" id="line-55">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getHeaders()
 </span><span class="l" id="line-56">  {
-</span><span class="l" id="line-57">    <span class="php-keyword1">return</span> <span class="php-keyword1">static</span>::<span class="php-var">$headers</span>;
+</span><span class="l" id="line-57">    <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;headers;
 </span><span class="l" id="line-58">  }
 </span><span class="l" id="line-59">
 </span><span class="l" id="line-60">  <span class="php-comment">/**
 </span></span><span class="l" id="line-61"><span class="php-comment">   * @return object
 </span></span><span class="l" id="line-62"><span class="php-comment">   */</span>
-</span><span class="l" id="line-63">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getData()
+</span><span class="l" id="line-63">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getData()
 </span><span class="l" id="line-64">  {
-</span><span class="l" id="line-65">    <span class="php-var">$responseBody</span> = <span class="php-keyword2">json_decode</span>(<span class="php-keyword1">static</span>::<span class="php-var">$response</span>-&gt;getBody(), <span class="php-keyword1">true</span>);
+</span><span class="l" id="line-65">    <span class="php-var">$responseBody</span> = <span class="php-keyword2">json_decode</span>(<span class="php-var">$this</span>-&gt;response-&gt;getBody(), <span class="php-keyword1">true</span>);
 </span><span class="l" id="line-66">
 </span><span class="l" id="line-67">    <span class="php-keyword1">if</span> (array_exists(<span class="php-quote">'data'</span>, <span class="php-var">$responseBody</span>)) {
 </span><span class="l" id="line-68">      <span class="php-var">$responseBody</span>[<span class="php-quote">'data'</span>] = (object) <span class="php-var">$responseBody</span>[<span class="php-quote">'data'</span>];
@@ -141,12 +141,12 @@
 </span></span><span class="l" id="line-76"><span class="php-comment">   * @param array $body
 </span></span><span class="l" id="line-77"><span class="php-comment">   * @return $this
 </span></span><span class="l" id="line-78"><span class="php-comment">   */</span>
-</span><span class="l" id="line-79">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> post(<span class="php-var">$route</span>, <span class="php-var">$body</span> = [])
+</span><span class="l" id="line-79">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> post(<span class="php-var">$route</span>, <span class="php-var">$body</span> = [])
 </span><span class="l" id="line-80">  {
 </span><span class="l" id="line-81">    <span class="php-var">$url</span> = <span class="php-keyword1">static</span>::<span class="php-var">$endpoint</span> . <span class="php-var">$route</span>;
 </span><span class="l" id="line-82">
-</span><span class="l" id="line-83">    <span class="php-keyword1">static</span>::<span class="php-var">$response</span> = <span class="php-keyword1">static</span>::<span class="php-var">$HttpClient</span>-&gt;request(<span class="php-quote">'POST'</span>, <span class="php-var">$url</span>, [
-</span><span class="l" id="line-84">      <span class="php-quote">'headers'</span> =&gt; <span class="php-keyword1">static</span>::getHeaders(),
+</span><span class="l" id="line-83">    <span class="php-var">$this</span>-&gt;response = <span class="php-keyword1">static</span>::<span class="php-var">$HttpClient</span>-&gt;request(<span class="php-quote">'POST'</span>, <span class="php-var">$url</span>, [
+</span><span class="l" id="line-84">      <span class="php-quote">'headers'</span> =&gt; <span class="php-var">$this</span>-&gt;getHeaders(),
 </span><span class="l" id="line-85">      <span class="php-quote">'json'</span> =&gt; <span class="php-var">$body</span>
 </span><span class="l" id="line-86">    ]);
 </span><span class="l" id="line-87">
@@ -157,27 +157,27 @@
 </span></span><span class="l" id="line-92"><span class="php-comment">   * @param string $route
 </span></span><span class="l" id="line-93"><span class="php-comment">   * @return $this
 </span></span><span class="l" id="line-94"><span class="php-comment">   */</span>
-</span><span class="l" id="line-95">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> get(<span class="php-var">$route</span>)
+</span><span class="l" id="line-95">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> get(<span class="php-var">$route</span>)
 </span><span class="l" id="line-96">  {
 </span><span class="l" id="line-97">    <span class="php-var">$url</span> = <span class="php-keyword1">static</span>::<span class="php-var">$endpoint</span> . <span class="php-var">$route</span>;
 </span><span class="l" id="line-98">
-</span><span class="l" id="line-99">    <span class="php-keyword1">static</span>::<span class="php-var">$response</span> = <span class="php-keyword1">static</span>::<span class="php-var">$HttpClient</span>-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-var">$url</span>, [
-</span><span class="l" id="line-100">      <span class="php-quote">'headers'</span> =&gt; <span class="php-keyword1">static</span>::getHeaders()
+</span><span class="l" id="line-99">    <span class="php-var">$this</span>-&gt;response = <span class="php-keyword1">static</span>::<span class="php-var">$HttpClient</span>-&gt;request(<span class="php-quote">'GET'</span>, <span class="php-var">$url</span>, [
+</span><span class="l" id="line-100">      <span class="php-quote">'headers'</span> =&gt; <span class="php-var">$this</span>-&gt;getHeaders()
 </span><span class="l" id="line-101">    ]);
 </span><span class="l" id="line-102">
 </span><span class="l" id="line-103">    <span class="php-keyword1">return</span> self::<span class="php-var">$instance</span>;
 </span><span class="l" id="line-104">  }
 </span><span class="l" id="line-105">
-</span><span class="l" id="line-106">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> put(<span class="php-var">$route</span>, <span class="php-var">$body</span> = []){
+</span><span class="l" id="line-106">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> put(<span class="php-var">$route</span>, <span class="php-var">$body</span> = []){
 </span><span class="l" id="line-107">    <span class="php-comment">// todo Implement put method;</span>
 </span><span class="l" id="line-108">  }
 </span><span class="l" id="line-109">
-</span><span class="l" id="line-110">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> patch(<span class="php-var">$route</span>, <span class="php-var">$body</span>)
+</span><span class="l" id="line-110">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> patch(<span class="php-var">$route</span>, <span class="php-var">$body</span>)
 </span><span class="l" id="line-111">  {
 </span><span class="l" id="line-112">    <span class="php-comment">//todo Implement patch method</span>
 </span><span class="l" id="line-113">  }
 </span><span class="l" id="line-114">
-</span><span class="l" id="line-115">  <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$route</span>, <span class="php-var">$body</span> = [])
+</span><span class="l" id="line-115">  <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> <span class="php-keyword2">delete</span>(<span class="php-var">$route</span>, <span class="php-var">$body</span> = [])
 </span><span class="l" id="line-116">  {
 </span><span class="l" id="line-117">    <span class="php-comment">// todo Implement delete() method.</span>
 </span><span class="l" id="line-118">  }
