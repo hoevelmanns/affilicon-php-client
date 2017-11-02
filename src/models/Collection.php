@@ -13,6 +13,10 @@ namespace AffiliconApiClient\Models;
 use AffiliconApiClient\Exceptions\KeyHasUseException;
 use AffiliconApiClient\Exceptions\KeyInvalidException;
 
+/**
+ * Class Collection
+ * @package AffiliconApiClient\Models
+ */
 class Collection implements \Iterator
 {
   /**
