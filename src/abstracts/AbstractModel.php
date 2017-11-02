@@ -28,20 +28,19 @@ abstract class AbstractModel implements ModelInterface
 
   public function __construct()
   {
-    $this->resource = $this->getRoute();
+    $this->setResource();
     $this->HttpService = HttpService::getInstance();
     $this->Client = Client::getInstance();
   }
 
   /**
-   * Gets the resource for the model
-   * @return string
+   * Sets the resource for the model
    */
-  protected function getRoute()
+  protected function setResource()
   {
     $class = explode("\\", get_class($this));
 
-    return Config::get('routes.' . $class[count($class) -1]);
+    $this->resource = Config::get('routes.' . $class[count($class) - 1]);
   }
 
   public function findById($id)

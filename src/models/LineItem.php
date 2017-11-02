@@ -12,7 +12,6 @@
 namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
-use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
 
 /**

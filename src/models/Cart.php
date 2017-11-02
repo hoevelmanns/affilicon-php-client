@@ -12,7 +12,6 @@ namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Client;
-use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\CartCreationFailed;
 
 /**
