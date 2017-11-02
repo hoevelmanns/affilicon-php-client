@@ -37,7 +37,6 @@ class Cart extends AbstractModel
   {
     parent::__construct();
     $this->lineItems = new Collection();
-    $this->resource = Config::get("routes.carts");
   }
 
   /**
