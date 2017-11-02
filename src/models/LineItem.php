@@ -113,7 +113,7 @@ class LineItem extends AbstractModel implements ModelInterface
    */
   public function store()
   {
-    $data = $this->HttpService::post($this->resource, [
+    $data = $this->HttpService->post($this->resource, [
       'cart_id' => $this->cartId,
       'product_id' => $this->id,
       'count' => $this->quantity

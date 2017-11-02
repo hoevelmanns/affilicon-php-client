@@ -51,7 +51,7 @@ class Cart extends AbstractModel
   {
     try {
 
-      $cart = $this->HttpService::post($this->resource, [
+      $cart = $this->HttpService->post($this->resource, [
           'vendor' => $this->Client->getClientId()
       ])->getData();
 

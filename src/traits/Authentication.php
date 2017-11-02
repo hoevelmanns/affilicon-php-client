@@ -13,7 +13,6 @@ namespace AffiliconApiClient\Traits;
 
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
-use AffiliconApiClient\Services\HttpService;
 
 /**
  * Trait Authentication
@@ -24,8 +23,6 @@ trait Authentication
   protected $token;
   protected $username;
   protected $password;
-  /** @var  HttpService */
-  protected $HttpService;
 
   public function isAuthenticated()
   {
@@ -44,7 +41,7 @@ trait Authentication
       $authType = $member ? 'member' : 'anonymous';
       $authRoute = Config::get("routes.auth.$authType");
 
-      $data = HttpService::post($authRoute)->getData();
+      $data = $this->HttpService->post($authRoute)->getData();
 
     } catch (\Exception $e) {
       throw new AuthenticationFailed($e->getMessage(), $e->getCode());
@@ -56,7 +53,7 @@ trait Authentication
 
     }
 
-    HttpService::setHeaders([
+    $this->HttpService->setHeaders([
       'Authorization' => 'Bearer ' . $data->token,
       'username' => $this->username,
       'password' => $this->password
