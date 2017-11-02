@@ -18,7 +18,7 @@ use AffiliconApiClient\Exceptions\CartCreationFailed;
  * Class Cart
  * @package Affilicon
  *
- * @property string $id;
+ * @property string $id
  * @property string $status
  *
  */
