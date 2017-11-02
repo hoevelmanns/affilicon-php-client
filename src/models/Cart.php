@@ -27,7 +27,6 @@ class Cart extends AbstractModel
 {
   /** @var Collection $lineItems */
   protected $lineItems;
-  protected $resource;
 
   /** @var  Client */
   protected $Client;
@@ -88,8 +87,8 @@ class Cart extends AbstractModel
   public function addLineItem($itemId, $quantity)
   {
     $item = (new LineItem())
-      ->setCartId($this->id)
       ->setId($itemId)
+      ->setCartId($this->id)
       ->setQuantity($quantity)
       ->store();
 

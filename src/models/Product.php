@@ -16,6 +16,4 @@ use AffiliconApiClient\Abstracts\AbstractModel;
 class Product extends AbstractModel
 {
 
-  protected $resource;
-
 }
