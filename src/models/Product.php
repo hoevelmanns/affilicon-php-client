@@ -19,9 +19,4 @@ class Product extends AbstractModel
 
   protected $resource;
 
-  public function __construct()
-  {
-    parent::__construct();
-  }
-
 }
