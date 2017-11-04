@@ -11,7 +11,6 @@
 namespace AffiliconApiClient\Services;
 
 
-use AffiliconApiClient\Interfaces\HttpServiceInterface;
 use AffiliconApiClient\Traits\Singleton;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
@@ -20,7 +19,7 @@ use GuzzleHttp\Psr7\Response;
  * Class HttpService
  * @package AffiliconApiClient\Services
  */
-class HttpService implements HttpServiceInterface
+class HttpService
 {
     /**
      * @var Client 
