@@ -12,6 +12,7 @@ namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Exceptions\CartCreationFailed;
+use AffiliconApiClient\Traits\HasHTTPRequests;
 
 /**
  * Class Cart
@@ -26,6 +27,8 @@ class Cart extends AbstractModel
 {
     /** @var Collection */
     protected $lineItems;
+
+    use HasHTTPRequests;
 
     public function __construct()
     {
@@ -43,11 +46,11 @@ class Cart extends AbstractModel
     {
         try {
 
-            $cart = $this->HttpService->post(
-                $this->resource, [
+            $body = [
                 'vendor' => $this->Client->getClientId()
-                ]
-            )->getData();
+            ];
+
+            $cart = $this->post($body)->getData();
 
         } catch (\Exception $e) {
 

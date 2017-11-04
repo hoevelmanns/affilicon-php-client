@@ -2,7 +2,7 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file        Collection.php
+ * @file        HasCollection.php
  * @author      Marcelle Hövelmanns
  * @site        http://www.artsolution.de
  * @date        04.11.17
@@ -14,7 +14,7 @@ namespace AffiliconApiClient\Traits;
 use AffiliconApiClient\Models\Collection;
 
 /**
- * Trait Collection
+ * Trait HasCollection
  * @package AffiliconApiClient\Traits
  */
 trait HasCollection
