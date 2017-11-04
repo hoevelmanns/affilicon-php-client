@@ -9,6 +9,7 @@
 
 namespace AffiliconApiClient\Interfaces;
 
+
 interface ProductInterface
 {
     /**
@@ -47,7 +48,7 @@ interface ProductInterface
     /**
      * include specified components, e.g. variants or prices
      *
-     * @return Collection
+     * @return null
      */
     public function with();
 
