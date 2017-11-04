@@ -59,10 +59,28 @@ class Cart extends AbstractModel
 
         }
 
-        $this->id = $cart->data->id;
-        $this->status = $cart->data->status;
+        $this->setId($cart->data->id);
+        $this->setStatus($cart->data->status);
 
         return $this;
+    }
+
+    /**
+     * Sets the id of the cart
+     * @param $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * Sets the status of the cart
+     * @param $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
     /**
@@ -92,10 +110,10 @@ class Cart extends AbstractModel
     public function addLineItem($itemId, $quantity)
     {
         $item = (new LineItem())
-        ->setId($itemId)
-        ->setCartId($this->id)
-        ->setQuantity($quantity)
-        ->store();
+            ->setId($itemId)
+            ->setCartId($this->id)
+            ->setQuantity($quantity)
+            ->store();
 
         $this->lineItems->addItem($item);
 
