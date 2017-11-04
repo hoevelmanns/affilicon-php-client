@@ -12,8 +12,13 @@ namespace AffiliconApiClient\Models;
 
 
 use AffiliconApiClient\Abstracts\AbstractModel;
+use AffiliconApiClient\Traits\HasCollection;
 
+/**
+ * Class Product
+ * @package AffiliconApiClient\Models
+ */
 class Product extends AbstractModel
 {
-
+    use HasCollection;
 }

@@ -12,7 +12,6 @@ namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Exceptions\CartCreationFailed;
-use PhpParser\ErrorHandler\Collecting;
 
 /**
  * Class Cart
@@ -25,7 +24,6 @@ use PhpParser\ErrorHandler\Collecting;
 
 class Cart extends AbstractModel
 {
-
     /** @var Collection */
     protected $lineItems;
 
