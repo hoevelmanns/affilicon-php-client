@@ -15,6 +15,7 @@ use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
 use AffiliconApiClient\Services\HttpService;
+use AffiliconApiClient\Traits\Collection;
 
 abstract class AbstractModel implements ModelInterface
 {
@@ -25,6 +26,8 @@ abstract class AbstractModel implements ModelInterface
   /** @var Client  */
   protected $Client;
   protected $rows;
+
+  use Collection;
 
   public function __construct()
   {

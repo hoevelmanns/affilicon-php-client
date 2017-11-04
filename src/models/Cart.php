@@ -25,8 +25,6 @@ use AffiliconApiClient\Exceptions\CartCreationFailed;
 
 class Cart extends AbstractModel
 {
-  /** @var Collection $lineItems */
-  protected $lineItems;
 
   /** @var  Client */
   protected $Client;
@@ -34,7 +32,6 @@ class Cart extends AbstractModel
   public function __construct()
   {
     parent::__construct();
-    $this->lineItems = new Collection();
   }
 
   /**
@@ -92,7 +89,7 @@ class Cart extends AbstractModel
       ->setQuantity($quantity)
       ->store();
 
-    $this->lineItems->addItem($item);
+    $this->addItem($item);
 
     return $this;
   }
@@ -103,7 +100,7 @@ class Cart extends AbstractModel
    */
   public function getLineItems()
   {
-    return $this->lineItems;
+    return $this->items;
   }
 
 }
