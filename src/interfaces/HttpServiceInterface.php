@@ -54,9 +54,14 @@ interface HttpServiceInterface
     public function patch($route, $body);
 
     /**
-     * @return array
+     * @return object
      */
     public function body();
+
+    /**
+     * @return object
+     */
+    public function data();
 
     /**
      * @param array $headers

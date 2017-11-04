@@ -31,6 +31,7 @@ class HttpService implements HttpServiceInterface
      * @var  Response $response 
      */
     protected $response;
+    /** @var  object */
     protected $body;
     protected $headers;
 
