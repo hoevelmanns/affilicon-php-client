@@ -11,7 +11,6 @@
 namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
-use AffiliconApiClient\Client;
 use AffiliconApiClient\Exceptions\CartCreationFailed;
 
 /**
@@ -25,9 +24,6 @@ use AffiliconApiClient\Exceptions\CartCreationFailed;
 
 class Cart extends AbstractModel
 {
-
-  /** @var  Client */
-  protected $Client;
 
   public function __construct()
   {

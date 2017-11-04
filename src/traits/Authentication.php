@@ -13,6 +13,7 @@ namespace AffiliconApiClient\Traits;
 
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
+use AffiliconApiClient\Services\HttpService;
 
 /**
  * Trait Authentication
@@ -23,6 +24,9 @@ trait Authentication
   protected $token;
   protected $username;
   protected $password;
+
+  /** @var  HttpService */
+  protected $HttpService;
 
   public function isAuthenticated()
   {
