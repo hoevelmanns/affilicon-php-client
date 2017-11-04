@@ -31,8 +31,6 @@ abstract class AbstractModel implements ModelInterface
     protected $Client;
     protected $rows;
 
-    use Collection;
-
     public function __construct()
     {
         $this->setResource();

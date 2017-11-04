@@ -2,19 +2,19 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file   Collection.php
- * @author Marcelle Hövelmanns
- * @site   http://www.artsolution.de
- * @date   04.11.17
+ * @file        Collection.php
+ * @author      Marcelle Hövelmanns
+ * @site        http://www.artsolution.de
+ * @date        04.11.17
  */
 
-namespace AffiliconApiClient\Traits;
+namespace AffiliconApiClient\Models;
 
 
 use AffiliconApiClient\Exceptions\KeyHasUseException;
 use AffiliconApiClient\Exceptions\KeyInvalidException;
 
-trait Collection
+class Collection implements \Iterator
 {
     /**
      * Current index
@@ -24,7 +24,7 @@ trait Collection
     protected $intIndex = -1;
 
     /**
-     * @var array  
+     * @var array
      */
     protected $items = [];
 
@@ -33,7 +33,7 @@ trait Collection
      * @param null $key
      * @throws KeyHasUseException
      */
-    public function addItem($obj, $key = null) 
+    public function addItem($obj, $key = null)
     {
         if ($key == null) {
             $this->items[] = $obj;
@@ -52,7 +52,7 @@ trait Collection
      * @param $key
      * @throws KeyInvalidException
      */
-    public function deleteItem($key) 
+    public function deleteItem($key)
     {
         if (isset($this->items[$key])) {
             unset($this->items[$key]);
@@ -67,7 +67,7 @@ trait Collection
      * @return mixed
      * @throws KeyInvalidException
      */
-    public function get($key) 
+    public function get($key)
     {
         if (isset($this->items[$key])) {
             return $this->items[$key];

@@ -12,6 +12,7 @@ namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Exceptions\CartCreationFailed;
+use PhpParser\ErrorHandler\Collecting;
 
 /**
  * Class Cart
@@ -25,9 +26,13 @@ use AffiliconApiClient\Exceptions\CartCreationFailed;
 class Cart extends AbstractModel
 {
 
+    /** @var Collection */
+    protected $lineItems;
+
     public function __construct()
     {
         parent::__construct();
+        $this->lineItems = new Collection();
     }
 
     /**
@@ -87,7 +92,7 @@ class Cart extends AbstractModel
         ->setQuantity($quantity)
         ->store();
 
-        $this->addItem($item);
+        $this->lineItems->addItem($item);
 
         return $this;
     }
@@ -99,7 +104,7 @@ class Cart extends AbstractModel
      */
     public function getLineItems()
     {
-        return $this->items;
+        return $this->lineItems;
     }
 
 }
