@@ -127,7 +127,7 @@ class Collection implements \Iterator
      */
     public function valid()
     {
-        return $this->valid();
+        // todo valid method
     }
 
 
@@ -171,7 +171,7 @@ class Collection implements \Iterator
     public function next()
     {
         if (!isset($this->items[$this->intIndex + 1])) {
-            return null;
+            return false;
         }
 
         ++$this->intIndex;

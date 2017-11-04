@@ -21,6 +21,8 @@ trait HasHTTPRequests
 {
     /** @var  HttpService */
     protected $HttpService;
+    /** @var  string */
+    protected $resource;
 
     /**
      * @param array $body

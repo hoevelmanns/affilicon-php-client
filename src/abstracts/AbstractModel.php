@@ -15,8 +15,6 @@ use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
 use AffiliconApiClient\Services\HttpService;
-use AffiliconApiClient\Traits\Collection;
-use AffiliconApiClient\Traits\HasHTTPRequests;
 
 abstract class AbstractModel implements ModelInterface
 {
