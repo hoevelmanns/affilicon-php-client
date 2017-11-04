@@ -3,7 +3,7 @@
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
  * @file   HttpService.php
- * @author Marcelle Hövelmanns
+ * @author marcelle.hoevelmanns@artsolution.de
  * @site   http://www.artsolution.de
  * @date   25.10.17
  */
@@ -16,6 +16,10 @@ use AffiliconApiClient\Traits\Singleton;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
+/**
+ * Class HttpService
+ * @package AffiliconApiClient\Services
+ */
 class HttpService implements HttpServiceInterface
 {
     /**
@@ -77,7 +81,7 @@ class HttpService implements HttpServiceInterface
 
     /**
      * @param string $route
-     * @param array  $body
+     * @param array $body
      * @return $this
      */
     public function post($route, $body = [])
@@ -86,8 +90,8 @@ class HttpService implements HttpServiceInterface
 
         $this->response = static::$HttpClient->request(
             'POST', $url, [
-            'headers' => $this->getHeaders(),
-            'json' => $body
+                'headers' => $this->getHeaders(),
+                'json' => $body
             ]
         );
 
@@ -104,23 +108,35 @@ class HttpService implements HttpServiceInterface
 
         $this->response = static::$HttpClient->request(
             'GET', $url, [
-            'headers' => $this->getHeaders()
+                'headers' => $this->getHeaders()
             ]
         );
 
         return self::$instance;
     }
 
+    /**
+     * @param string $route
+     * @param array $body
+     */
     public function put($route, $body = [])
     {
         // todo Implement put method;
     }
 
+    /**
+     * @param string $route
+     * @param array $body
+     */
     public function patch($route, $body)
     {
         //todo Implement patch method
     }
 
+    /**
+     * @param string $route
+     * @param array $body
+     */
     public function delete($route, $body = [])
     {
         // todo Implement delete() method.
