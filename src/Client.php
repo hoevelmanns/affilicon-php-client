@@ -11,7 +11,6 @@
 
 namespace AffiliconApiClient;
 
-use AffiliconApiClient\Interfaces\ClientInterface;
 use AffiliconApiClient\Services\HttpService;
 use AffiliconApiClient\Traits\Authentication;
 use AffiliconApiClient\Traits\Environment;
@@ -22,7 +21,7 @@ use AffiliconApiClient\Traits\Singleton;
  *
  * @package AffiliconApiClient
  */
-class Client implements ClientInterface
+class Client
 {
     public $clientId;
     public $countryId;
