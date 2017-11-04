@@ -2,10 +2,10 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file        Config.php
- * @author      Marcelle Hövelmanns
- * @site        http://www.artsolution.de
- * @date        29.10.17
+ * @file   Config.php
+ * @author Marcelle Hövelmanns
+ * @site   http://www.artsolution.de
+ * @date   29.10.17
  */
 
 namespace AffiliconApiClient\Configurations;
@@ -16,34 +16,34 @@ use AffiliconApiClient\Traits\Singleton;
 
 class Config
 {
-  protected static $config;
+    protected static $config;
 
-  use Singleton;
+    use Singleton;
 
-  public function __construct()
-  {
-    try {
+    public function __construct()
+    {
+        try {
 
-      $global = include "config.php";
-      $routes = include "routes.php";
+            $global = include "config.php";
+            $routes = include "routes.php";
 
-    } catch (\Exception $e) {
+        } catch (\Exception $e) {
 
-      throw new ConfigurationInvalid('configuration is missing or invalid');
+            throw new ConfigurationInvalid('configuration is missing or invalid');
 
+        }
+
+        self::$config = array_merge($global, $routes);
     }
 
-    self::$config = array_merge($global, $routes);
-  }
+    /**
+     * @param $key
+     * @return array|string
+     */
+    public static function get($key)
+    {
+        self::getInstance();
 
-  /**
-   * @param $key
-   * @return array|string
-   */
-  public static function get($key)
-  {
-    self::getInstance();
-
-    return array_get(self::$config, $key);
-  }
+        return array_get(self::$config, $key);
+    }
 }

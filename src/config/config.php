@@ -2,10 +2,10 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file        config.php
- * @author      Marcelle Hövelmanns
- * @site        http://www.artsolution.de
- * @date        26.10.17
+ * @file   config.php
+ * @author Marcelle Hövelmanns
+ * @site   http://www.artsolution.de
+ * @date   26.10.17
  */
 
 namespace AffiliconApiClient\Configurations;

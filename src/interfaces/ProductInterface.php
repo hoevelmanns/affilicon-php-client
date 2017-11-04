@@ -13,44 +13,45 @@ use AffiliconApiClient\Models\Collection;
 
 interface ProductInterface
 {
-  /**
-   * @return mixed
-   */
-  public function getId();
+    /**
+     * @return mixed
+     */
+    public function getId();
 
-  /**
-   * @param $id
-   * @return mixed
-   */
-  public function setId($id);
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function setId($id);
 
-  /**
-   * @param $quantity
-   * @return mixed
-   */
-  public function setQuantity($quantity);
+    /**
+     * @param $quantity
+     * @return mixed
+     */
+    public function setQuantity($quantity);
 
-  /**
-   * @return integer
-   */
-  public function getQuantity();
+    /**
+     * @return integer
+     */
+    public function getQuantity();
 
-  /**
-   * @param $apiId
-   * @return mixed
-   */
-  public function setApiId($apiId);
+    /**
+     * @param $apiId
+     * @return mixed
+     */
+    public function setApiId($apiId);
 
-  /**
-   * @return mixed
-   */
-  public function getApiId();
+    /**
+     * @return mixed
+     */
+    public function getApiId();
 
-  /**
-   * include specified components, e.g. variants or prices
-   * @return Collection
-   */
-  public function with();
+    /**
+     * include specified components, e.g. variants or prices
+     *
+     * @return Collection
+     */
+    public function with();
 
 
 }
