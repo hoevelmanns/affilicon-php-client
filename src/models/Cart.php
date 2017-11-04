@@ -22,7 +22,6 @@ use AffiliconApiClient\Traits\HasHTTPRequests;
  * @property string $id
  * @property string $status
  */
-
 class Cart extends AbstractModel
 {
     /** @var Collection */
@@ -37,7 +36,7 @@ class Cart extends AbstractModel
     }
 
     /**
-     * create new cart
+     * Creates a new cart
      *
      * @return $this
      * @throws CartCreationFailed
@@ -67,6 +66,7 @@ class Cart extends AbstractModel
     }
 
     /**
+     * Gets the status of the cart
      * @return mixed
      */
     public function getStatus()
@@ -75,6 +75,7 @@ class Cart extends AbstractModel
     }
 
     /**
+     * Gets the cart id
      * @return mixed
      */
     public function getId()
@@ -83,6 +84,7 @@ class Cart extends AbstractModel
     }
 
     /**
+     * Add a line item to the cart
      * @param LineItem
      * @param $quantity
      * @return $this
@@ -101,8 +103,7 @@ class Cart extends AbstractModel
     }
 
     /**
-     * get the cart items
-     *
+     * Get the cart items
      * @return mixed
      */
     public function getLineItems()

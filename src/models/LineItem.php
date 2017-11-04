@@ -34,6 +34,7 @@ class LineItem extends AbstractModel implements ModelInterface
     use HasHTTPRequests;
 
     /**
+     * Gets the quantity of the line item
      * @return int
      */
     public function getQuantity()
@@ -42,6 +43,7 @@ class LineItem extends AbstractModel implements ModelInterface
     }
 
     /**
+     * Gets the quantity of the line item
      * @param $quantity
      * @return $this
      */
@@ -52,6 +54,7 @@ class LineItem extends AbstractModel implements ModelInterface
     }
 
     /**
+     * Sets the it of the line item
      * @param $id
      * @return $this
      */
@@ -62,6 +65,7 @@ class LineItem extends AbstractModel implements ModelInterface
     }
 
     /**
+     * Gets the id of the line item
      * @return mixed
      */
     public function getId()
@@ -70,6 +74,7 @@ class LineItem extends AbstractModel implements ModelInterface
     }
 
     /**
+     * Sets the api id of the line item
      * @param $apiId
      * @return $this
      */
@@ -80,6 +85,7 @@ class LineItem extends AbstractModel implements ModelInterface
     }
 
     /**
+     * Gets the given api id of the line item
      * @return mixed
      */
     public function getApiId()
@@ -87,12 +93,8 @@ class LineItem extends AbstractModel implements ModelInterface
         return $this->apiId;
     }
 
-    public function fetch()
-    {
-        return parent::fetch();
-    }
-
     /**
+     * Sets the id of the cart
      * @param $cartId
      * @return $this
      */
@@ -103,6 +105,7 @@ class LineItem extends AbstractModel implements ModelInterface
     }
 
     /**
+     * Sends the line item to the api
      * @return $this
      */
     public function store()

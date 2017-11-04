@@ -36,6 +36,7 @@ class HttpService implements HttpServiceInterface
     use Singleton;
 
     /**
+     * Initializes the HTTP Service
      * @param $endpoint
      * @return mixed
      */
@@ -44,12 +45,14 @@ class HttpService implements HttpServiceInterface
         self::getInstance();
 
         static::$endpoint = $endpoint;
+
         static::$HttpClient = new Client();
 
         return self::$instance;
     }
 
     /**
+     * Sets headers for the requests
      * @param array $headers
      */
     public function setHeaders($headers)
@@ -58,6 +61,7 @@ class HttpService implements HttpServiceInterface
     }
 
     /**
+     * Gets the header
      * @return mixed
      */
     public function getHeaders()
@@ -66,6 +70,7 @@ class HttpService implements HttpServiceInterface
     }
 
     /**
+     * Gets the data of the response
      * @return object
      */
     public function getData()
@@ -80,6 +85,7 @@ class HttpService implements HttpServiceInterface
     }
 
     /**
+     * Submits a post request
      * @param string $route
      * @param array $body
      * @return $this
@@ -89,7 +95,8 @@ class HttpService implements HttpServiceInterface
         $url = static::$endpoint . $route;
 
         $this->response = static::$HttpClient->request(
-            'POST', $url, [
+            'POST', $url,
+            [
                 'headers' => $this->getHeaders(),
                 'json' => $body
             ]
@@ -107,7 +114,8 @@ class HttpService implements HttpServiceInterface
         $url = static::$endpoint . $route;
 
         $this->response = static::$HttpClient->request(
-            'GET', $url, [
+            'GET', $url,
+            [
                 'headers' => $this->getHeaders()
             ]
         );
@@ -118,6 +126,7 @@ class HttpService implements HttpServiceInterface
     /**
      * @param string $route
      * @param array $body
+     * @return void
      */
     public function put($route, $body = [])
     {
@@ -127,6 +136,7 @@ class HttpService implements HttpServiceInterface
     /**
      * @param string $route
      * @param array $body
+     * @return void
      */
     public function patch($route, $body)
     {
@@ -136,6 +146,7 @@ class HttpService implements HttpServiceInterface
     /**
      * @param string $route
      * @param array $body
+     * @return void
      */
     public function delete($route, $body = [])
     {
