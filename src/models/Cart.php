@@ -50,7 +50,9 @@ class Cart extends AbstractModel
                 'vendor' => $this->Client->getClientId()
             ];
 
-            $cart = $this->post($body)->getData();
+            $cart = $this
+                ->post($body)
+                ->getData();
 
         } catch (\Exception $e) {
 

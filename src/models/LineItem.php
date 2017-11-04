@@ -13,6 +13,7 @@ namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
 use AffiliconApiClient\Interfaces\ModelInterface;
+use AffiliconApiClient\Traits\HasHTTPRequests;
 
 /**
  * Class CartItem
@@ -30,6 +31,8 @@ use AffiliconApiClient\Interfaces\ModelInterface;
 
 class LineItem extends AbstractModel implements ModelInterface
 {
+    use HasHTTPRequests;
+
     /**
      * @return int
      */
@@ -104,13 +107,15 @@ class LineItem extends AbstractModel implements ModelInterface
      */
     public function store()
     {
-        $data = $this->HttpService->post(
-            $this->resource, [
+        $body = [
             'cart_id' => $this->cartId,
             'product_id' => $this->id,
             'count' => $this->quantity
-            ]
-        )->getData();
+        ];
+
+        $data = $this
+            ->post($body)
+            ->getData();
 
         $this->setApiId($data->id);
 
