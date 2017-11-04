@@ -14,27 +14,3 @@
 ```
 # vendor/bin/apigen generate src --destination docs
 ```
-
-### PHPMD
-```
-# vendor/phpmd/phpmd/src/bin/phpmd src text codesize,unusedcode,naming    
-```
-
-
-### Codesniffer
-```
-# vendor/bin/phpcs src
-```
-
-###### Automatically fixing
-```
-# vendor/bin/phpcbf src
-```
-
-
-
-### Copy/Paste detector
-```
-# vendor/bin/phpcpd src
-```
-
