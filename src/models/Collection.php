@@ -14,7 +14,7 @@ namespace AffiliconApiClient\Models;
 use AffiliconApiClient\Exceptions\KeyHasUseException;
 use AffiliconApiClient\Exceptions\KeyInvalidException;
 
-class Collection implements \Iterator
+class Collection
 {
     /**
      * Current index
@@ -127,7 +127,7 @@ class Collection implements \Iterator
      */
     public function valid()
     {
-        // todo valid method
+        return array_accessible($this->items[$this->intIndex]);
     }
 
 
