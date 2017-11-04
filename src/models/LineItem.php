@@ -118,7 +118,7 @@ class LineItem extends AbstractModel implements ModelInterface
 
         $data = $this
             ->post($body)
-            ->getData();
+            ->body();
 
         $this->setApiId($data->id);
 

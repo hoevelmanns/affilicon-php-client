@@ -31,6 +31,7 @@ class HttpService implements HttpServiceInterface
      * @var  Response $response 
      */
     protected $response;
+    protected $body;
     protected $headers;
 
     use Singleton;
@@ -70,10 +71,10 @@ class HttpService implements HttpServiceInterface
     }
 
     /**
-     * Gets the data of the response
+     * Gets the body of the response
      * @return object
      */
-    public function getData()
+    public function body()
     {
         $responseBody = json_decode($this->response->getBody(), true);
 
@@ -81,7 +82,18 @@ class HttpService implements HttpServiceInterface
             $responseBody['data'] = (object) $responseBody['data'];
         }
 
-        return (object) $responseBody;
+        $this->body = (object) $responseBody;
+
+        return $this->body;
+    }
+
+    /**
+     * Returns the data of the response
+     * @return mixed
+     */
+    public function data()
+    {
+        return $this->body()->data;
     }
 
     /**

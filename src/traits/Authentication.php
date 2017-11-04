@@ -48,7 +48,7 @@ trait Authentication
             $authType = $member ? 'member' : 'anonymous';
             $authRoute = Config::get("routes.auth.$authType");
 
-            $data = $this->HttpService->post($authRoute)->getData();
+            $data = $this->HttpService->post($authRoute)->body();
 
         } catch (\Exception $e) {
             throw new AuthenticationFailed($e->getMessage(), $e->getCode());

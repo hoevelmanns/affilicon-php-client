@@ -51,7 +51,7 @@ class Cart extends AbstractModel
 
             $cart = $this
                 ->post($body)
-                ->getData();
+                ->data();
 
         } catch (\Exception $e) {
 
@@ -59,8 +59,8 @@ class Cart extends AbstractModel
 
         }
 
-        $this->setId($cart->data->id);
-        $this->setStatus($cart->data->status);
+        $this->setId($cart->id);
+        $this->setStatus($cart->status);
 
         return $this;
     }
