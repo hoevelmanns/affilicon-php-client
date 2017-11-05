@@ -22,17 +22,17 @@ return [
 
     // Production
     'production' => [
-      'service_url' => 'https://service.affilicon.net/api'
+      'service_url' => 'https://service.affilicon.net'
     ],
 
     // Development
     'development' => [
-      'service_url' => 'https://service.affilicon.app/api'
+      'service_url' => 'https://service.affilicon.app'
     ],
 
     // Staging
     'staging' => [
-      'service_url' => 'https://service-q.affilicon.net/api'
+      'service_url' => 'https://service-q.affilicon.net'
     ]
 
   ],

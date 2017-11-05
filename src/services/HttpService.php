@@ -22,12 +22,11 @@ use GuzzleHttp\Psr7\Response;
 class HttpService
 {
     /**
-     * @var Client 
+     * @var Client
      */
     protected static $HttpClient;
-    protected static $endpoint;
     /**
-     * @var  Response $response 
+     * @var Response $response
      */
     protected $response;
     /** @var  object */
@@ -38,16 +37,17 @@ class HttpService
 
     /**
      * Initializes the HTTP Service
-     * @param $endpoint
+     * @param $baseUri
      * @return mixed
      */
-    public static function init($endpoint)
+    public static function init($baseUri)
     {
         self::getInstance();
 
-        static::$endpoint = $endpoint;
-
-        static::$HttpClient = new Client();
+        static::$HttpClient = new Client([
+            'base_uri' => $baseUri,
+            'Content-Type' => 'application/json'
+        ]);
 
         return self::$instance;
     }
@@ -99,20 +99,15 @@ class HttpService
     /**
      * Submits a post request
      * @param string $route
-     * @param array $body
+     * @param array $data
      * @return $this
      */
-    public function post($route, $body = [])
+    public function post($route, $data = [])
     {
-        $url = static::$endpoint . $route;
-
-        $this->response = static::$HttpClient->request(
-            'POST', $url,
-            [
-                'headers' => $this->getHeaders(),
-                'json' => $body
-            ]
-        );
+        $this->response = static::$HttpClient->post($route, [
+            'json' => $data,
+            'headers' => static::getHeaders()
+        ]);
 
         return self::$instance;
     }
@@ -123,46 +118,56 @@ class HttpService
      */
     public function get($route)
     {
-        $url = static::$endpoint . $route;
-
-        $this->response = static::$HttpClient->request(
-            'GET', $url,
-            [
-                'headers' => $this->getHeaders()
-            ]
-        );
+        $this->response = static::$HttpClient->get($route, [
+            'headers' => static::getHeaders()
+        ]);
 
         return self::$instance;
     }
 
     /**
      * @param string $route
-     * @param array $body
-     * @return void
+     * @param array $data
+     * @return $this
      */
-    public function put($route, $body = [])
+    public function put($route, $data = [])
     {
-        // todo Implement put method;
+        $this->response = static::$HttpClient->put($route, [
+            'headers' => static::getHeaders(),
+            'json' => $data
+        ]);
+
+        return self::$instance;
     }
 
     /**
      * @param string $route
-     * @param array $body
-     * @return void
+     * @param array $data
+     * @return $this
      */
-    public function patch($route, $body)
+    public function patch($route, $data)
     {
-        //todo Implement patch method
+        $this->response = static::$HttpClient->patch($route, [
+            'headers' => static::getHeaders(),
+            'json' => $data
+        ]);
+
+        return self::$instance;
     }
 
     /**
      * @param string $route
-     * @param array $body
-     * @return void
+     * @param array $data
+     * @return $this
      */
-    public function delete($route, $body = [])
+    public function delete($route, $data = [])
     {
-        // todo Implement delete() method.
+        $this->response = static::$HttpClient->delete($route, [
+            'headers' => static::getHeaders(),
+            'json' => $data
+        ]);
+
+        return self::$instance;
     }
 
 }
