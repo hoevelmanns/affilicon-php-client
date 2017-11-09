@@ -20,15 +20,17 @@ use AffiliconApiClient\Services\HttpService;
  * Class Cart
  * @package Affilicon
  *
- * @property string $id;
- * @property string $status
- *
  */
 class Cart extends AbstractModel
 {
     /** @var Collection $lineItems */
     protected $lineItems;
     protected $resource;
+
+    /** @var string */
+    private $id;
+    /** @var string */
+    private $status;
 
     /** @var  Client */
     protected $Client;
@@ -59,9 +61,7 @@ class Cart extends AbstractModel
 
         }
 
-        /** @var string id */
         $this->id = $cart->id;
-        /** @var string status */
         $this->status = $cart->status;
 
         return $this;

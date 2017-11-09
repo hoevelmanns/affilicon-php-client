@@ -30,7 +30,7 @@ class Collection
    * @throws KeyHasUseException
    */
   public function addItem($obj, $key = null) {
-    if ($key == null) {
+    if ($key === null) {
       $this->items[] = $obj;
     }
     else {
