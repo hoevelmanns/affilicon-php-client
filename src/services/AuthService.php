@@ -2,38 +2,61 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file   Authentication.php
+ * @file   AuthService.php
  * @author Marcelle Hövelmanns
  * @site   http://www.artsolution.de
  * @date   28.10.17
  */
 
-namespace AffiliconApiClient\Traits;
+namespace AffiliconApiClient\Services;
 
 
+use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
-use AffiliconApiClient\Services\HttpService;
 
 /**
- * Trait Authentication
+ * Class Authentication
  *
  * @package AffiliconApiClient\Traits
  */
-trait Authentication
+class AuthService
 {
     protected $token;
     protected $username;
     protected $password;
+    protected $route;
 
-    /**
-     * @var  HttpService 
-     */
-    protected $HttpService;
+    /** @var Client  */
+    protected $client;
+
+
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
 
     public function isAuthenticated()
     {
         return !is_null($this->token);
+    }
+
+    public function member()
+    {
+        $this->route = Config::get('routes.auth.member');
+        return $this;
+    }
+
+    public function employee()
+    {
+        $this->route = Config::get('routes.auth.employee');
+        return $this;
+    }
+
+    public function anonymous()
+    {
+        $this->route = Config::get('routes.auth.anonymous');
+        return $this;
     }
 
     public function authenticate()
@@ -42,13 +65,9 @@ trait Authentication
             return $this->getToken();
         }
 
-        $member = isset($this->username) && isset($this->password);
-
         try {
-            $authType = $member ? 'member' : 'anonymous';
-            $authRoute = Config::get("routes.auth.$authType");
 
-            $meta = $this->HttpService->post($authRoute)->body();
+            $meta = $this->client->http()->post($this->route)->body();
 
         } catch (\Exception $e) {
             throw new AuthenticationFailed($e->getMessage(), $e->getCode());
@@ -60,11 +79,13 @@ trait Authentication
 
         }
 
-        $this->HttpService->setHeaders([
+        $this->client->http()->setHeaders([
             'Authorization' => "Bearer $meta->token"
         ]);
 
-        return $this->token = $meta->token;
+        $this->token = $meta->token;
+
+        return $this;
     }
 
     public function setUserName($username)

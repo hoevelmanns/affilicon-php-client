@@ -11,33 +11,26 @@
 namespace AffiliconApiClient\Services;
 
 
-use AffiliconApiClient\Traits\Singleton;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
 class HttpService
 {
     /** @var Client */
-    protected static $HttpClient;
-    protected static $endpoint;
+    protected $httpClient;
+    protected $endpoint;
     /** @var  Response $response */
     protected $response;
     protected $headers;
     protected $body;
     protected $data;
 
-    use Singleton;
 
-    /**
-     * @param $endpoint
-     * @return mixed
-     */
-    public function init($endpoint)
+    public function __construct($endpoint)
     {
-        static::$endpoint = $endpoint;
-        static::$HttpClient = new Client();
-
-        return self::$instance;
+        $this->endpoint = $endpoint;
+        $this->httpClient = new Client();
+        return $this;
     }
 
     /**
@@ -77,9 +70,9 @@ class HttpService
 
     private function request($method, $route, $body = [])
     {
-        $url = static::$endpoint . $route;
+        $url = $this->endpoint . $route;
 
-        $this->response = static::$HttpClient->request($method, $url, [
+        $this->response = $this->httpClient->request($method, $url, [
             'headers' => $this->getHeaders(),
             'json' => $body
         ]);

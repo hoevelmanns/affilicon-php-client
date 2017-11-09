@@ -14,49 +14,47 @@ namespace AffiliconApiClient\Abstracts;
 use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
-use AffiliconApiClient\Services\HttpService;
 
 abstract class AbstractModel implements ModelInterface
 {
 
-  protected $resource;
-  /** @var HttpService */
-  protected $HttpService;
-  /** @var Client  */
-  protected $Client;
-  protected $rows;
+    protected $resource;
 
-  public function __construct()
-  {
-    $this->resource = $this->getRoute();
-    $this->HttpService = HttpService::getInstance();
-    $this->Client = Client::getInstance();
-  }
+    /** @var Client */
+    protected $client;
+    protected $rows;
 
-  /**
-   * Gets the resource for the model
-   * @return string
-   */
-  protected function getRoute()
-  {
-    $class = explode("\\", get_class($this));
+    public function __construct()
+    {
+        $this->client = Client::getInstance();
 
-    return Config::get('routes.' . $class[count($class) -1]);
-  }
+        $this->resource = $this->getRoute();
+    }
 
-  public function findById($id)
-  {
-    // TODO: Implement findById() method.
-  }
+    /**
+     * Gets the resource for the model
+     * @return string
+     */
+    protected function getRoute()
+    {
+        $class = explode("\\", get_class($this));
 
-  public function find($params, $with)
-  {
-    // TODO: Implement find() method.
-  }
+        return Config::get('routes.' . $class[count($class) - 1]);
+    }
 
-  public function fetch()
-  {
-    // TODO: Implement all() method.
-  }
+    public function findById($id)
+    {
+        // TODO: Implement findById() method.
+    }
+
+    public function find($params, $with)
+    {
+        // TODO: Implement find() method.
+    }
+
+    public function fetch()
+    {
+        // TODO: Implement all() method.
+    }
 
 }

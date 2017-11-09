@@ -13,7 +13,7 @@ namespace AffiliconApiClient;
 
 use AffiliconApiClient\Interfaces\ClientInterface;
 use AffiliconApiClient\Services\HttpService;
-use AffiliconApiClient\Traits\Authentication;
+use AffiliconApiClient\Services\AuthService;
 use AffiliconApiClient\Traits\Environment;
 use AffiliconApiClient\Traits\Singleton;
 
@@ -23,91 +23,112 @@ use AffiliconApiClient\Traits\Singleton;
  */
 class Client implements ClientInterface
 {
-  public $clientId;
-  public $countryId;
-  public $userLanguage;
+    public $clientId;
+    public $countryId;
+    public $userLanguage;
 
-  /** @var  HttpService */
-  protected $HttpService;
+    use Singleton;
+    use Environment;
 
-  use Singleton;
-  use Environment;
-  use Authentication;
+    /** @var  AuthService */
+    protected $auth;
+    /** @var  HttpService */
+    protected $http;
 
-  /**
-   * Initializes the Client
-   * @return $this
-   */
-  public function init()
-  {
-    $this->setEnvironment();
 
-    $this->HttpService = HttpService::getInstance();
-    $this->HttpService->init($this->environment->service_url);
+    /**
+     * Initializes the Client
+     * @return $this
+     */
+    public function init()
+    {
+        $this->setEnvironment();
 
-    $this->authenticate();
+        $this->http = new HttpService($this->environment->service_url);
 
-    return $this;
-  }
+        $this->auth = (new AuthService($this))
+            ->anonymous()
+            ->authenticate();
 
-  /**
-   * Sets the Client ID, previously called Vendor ID
-   * @param string $id
-   * @return $this
-   */
-  public function setClientId($id)
-  {
-    $this->clientId = $id;
-    return $this;
-  }
+        return $this;
+    }
 
-  /**
-   * Gets the Client ID, previously called Vendor ID
-   * @return string
-   */
-  public function getClientId()
-  {
-    return $this->clientId;
-  }
+    public function http()
+    {
+        return $this->http;
+    }
 
-  /**
-   * Gets the specified country code
-   * @return string
-   */
-  public function getCountryId()
-  {
-    return $this->countryId;
-  }
+    public function auth()
+    {
+        return $this->auth;
+    }
 
-  /**
-   * Sets the country code, eg. "en-US"
-   * @param $countryId
-   * @return $this
-   */
-  public function setCountryId($countryId)
-  {
-    $this->countryId = $countryId;
-    return $this;
-  }
+    /**
+     * Sets the Client ID, previously called Vendor ID
+     * @param string $id
+     * @return $this
+     */
+    public function setClientId($id)
+    {
+        $this->clientId = $id;
+        return $this;
+    }
 
-  /**
-   * Gets the specified user language
-   * @return $this
-   */
-  public function getUserLanguage()
-  {
-    return $this->userLanguage;
-  }
+    /**
+     * Gets the Client ID, previously called Vendor ID
+     * @return string
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
+    }
 
-  /**
-   * Sets the user language, eg. "en"
-   * @param string $userLanguage
-   * @return $this
-   */
-  public function setUserLanguage($userLanguage)
-  {
-    $this->userLanguage = $userLanguage;
-    return $this;
-  }
+    /**
+     * Gets the specified country code
+     * @return string
+     */
+    public function getCountryId()
+    {
+        return $this->countryId;
+    }
+
+    /**
+     * Sets the country code, eg. "en-US"
+     * @param $countryId
+     * @return $this
+     */
+    public function setCountryId($countryId)
+    {
+        $this->countryId = $countryId;
+        return $this;
+    }
+
+    /**
+     * Gets the specified user language
+     * @return $this
+     */
+    public function getUserLanguage()
+    {
+        return $this->userLanguage;
+    }
+
+    /**
+     * Sets the user language, eg. "en"
+     * @param string $userLanguage
+     * @return $this
+     */
+    public function setUserLanguage($userLanguage)
+    {
+        $this->userLanguage = $userLanguage;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->auth()->getToken();
+    }
 
 }

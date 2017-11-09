@@ -12,7 +12,6 @@
 namespace AffiliconApiClient\Models;
 
 use AffiliconApiClient\Abstracts\AbstractModel;
-use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
 
 /**
@@ -32,11 +31,6 @@ class LineItem extends AbstractModel implements ModelInterface
 {
 
   protected $resource;
-
-  public function __construct()
-  {
-    parent::__construct();
-  }
 
   /**
    * @return int
@@ -107,7 +101,7 @@ class LineItem extends AbstractModel implements ModelInterface
    */
   public function store()
   {
-    $data = $this->HttpService->post($this->resource, [
+    $data = $this->client->http()->post($this->resource, [
         'cart_id' => $this->cartId,
         'product_id' => $this->id,
         'count' => $this->quantity])->data();
