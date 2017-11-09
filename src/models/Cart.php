@@ -49,7 +49,6 @@ class Cart extends AbstractModel
     {
         try {
 
-            /** @var Cart $cart */
             $cart = $this->HttpService
                 ->post($this->resource, ['vendor' => $this->Client->getClientId()])
                 ->data();
@@ -60,7 +59,9 @@ class Cart extends AbstractModel
 
         }
 
+        /** @var string id */
         $this->id = $cart->id;
+        /** @var string status */
         $this->status = $cart->status;
 
         return $this;

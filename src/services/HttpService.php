@@ -108,16 +108,31 @@ class HttpService
         return $this->request('POST', $route);
     }
 
+    /**
+     * @param $route
+     * @param array $body
+     * @return HttpService
+     */
     public function put($route, $body = [])
     {
         return $this->request('PUT', $route, $body);
     }
 
-    public function patch($route, $body)
+    /**
+     * @param $route
+     * @param array $body
+     * @return HttpService
+     */
+    public function patch($route, $body = [])
     {
         return $this->request('PATCH', $route, $body);
     }
 
+    /**
+     * @param $route
+     * @param array $body
+     * @return HttpService
+     */
     public function delete($route, $body = [])
     {
         return $this->request('DELETE', $route, $body);

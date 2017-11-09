@@ -92,11 +92,6 @@ class LineItem extends AbstractModel implements ModelInterface
     return $this->apiId;
   }
 
-  public function fetch()
-  {
-    return parent::fetch();
-  }
-
   /**
    * @param $cartId
    * @return $this
