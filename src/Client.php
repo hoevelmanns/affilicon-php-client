@@ -42,7 +42,8 @@ class Client implements ClientInterface
   {
     $this->setEnvironment();
 
-    $this->HttpService = HttpService::init($this->environment->service_url);
+    $this->HttpService = HttpService::getInstance();
+    $this->HttpService->init($this->environment->service_url);
 
     $this->authenticate();
 

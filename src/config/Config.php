@@ -38,7 +38,7 @@ class Config
 
     /**
      * @param $key
-     * @return array
+     * @return array|string
      */
     public static function get($key)
     {

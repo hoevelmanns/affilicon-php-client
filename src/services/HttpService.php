@@ -32,10 +32,8 @@ class HttpService
      * @param $endpoint
      * @return mixed
      */
-    public static function init($endpoint)
+    public function init($endpoint)
     {
-        self::getInstance();
-
         static::$endpoint = $endpoint;
         static::$HttpClient = new Client();
 
