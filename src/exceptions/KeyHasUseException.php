@@ -11,13 +11,12 @@ namespace AffiliconApiClient\Exceptions;
 
 class KeyHasUseException extends ClientExceptions
 {
-    /**
-     * KeyHasUseException constructor.
-     *
-     * @param $message
-     */
-    public function __construct($message)
-    {
-        parent::__construct("Key $message already in use.", 2);
-    }
+  /**
+   * KeyHasUseException constructor.
+   * @param $message
+   */
+  public function __construct($message)
+  {
+    parent::__construct("Key $message already in use.", 2);
+  }
 }

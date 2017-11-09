@@ -11,27 +11,26 @@ namespace AffiliconApiClient\Interfaces;
 
 interface ModelInterface
 {
-    /**
-     * Find item by his id
-     *
-     * @param  $id
-     * @return \stdClass
-     */
-    public function findById($id);
+  /**
+   * Find item by his id
+   *
+   * @param $id
+   * @return \stdClass
+   */
+  public function findById($id);
 
-    /**
-     * Find items by different parameters
-     *
-     * @param  $params
-     * @param  $with
-     * @return mixed
-     */
-    public function find($params, $with);
+  /**
+   * Find items by different parameters
+   *
+   * @param $params
+   * @param $with
+   * @return mixed
+   */
+  public function find($params, $with);
 
-    /**
-     * Gets all records
-     *
-     * @return mixed
-     */
-    public function fetch();
+  /**
+   * Gets all records
+   * @return mixed
+   */
+  public function fetch();
 }

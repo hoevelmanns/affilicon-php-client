@@ -48,27 +48,23 @@ trait Authentication
             $authType = $member ? 'member' : 'anonymous';
             $authRoute = Config::get("routes.auth.$authType");
 
-            $data = $this->HttpService->post($authRoute)->body();
+            $meta = $this->HttpService->post($authRoute)->body();
 
         } catch (\Exception $e) {
             throw new AuthenticationFailed($e->getMessage(), $e->getCode());
         }
 
-        if (!$data || !$data->token) {
+        if (!$meta || !$meta->token) {
 
             throw new AuthenticationFailed('token invalid', 403);
 
         }
 
-        $this->HttpService->setHeaders(
-            [
-            'Authorization' => 'Bearer ' . $data->token,
-            'username' => $this->username,
-            'password' => $this->password
-            ]
-        );
+        $this->HttpService->setHeaders([
+            'Authorization' => "Bearer $meta->token"
+        ]);
 
-        return $this->token = $data->token;
+        return $this->token = $meta->token;
     }
 
     public function setUserName($username)

@@ -20,7 +20,6 @@
     "phpunit/phpunit": "^6.4",
     "apigen/apigen": "dev-master",
     "roave/better-reflection": "dev-master#c87d856"
-
   },
   "autoload": {
     "files": [

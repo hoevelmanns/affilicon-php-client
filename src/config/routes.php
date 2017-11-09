@@ -2,10 +2,10 @@
 /**
  * Copyright (C) Marcelle Hövelmanns, art solution - All Rights Reserved
  *
- * @file   routes.php
- * @author Marcelle Hövelmanns
- * @site   http://www.artsolution.de
- * @date   24.10.17
+ * @file        routes.php
+ * @author      Marcelle Hövelmanns
+ * @site        http://www.artsolution.de
+ * @date        24.10.17
  */
 
 namespace AffiliconApiClient\Configurations;
@@ -22,20 +22,19 @@ return $routes = [
 
     'auth' => [
 
-      'anonymous' => 'api/auth/anonymous/token',
+      'anonymous' => '/auth/anonymous/token',
 
-      'member' => 'api/auth/member/token',
+      'member' => '/auth/member/token',
 
-      'refresh' => 'api/auth/refresh',
+      'refresh' => '/auth/refresh',
 
     ],
 
     // Models
-    'Product' => 'api/products',
+    'Product' => '/products',
 
-    'Cart' => 'api/carts',
+    'Cart' => '/carts',
 
-    'LineItem' => 'api/cart-items/products'
-
+    'LineItem' => '/cart-items/products'
   ]
 ];
