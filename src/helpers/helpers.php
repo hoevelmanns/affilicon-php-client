@@ -12,7 +12,7 @@
 if (!function_exists('array_get')) {
     /**
      * @param $key
-     * @return array|string
+     * @return array
      */
     function array_get($array, $key)
     {

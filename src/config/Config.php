@@ -38,15 +38,13 @@ class Config
 
     /**
      * @param $key
-     * @return string
+     * @return array
      */
     public static function get($key)
     {
         self::getInstance();
 
-        $get = array_get(self::$config, $key);
-
-        return is_array($get) ? json_encode($get) : $get;
+        return array_get(self::$config, $key);
     }
 
 }
