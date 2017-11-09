@@ -110,17 +110,17 @@ class HttpService
 
     public function put($route, $body = [])
     {
-        return $this->request('PUT', $route);
+        return $this->request('PUT', $route, $body);
     }
 
     public function patch($route, $body)
     {
-        return $this->request('PATCH', $route);
+        return $this->request('PATCH', $route, $body);
     }
 
     public function delete($route, $body = [])
     {
-        return $this->request('DELETE', $route);
+        return $this->request('DELETE', $route, $body);
     }
 
 }
