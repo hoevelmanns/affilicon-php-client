@@ -24,89 +24,89 @@ use AffiliconApiClient\Services\HttpService;
  * @property string $status
  *
  */
-
 class Cart extends AbstractModel
 {
-  /** @var Collection $lineItems */
-  protected $lineItems;
-  protected $resource;
+    /** @var Collection $lineItems */
+    protected $lineItems;
+    protected $resource;
 
-  /** @var  Client */
-  protected $Client;
+    /** @var  Client */
+    protected $Client;
 
-  public function __construct()
-  {
-    parent::__construct();
-    $this->lineItems = new Collection();
-  }
-
-  /**
-   * create new cart
-   *
-   * @return $this
-   * @throws CartCreationFailed
-   */
-  public function create()
-  {
-    try {
-
-      $cart = $this->HttpService
-          ->post($this->resource, ['vendor' => $this->Client->getClientId()])
-          ->data();
-
-    } catch (\Exception $e) {
-
-      throw new CartCreationFailed($e->getMessage());
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->lineItems = new Collection();
     }
 
-    $this->id = $cart->id;
-    $this->status = $cart->status;
+    /**
+     * create new cart
+     *
+     * @return $this
+     * @throws CartCreationFailed
+     */
+    public function create()
+    {
+        try {
 
-    return $this;
-  }
+            /** @var Cart $cart */
+            $cart = $this->HttpService
+                ->post($this->resource, ['vendor' => $this->Client->getClientId()])
+                ->data();
 
-  /**
-   * @return mixed
-   */
-  public function getStatus()
-  {
-    return $this->status;
-  }
+        } catch (\Exception $e) {
 
-  /**
-   * @return mixed
-   */
-  public function getId()
-  {
-    return $this->id;
-  }
+            throw new CartCreationFailed($e->getMessage());
 
-  /**
-   * @param LineItem
-   * @param $quantity
-   * @return $this
-   */
-  public function addLineItem($itemId, $quantity)
-  {
-    $item = (new LineItem())
-      ->setCartId($this->id)
-      ->setId($itemId)
-      ->setQuantity($quantity)
-      ->store();
+        }
 
-    $this->lineItems->addItem($item);
+        $this->id = $cart->id;
+        $this->status = $cart->status;
 
-    return $this;
-  }
+        return $this;
+    }
 
-  /**
-   * get the cart items
-   * @return mixed
-   */
-  public function getLineItems()
-  {
-    return $this->lineItems;
-  }
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param LineItem
+     * @param $quantity
+     * @return $this
+     */
+    public function addLineItem($itemId, $quantity)
+    {
+        $item = (new LineItem())
+            ->setCartId($this->id)
+            ->setId($itemId)
+            ->setQuantity($quantity)
+            ->store();
+
+        $this->lineItems->addItem($item);
+
+        return $this;
+    }
+
+    /**
+     * get the cart items
+     * @return mixed
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
 
 }
