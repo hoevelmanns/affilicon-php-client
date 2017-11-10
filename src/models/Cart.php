@@ -22,7 +22,6 @@ class Cart extends AbstractModel
 {
     /** @var Collection $lineItems */
     protected $lineItems;
-    protected $route;
 
     /** @var string */
     private $id;

@@ -29,9 +29,6 @@ use AffiliconApiClient\Interfaces\ModelInterface;
 
 class LineItem extends AbstractModel implements ModelInterface
 {
-
-  protected $route;
-
   /**
    * @return int
    */
