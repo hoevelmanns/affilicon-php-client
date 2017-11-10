@@ -22,7 +22,7 @@ class Cart extends AbstractModel
 {
     /** @var Collection $lineItems */
     protected $lineItems;
-    protected $resource;
+    protected $route;
 
     /** @var string */
     private $id;
@@ -47,7 +47,7 @@ class Cart extends AbstractModel
 
             $cart = $this->client
                 ->http()
-                ->post($this->resource, ['vendor' => $this->client->getClientId()])
+                ->post($this->route, ['vendor' => $this->client->getClientId()])
                 ->data();
 
         } catch (\Exception $e) {

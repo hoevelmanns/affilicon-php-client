@@ -30,7 +30,7 @@ use AffiliconApiClient\Interfaces\ModelInterface;
 class LineItem extends AbstractModel implements ModelInterface
 {
 
-  protected $resource;
+  protected $route;
 
   /**
    * @return int
@@ -101,7 +101,7 @@ class LineItem extends AbstractModel implements ModelInterface
    */
   public function store()
   {
-    $data = $this->client->http()->post($this->resource, [
+    $data = $this->client->http()->post($this->route, [
         'cart_id' => $this->cartId,
         'product_id' => $this->id,
         'count' => $this->quantity])->data();

@@ -18,7 +18,7 @@ use AffiliconApiClient\Interfaces\ModelInterface;
 abstract class AbstractModel implements ModelInterface
 {
 
-    protected $resource;
+    protected $route;
 
     /** @var Client */
     protected $client;
@@ -28,18 +28,19 @@ abstract class AbstractModel implements ModelInterface
     {
         $this->client = Client::getInstance();
 
-        $this->resource = $this->getRoute();
+        $this->setRoute();
     }
 
     /**
-     * Gets the resource for the model
+     * Sets the resource for the model
      * @return string
      */
-    protected function getRoute()
+    protected function setRoute()
     {
         $class = explode("\\", get_class($this));
 
-        return Config::get('routes.' . $class[count($class) - 1]);
+        // todo route not found handling
+        $this->route = Config::get('routes.' . $class[count($class) - 1]);
     }
 
     public function findById($id)

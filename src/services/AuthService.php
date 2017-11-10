@@ -70,6 +70,7 @@ class AuthService
             $meta = $this->client->http()->post($this->route)->body();
 
         } catch (\Exception $e) {
+
             throw new AuthenticationFailed($e->getMessage(), $e->getCode());
         }
 
