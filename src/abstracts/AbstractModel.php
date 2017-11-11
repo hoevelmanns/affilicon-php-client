@@ -13,20 +13,22 @@ namespace AffiliconApiClient\Abstracts;
 
 use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
+use AffiliconApiClient\Exceptions\ConfigurationInvalid;
 use AffiliconApiClient\Interfaces\ModelInterface;
 use AffiliconApiClient\Models\Collection;
 use AffiliconApiClient\Traits\HasHTTPRequests;
+use Nette\Neon\Exception;
 
 abstract class AbstractModel implements ModelInterface
 {
 
-    /** @var  string */
+    /** @var string */
     protected $route;
 
     /** @var Client */
     protected $client;
 
-    /** @var  Collection */
+    /** @var Collection */
     protected $rows;
 
     use HasHTTPRequests;
@@ -41,13 +43,19 @@ abstract class AbstractModel implements ModelInterface
     /**
      * Sets the resource for the model
      * @return string
+     * @throws ConfigurationInvalid
      */
     protected function setRoute()
     {
         $class = explode("\\", get_class($this));
 
-        // todo route not found handling
-        $this->route = Config::get('routes.' . $class[count($class) - 1]);
+        $route = Config::get('routes.' . $class[count($class) - 1]);
+
+        if (is_array($route)) {
+            throw new ConfigurationInvalid('Route must be a string');
+        }
+
+        $this->route = $route;
     }
 
     public function findById($id)

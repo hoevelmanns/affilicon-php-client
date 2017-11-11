@@ -44,7 +44,9 @@ class Config
     {
         self::getInstance();
 
-        return array_get(self::$config, $key);
+        $config = array_get(self::$config, $key);
+
+        return $config;
     }
 
 }
