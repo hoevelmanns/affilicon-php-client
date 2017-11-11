@@ -14,6 +14,7 @@ namespace AffiliconApiClient\Abstracts;
 use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
+use AffiliconApiClient\Traits\HasHTTPRequests;
 
 abstract class AbstractModel implements ModelInterface
 {
@@ -23,6 +24,8 @@ abstract class AbstractModel implements ModelInterface
     /** @var Client */
     protected $client;
     protected $rows;
+
+    use HasHTTPRequests;
 
     public function __construct()
     {

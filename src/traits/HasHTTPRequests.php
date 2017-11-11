@@ -19,17 +19,12 @@ use AffiliconApiClient\Services\HttpService;
  */
 trait HasHTTPRequests
 {
-    /** @var  HttpService */
-    protected $HttpService;
-    /** @var  string */
-    protected $resource;
-
     /**
      * @param array $body
      * @return HttpService
      */
     protected function post($body)
     {
-        return $this->HttpService->post($this->resource, $body);
+        return $this->client->http()->post($this->route, $body);
     }
 }

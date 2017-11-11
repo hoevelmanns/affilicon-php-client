@@ -14,6 +14,7 @@ namespace AffiliconApiClient\Services;
 use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
+use AffiliconApiClient\Traits\HasHTTPRequests;
 
 /**
  * Class Authentication
@@ -26,6 +27,8 @@ class AuthService
     protected $username;
     protected $password;
     protected $route;
+
+    use HasHTTPRequests;
 
     /** @var Client  */
     protected $client;
@@ -67,7 +70,9 @@ class AuthService
 
         try {
 
-            $meta = $this->client->http()->post($this->route)->body();
+            $meta = $this
+                ->post($this->route)
+                ->body();
 
         } catch (\Exception $e) {
 

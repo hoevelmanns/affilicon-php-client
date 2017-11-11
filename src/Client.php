@@ -35,7 +35,6 @@ class Client implements ClientInterface
     /** @var  HttpService */
     protected $http;
 
-
     /**
      * Initializes the Client
      * @return $this

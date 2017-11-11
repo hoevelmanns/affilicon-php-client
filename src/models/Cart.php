@@ -28,6 +28,7 @@ class Cart extends AbstractModel
     /** @var string */
     private $status;
 
+
     public function __construct()
     {
         parent::__construct();
@@ -44,10 +45,7 @@ class Cart extends AbstractModel
     {
         try {
 
-            $cart = $this->client
-                ->http()
-                ->post($this->route, ['vendor' => $this->client->getClientId()])
-                ->data();
+            $cart = $this->post(['vendor' => $this->client->getClientId()])->data();
 
         } catch (\Exception $e) {
 
