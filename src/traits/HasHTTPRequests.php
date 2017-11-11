@@ -11,6 +11,7 @@
 namespace AffiliconApiClient\Traits;
 
 
+use AffiliconApiClient\Client;
 use AffiliconApiClient\Services\HttpService;
 
 /**
@@ -19,6 +20,11 @@ use AffiliconApiClient\Services\HttpService;
  */
 trait HasHTTPRequests
 {
+    /** @var  Client */
+    protected $client;
+    /** @var  string */
+    protected $route;
+
     /**
      * @param array $body
      * @return HttpService

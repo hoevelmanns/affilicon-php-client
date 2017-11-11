@@ -14,15 +14,19 @@ namespace AffiliconApiClient\Abstracts;
 use AffiliconApiClient\Client;
 use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Interfaces\ModelInterface;
+use AffiliconApiClient\Models\Collection;
 use AffiliconApiClient\Traits\HasHTTPRequests;
 
 abstract class AbstractModel implements ModelInterface
 {
 
+    /** @var  string */
     protected $route;
 
     /** @var Client */
     protected $client;
+
+    /** @var  Collection */
     protected $rows;
 
     use HasHTTPRequests;
