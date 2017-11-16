@@ -12,9 +12,7 @@ namespace AffiliconApiClient\Services;
 
 
 use AffiliconApiClient\Client;
-use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\AuthenticationFailed;
-use AffiliconApiClient\Traits\HasHTTPRequests;
 
 /**
  * Class Authentication
@@ -28,13 +26,14 @@ class AuthService
     protected $password;
     protected $route;
 
-    use HasHTTPRequests;
-
-    /** @var Client  */
+    /** @var  Client */
     protected $client;
 
-
-    public function __construct(Client $client)
+    /**
+     * AuthService constructor.
+     * @param $client
+     */
+    public function __construct($client)
     {
         $this->client = $client;
     }
@@ -46,19 +45,28 @@ class AuthService
 
     public function member()
     {
-        $this->route = Config::get('routes.auth.member');
+        $this->route = $this->client
+            ->config()
+            ->get('routes.auth.member');
+
         return $this;
     }
 
     public function employee()
     {
-        $this->route = Config::get('routes.auth.employee');
+        $this->route = $this->client
+            ->config()
+            ->get('routes.auth.employee');
+
         return $this;
     }
 
     public function anonymous()
     {
-        $this->route = Config::get('routes.auth.anonymous');
+        $this->route = $this->client
+            ->config()
+            ->get('routes.auth.anonymous');
+
         return $this;
     }
 
@@ -70,7 +78,8 @@ class AuthService
 
         try {
 
-            $meta = $this
+            $meta = $this->client
+                ->http()
                 ->post($this->route)
                 ->body();
 

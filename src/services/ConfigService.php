@@ -8,24 +8,25 @@
  * @date   29.10.17
  */
 
-namespace AffiliconApiClient\Configurations;
+namespace AffiliconApiClient\Services;
 
 
 use AffiliconApiClient\Exceptions\ConfigurationInvalid;
-use AffiliconApiClient\Traits\Singleton;
 
-class Config
+/**
+ * Class ConfigService
+ * @package AffiliconApiClient\Services
+ */
+class ConfigService
 {
-    protected static $config;
-
-    use Singleton;
+    protected $data;
 
     public function __construct()
     {
         try {
 
-            $global = include "config.php";
-            $routes = include "routes.php";
+            $global = include __DIR__ . "/../config/config.php";
+            $routes = include __DIR__ . "/../config/routes.php";
 
         } catch (\Exception $e) {
 
@@ -33,18 +34,16 @@ class Config
 
         }
 
-        self::$config = array_merge($global, $routes);
+        $this->data = array_merge($global, $routes);
     }
 
     /**
      * @param $key
      * @return array|string
      */
-    public static function get($key)
+    public function get($key)
     {
-        self::getInstance();
-
-        $config = array_get(self::$config, $key);
+        $config = array_get($this->data, $key);
 
         return $config;
     }

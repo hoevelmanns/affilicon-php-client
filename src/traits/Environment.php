@@ -12,8 +12,8 @@
 namespace AffiliconApiClient\Traits;
 
 
-use AffiliconApiClient\Configurations\Config;
 use AffiliconApiClient\Exceptions\ConfigurationInvalid;
+use AffiliconApiClient\Services\ConfigService;
 
 /**
  * Trait Environment
@@ -22,27 +22,31 @@ use AffiliconApiClient\Exceptions\ConfigurationInvalid;
  */
 trait Environment
 {
+
     protected $environment;
 
     /**
      * Sets the environment, default 'production'
      *
-     * @param  string $environmentName
      * @return $this
      * @throws ConfigurationInvalid
      */
-    public function setEnvironment($environmentName = 'production')
+    public function setEnvironment()
     {
-        if (!$this->environment) {
+        $environmentName = $this->options['environment'];
 
-            $environment = Config::get("environment.$environmentName");
-
-            if (!$environment) {
-                throw new ConfigurationInvalid("Configuration for given environment not found");
-            }
-
-            $this->environment = (object) $environment;
+        if (!$environmentName) {
+            $environmentName = 'production';
         }
+
+        $environment = $this->config
+            ->get("environment.$environmentName");
+
+        if (!$environment) {
+            throw new ConfigurationInvalid("Configuration for given environment not found");
+        }
+
+        $this->environment = (object) $environment;
 
         return $this;
     }

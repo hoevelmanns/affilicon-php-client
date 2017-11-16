@@ -113,6 +113,11 @@ class Order extends AbstractModel
         return $this->customData;
     }
 
+    public function getCustomData()
+    {
+        return $this->customData;
+    }
+
     public function getCheckoutUrl()
     {
         return $this->generateCheckoutUrl();
@@ -120,14 +125,20 @@ class Order extends AbstractModel
 
     protected function preparePrefillData()
     {
+        $customData = [
+            'custom' => $this->getCustomData()
+        ];
+
         $prefillData = array_merge(
-            $this->customData,
+            $customData,
             $this->billingAddress->getData(),
             $this->shippingAddress->getData(),
             $this->basicAddress->getData()
         );
 
         $this->prefillData = $prefillData;
+
+        return $prefillData;
     }
 
     protected function generateCheckoutUrl()
