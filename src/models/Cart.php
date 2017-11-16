@@ -24,7 +24,8 @@ class Cart extends AbstractModel
     protected $lineItems;
 
     /** @var string */
-    private $id;
+    private $cartId;
+
     /** @var string */
     private $status;
 
@@ -53,14 +54,30 @@ class Cart extends AbstractModel
 
         }
 
-        $this->id = $cart->id;
-        $this->status = $cart->status;
+        $this->setCartId($cart->id);
+        $this->setStatus($cart->status);
 
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return string
+     */
+    public function getCartId()
+    {
+        return $this->cartId;
+    }
+
+    /**
+     * @param string $cartId
+     */
+    public function setCartId($cartId)
+    {
+        $this->cartId = $cartId;
+    }
+
+    /**
+     * @return string
      */
     public function getStatus()
     {
@@ -68,11 +85,11 @@ class Cart extends AbstractModel
     }
 
     /**
-     * @return mixed
+     * @param string $status
      */
-    public function getId()
+    public function setStatus($status)
     {
-        return $this->id;
+        $this->status = $status;
     }
 
     /**
@@ -83,7 +100,7 @@ class Cart extends AbstractModel
     public function addLineItem($itemId, $quantity)
     {
         $item = (new LineItem())
-            ->setCartId($this->id)
+            ->setCartId($this->cartId)
             ->setId($itemId)
             ->setQuantity($quantity)
             ->store();

@@ -23,17 +23,23 @@ use AffiliconApiClient\Traits\Singleton;
  */
 class Client implements ClientInterface
 {
+    /** @var string */
     public $clientId;
+    /** @var string */
     public $countryId;
+    /** @var string */
     public $userLanguage;
-
-    use Singleton;
-    use Environment;
+    /** @var string */
+    private $secretKey;
 
     /** @var  AuthService */
     protected $auth;
+
     /** @var  HttpService */
     protected $http;
+
+    use Singleton;
+    use Environment;
 
     /**
      * Initializes the Client
@@ -104,7 +110,7 @@ class Client implements ClientInterface
 
     /**
      * Gets the specified user language
-     * @return $this
+     * @return string
      */
     public function getUserLanguage()
     {
@@ -128,6 +134,26 @@ class Client implements ClientInterface
     public function getToken()
     {
         return $this->auth()->getToken();
+    }
+
+    /**
+     * Sets the api secret key
+     * @param $secretKey
+     * @return $this
+     */
+    public function setSecretKey($secretKey)
+    {
+        $this->secretKey = $secretKey;
+        return $this;
+    }
+
+    /**
+     * Gets the api secret key
+     * @return string
+     */
+    public function getSecretKey()
+    {
+        return $this->secretKey;
     }
 
 }

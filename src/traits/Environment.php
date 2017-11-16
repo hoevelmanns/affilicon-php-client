@@ -46,4 +46,6 @@ trait Environment
 
         return $this;
     }
+
+    //todo function getEnvironment KeyValue
 }
