@@ -82,8 +82,7 @@ class Client
     {
         $this->config = new ConfigService();
 
-        $environment = $this->config
-            ->get("environment.$env");
+        $environment = $this->config->get("environment.$env");
 
         if (empty($environment)) {
             throw new ConfigurationInvalid("Configuration for given environment not found");
