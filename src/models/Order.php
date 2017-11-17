@@ -12,6 +12,8 @@ namespace AffiliconApiClient\Models;
 
 
 use AffiliconApiClient\Abstracts\AbstractModel;
+use AffiliconApiClient\Exceptions\ConfigurationInvalid;
+use AffiliconApiClient\Traits\HasEncryption;
 
 /**
  * Class Order
@@ -37,18 +39,10 @@ class Order extends AbstractModel
     /** @var array */
     private $prefillData = [];
 
-    /** @var string  */
-    private $cryptKey;
+    /** @var  string */
+    protected $checkoutUrl;
 
-    /** @var string  */
-    private $cryptMethod;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->cryptKey = $this->client->getSecretKey();
-        $this->cryptMethod = $this->client->config()->get('security.crypt_method');
-    }
+    use HasEncryption;
 
     public function cart()
     {
@@ -132,7 +126,7 @@ class Order extends AbstractModel
 
     public function getCheckoutUrl()
     {
-        return $this->generateCheckoutUrl();
+        return $this->checkoutUrl;
     }
 
     protected function preparePrefillData()
@@ -153,40 +147,43 @@ class Order extends AbstractModel
         return $prefillData;
     }
 
-    protected function generateCheckoutUrl()
+    public function generateCheckoutUrl()
+    {
+        $env = $this->client->getEnv();
+
+        if (!$env->secure_url) {
+            throw new ConfigurationInvalid('Secure-URL is not defined. Check the configurations.');
+        }
+
+        $checkoutUrl = $env->secure_url;
+
+        $this->checkoutUrl =  $this->addUrlParams($checkoutUrl);
+    }
+
+    /**
+     * @param string $originUrl
+     * @return string
+     */
+    protected function addUrlParams($originUrl)
     {
         $prefillData = $this->toJson($this->preparePrefillData());
-
         $encryptedPrefillData = $this->encrypt($prefillData);
 
+        $cartId = $this->cart()->getCartId();
+        $clientId = $this->client->getClientId();
+        $countryId = $this->client->getCountryId();
+        $userLanguage = $this->client->getUserLanguage();
+        $token = $this->client->getToken();
 
-        // todo get secure url from environment
-        // todo base64 encode data
-    }
+        $params = [
+            "$clientId/redirect",
+            "cartId/$cartId",
+            "countryId/$countryId",
+            "token/$token",
+            "language/$userLanguage"
+        ]; // todo testmode
 
-    protected function addUrlParams()
-    {
-
-    }
-
-    /**
-     * Returns an encrypted string
-     * @param string $data json encoded prefill data
-     * @return string
-     */
-    protected function encrypt($data)
-    {
-        return urlencode(openssl_encrypt($data, $this->cryptMethod, $this->cryptKey));
-    }
-
-    /**
-     * Decrypt a given string
-     * @param $data
-     * @return string
-     */
-    protected function decrypt($data)
-    {
-        return urlencode(openssl_decrypt($data, $this->cryptMethod, $this->cryptKey));
+        return $originUrl . "/" . join('/', $params) . "?prefill=$encryptedPrefillData";
     }
 
     /**

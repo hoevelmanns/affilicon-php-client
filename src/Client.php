@@ -94,6 +94,15 @@ class Client
         return $this;
     }
 
+    /**
+     * Gets the environment
+     * @return object
+     */
+    public function getEnv()
+    {
+        return $this->environment;
+    }
+
     public function http()
     {
         return $this->http;
