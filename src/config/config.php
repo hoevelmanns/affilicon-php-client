@@ -46,6 +46,10 @@ return [
 
     'error_log' => [
         'path' => __DIR__ . '/logs/error.log'
+    ],
+
+    'security' => [
+        'crypt_method' => 'blowfish'
     ]
 
 ];

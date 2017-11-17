@@ -37,6 +37,18 @@ class Order extends AbstractModel
     /** @var array */
     private $prefillData = [];
 
+    /** @var string  */
+    private $cryptKey;
+
+    /** @var string  */
+    private $cryptMethod;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->cryptKey = $this->client->getSecretKey();
+        $this->cryptMethod = $this->client->config()->get('security.crypt_method');
+    }
 
     public function cart()
     {
@@ -147,17 +159,34 @@ class Order extends AbstractModel
 
         $encryptedPrefillData = $this->encrypt($prefillData);
 
+
         // todo get secure url from environment
         // todo base64 encode data
+    }
+
+    protected function addUrlParams()
+    {
+
     }
 
     /**
      * Returns an encrypted string
      * @param string $data json encoded prefill data
+     * @return string
      */
     protected function encrypt($data)
     {
+        return urlencode(openssl_encrypt($data, $this->cryptMethod, $this->cryptKey));
+    }
 
+    /**
+     * Decrypt a given string
+     * @param $data
+     * @return string
+     */
+    protected function decrypt($data)
+    {
+        return urlencode(openssl_decrypt($data, $this->cryptMethod, $this->cryptKey));
     }
 
     /**
