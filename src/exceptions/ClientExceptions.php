@@ -22,6 +22,12 @@ class ClientExceptions extends \Exception
 
     $config = new ConfigService();
 
-    error_log($this->getTraceAsString(), 3, $config->get('error_log.path'));
+    $logPath = $config->get('error_log.path');
+
+    if (empty($logPath) || !is_string($logPath)) {
+        $logPath = null;
+    }
+
+    error_log($this->getTraceAsString(), 3, $logPath);
   }
 }
