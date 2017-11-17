@@ -155,9 +155,9 @@ class Order extends AbstractModel
             throw new ConfigurationInvalid('Secure-URL is not defined. Check the configurations.');
         }
 
-        $checkoutUrl = $env->secure_url;
+        $baseUrl = $env->secure_url;
 
-        $this->checkoutUrl =  $this->addUrlParams($checkoutUrl);
+        $this->checkoutUrl =  $this->addUrlParams($baseUrl);
     }
 
     /**

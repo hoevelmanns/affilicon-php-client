@@ -17,11 +17,14 @@ if (!function_exists('array_get')) {
     function array_get($array, $key)
     {
         foreach (explode('.', $key) as $segment) {
-            if (array_accessible($array) && array_exists($segment, $array)) {
-                $array = $array[$segment];
-            } else {
+
+            if (!array_accessible($array) || !array_exists($segment, $array)) {
+
                 return null;
+
             }
+
+            $array = $array[$segment];
         }
 
         return $array;
