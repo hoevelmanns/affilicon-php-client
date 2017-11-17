@@ -53,6 +53,8 @@ class Order extends AbstractModel
         return $this->cart;
     }
     /**
+     * Sets the shipping address of the order
+     *
      * @param array $data
      */
     public function setShippingAddress($data)
@@ -65,6 +67,8 @@ class Order extends AbstractModel
     }
 
     /**
+     * Sets the billing address of the order
+     *
      * @param array $data
      */
     public function setBillingAddress($data)
@@ -77,6 +81,8 @@ class Order extends AbstractModel
     }
 
     /**
+     * Sets the basic address of the order
+     *
      * @param array $data
      */
     public function setBasicAddress($data)
@@ -89,6 +95,8 @@ class Order extends AbstractModel
     }
 
     /**
+     * Gets the shipping address of the order
+     *
      * @return ShippingAddress
      */
     public function getShippingAddress()
@@ -97,6 +105,8 @@ class Order extends AbstractModel
     }
 
     /**
+     * Gets the billing address of the order
+     *
      * @return BillingAddress
      */
     public function getBillingAddress()
@@ -105,6 +115,8 @@ class Order extends AbstractModel
     }
 
     /**
+     * Gets the basic address of the order
+     *
      * @return BasicAddress
      */
     public function getBasicAddress()
@@ -112,6 +124,12 @@ class Order extends AbstractModel
         return $this->basicAddress;
     }
 
+    /**
+     * Adds custom data to the order
+     *
+     * @param $data
+     * @return array
+     */
     public function addCustomData($data)
     {
         $this->customData = array_merge($this->customData, $data);
@@ -119,17 +137,32 @@ class Order extends AbstractModel
         return $this->customData;
     }
 
+    /**
+     * Gets the custom data of the order
+     *
+     * @return array
+     */
     public function getCustomData()
     {
         return $this->customData;
     }
 
+    /**
+     * Gets the complete checkout url with prefill data
+     *
+     * @return string
+     */
     public function getCheckoutUrl()
     {
         return $this->checkoutUrl;
     }
 
-    protected function preparePrefillData()
+    /**
+     * Collects the prefill data
+     *
+     * @return array
+     */
+    protected function collectPrefillData()
     {
         $customData = [
             'custom' => $this->getCustomData()
@@ -147,6 +180,11 @@ class Order extends AbstractModel
         return $prefillData;
     }
 
+    /**
+     * Generates the checkout url with all parameters
+     *
+     * @throws ConfigurationInvalid
+     */
     public function generateCheckoutUrl()
     {
         $env = $this->client->getEnv();
@@ -161,12 +199,14 @@ class Order extends AbstractModel
     }
 
     /**
-     * @param string $originUrl
+     * Adds necessary parameters to the given url
+     *
+     * @param string $baseUrl
      * @return string
      */
-    protected function addUrlParams($originUrl)
+    protected function addUrlParams($baseUrl)
     {
-        $prefillData = $this->toJson($this->preparePrefillData());
+        $prefillData = $this->toJson($this->collectPrefillData());
         $encryptedPrefillData = $this->encrypt($prefillData);
 
         $cartId = $this->cart()->getCartId();
@@ -183,11 +223,13 @@ class Order extends AbstractModel
             "language/$userLanguage"
         ]; // todo testmode
 
-        return $originUrl . "/" . join('/', $params) . "?prefill=$encryptedPrefillData";
+        return $baseUrl . "/" . join('/', $params) . "?prefill=$encryptedPrefillData";
     }
 
     /**
-     * @param $data
+     * Converts array to json string
+     *
+     * @param array $data
      * @return string
      */
     protected function toJson($data)
