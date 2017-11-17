@@ -12,6 +12,7 @@ namespace AffiliconApiClient\Traits;
 
 
 use AffiliconApiClient\Client;
+use AffiliconApiClient\Exceptions\ConfigurationInvalid;
 
 trait HasEncryption
 {
@@ -26,6 +27,13 @@ trait HasEncryption
     protected function init()
     {
         $this->cryptKey = $this->client->getSecretKey();
+
+        $cryptMethod = $this->client->config()->get('security.crypt_method');
+
+        if (!is_string($cryptMethod)) {
+            throw new ConfigurationInvalid('Crypt method must be a string.');
+        }
+
         $this->cryptMethod = $this->client->config()->get('security.crypt_method');
     }
     /**
