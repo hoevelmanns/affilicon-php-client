@@ -15,6 +15,7 @@ use AffiliconApiClient\Exceptions\ConfigurationInvalid;
 use AffiliconApiClient\Services\ConfigService;
 use AffiliconApiClient\Services\HttpService;
 use AffiliconApiClient\Services\AuthService;
+use AffiliconApiClient\Traits\HasEncryption;
 use AffiliconApiClient\Traits\Singleton;
 
 /**
@@ -31,6 +32,9 @@ class Client
 
     /** @var string */
     public $userLanguage;
+
+    /** @var boolean */
+    public $testPurchase;
 
     /** @var string */
     private $secretKey;
@@ -51,6 +55,7 @@ class Client
     protected $environment;
 
     use Singleton;
+    use HasEncryption;
 
 
     /**
@@ -68,6 +73,8 @@ class Client
         $this->auth = (new AuthService($this))
             ->anonymous()
             ->authenticate();
+
+        $this->initEncryption();
 
         return $this;
     }
@@ -174,6 +181,24 @@ class Client
     public function setUserLanguage($userLanguage)
     {
         $this->userLanguage = $userLanguage;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTestPurchaseEnabled()
+    {
+        return $this->testPurchase;
+    }
+
+    /**
+     * @param bool $testMode
+     * @return $this
+     */
+    public function setTestPurchase($testMode)
+    {
+        $this->testPurchase = $testMode;
         return $this;
     }
 
